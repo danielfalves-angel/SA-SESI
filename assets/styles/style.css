@@ -1,14 +1,18 @@
 :root {
-  --cor-fundo: #e2e5e9;
-  --cor-fundo-2: #b9d8ee;
-  --cor-forms: #bbbec3;
-  --cor-texto: #1e3b69;
+  --cor-fundo: #e79b54;
+  --cor-fundo-2: #f17b44;
+  --cor-forms: #e79b54;
+  --cor-texto: #000000;
   --cor-erro: #ff0000;
   --cor-sucesso: #00ff4c;
 }
 
 * {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#bodyLogin.bg-light{
+    background-color: var(--cor-fundo);
 }
 
 #bodyLogin {
@@ -23,7 +27,7 @@
 #mainLogin {
   padding: 3%;
   gap: 1%;
-  border-radius: 18%;
+  border-radius: 5%;
   box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
   background-color: var(--cor-fundo-2);
 }
