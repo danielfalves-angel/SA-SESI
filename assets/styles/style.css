@@ -101,10 +101,42 @@
 
 
 
+/*   Arthur    */
 
+.navbar-lateral{
+    height: 100%;
+    width: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ff6600;
+    transition: .2s;
+    overflow: hidden;
+}
 
+.navbar-lateral:hover{
+    height: 100%;
+    width: 350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ff6600;
+    transition: .2s;
+}
 
+.img-navbar-lateral{
+    width: 310px;
+    justify-content: center;
+    padding: 20px 0;
+}
 
+.flex{
+    display: flex;
+}
+
+.botoes-navbar-lateral{
+    padding: 040px;
+}
 
 
 
