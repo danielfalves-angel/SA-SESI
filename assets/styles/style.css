@@ -144,9 +144,8 @@
 
 .img-navbar-lateral{
     width: 310px;
-    justify-content: center;
-    padding-left: 25px;
-    z-index: 21;
+    position: absolute;
+    top: -60px;
 }
 
 .flex{
@@ -159,12 +158,12 @@
     
 }
  .center{
-    padding-top: 200px;
+    padding-top: 250px;
  }
 
 
 .botao-navbar-lateral{
-    height: 80px;
+    height: 100px;
     width: 250px;
     background-color: #fcc897;
     border-radius: 4px;
