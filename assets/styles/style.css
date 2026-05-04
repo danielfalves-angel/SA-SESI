@@ -109,9 +109,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #ff6600;
+    background-color: #f17b44;
     transition: .2s;
     overflow: hidden;
+    
 }
 
 .navbar-lateral:hover{
@@ -120,14 +121,15 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #ff6600;
+    background-color: #f17b44;
     transition: .2s;
 }
 
 .img-navbar-lateral{
     width: 310px;
     justify-content: center;
-    padding: 20px 0;
+    padding-left: 25px;
+
 }
 
 .flex{
@@ -135,10 +137,19 @@
 }
 
 .botoes-navbar-lateral{
-    padding: 040px;
+    padding: 0 40px;
+    width: 10px;
+    
 }
 
 
+
+.botao-navbar-lateral{
+    background-color: #fcc897;
+    border-radius: 4px;
+    border: solid #fcc897;
+    margin: 7px;
+}
 
 
 
