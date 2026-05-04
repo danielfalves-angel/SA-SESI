@@ -120,9 +120,19 @@
     transition: .2s;
 }
 
+.img-navbar-lateral{
+    width: 310px;
+    justify-content: center;
+    padding: 20px 0;
+}
 
+.flex{
+    display: flex;
+}
 
-
+.botoes-navbar-lateral{
+    padding: 040px;
+}
 
 
 
