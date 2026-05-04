@@ -1,7 +1,6 @@
 :root {
-  --cor-fundo: #e79b54;
-  --cor-fundo-2: #f17b44;
-  --cor-forms: #e79b54;
+  --cor-fundo: #e9935e;
+  --cor-fundo-2: #EE7E54;
   --cor-texto: #000000;
   --cor-erro: #ff0000;
   --cor-sucesso: #00ff4c;
@@ -22,6 +21,12 @@
   gap: 5%;
   color: var(--cor-texto);
   background-color: var(--cor-fundo);
+}
+
+.caixa-p {
+  padding: 3%;
+  gap: 1%;
+  background-color: var(--cor-fundo-2);
 }
 
 #mainLogin {
@@ -103,13 +108,23 @@
 
 /*   Arthur    */
 
+
+
+.navbar1{
+    background-color: var(--cor-fundo-2);
+    width: 100%;
+    height: 180px;
+    z-index: 20;
+}
+
+
 .navbar-lateral{
     height: 100%;
     width: 40px;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #f17b44;
+    background-color: var(--cor-fundo-2);
     transition: .2s;
     overflow: hidden;
     
@@ -121,15 +136,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #f17b44;
+    background-color: var(--cor-fundo-2);
     transition: .2s;
+    overflow:hidden;
+    z-index: 10;
 }
 
 .img-navbar-lateral{
     width: 310px;
     justify-content: center;
     padding-left: 25px;
-
+    z-index: 21;
 }
 
 .flex{
@@ -141,16 +158,41 @@
     width: 10px;
     
 }
-
+ .center{
+    padding-top: 200px;
+ }
 
 
 .botao-navbar-lateral{
+    height: 80px;
+    width: 250px;
     background-color: #fcc897;
     border-radius: 4px;
     border: solid #fcc897;
     margin: 7px;
+    font-size: 40px;
+    
 }
 
+.botao-navbar-lateral:hover{
+    background-color: #f3c8a0;
+    border-radius: 4px;
+    border: solid #ffad60;
+    margin: 7px;
+}
+
+.botao-navbar-lateral:active{
+    background-color: #fcb97b;
+    border-radius: 4px;
+    border: solid #fcb97b;
+    margin: 7px;
+}
+
+#all-center{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
