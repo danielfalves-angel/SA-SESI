@@ -301,74 +301,15 @@ list-style: none;
 
 
 
-body {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  height: 800px;          
-  margin: 0;
-  background-color: var(--cor-fundo);
+
+
+
+
+#box1{
+
+  height: 100%;
+
 }
-
-
-.table {
-    width: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 5px 5px 10px #636161;
-}
-
-.table thead {
-    background-color: #212529;
-    color: white;
-    
-}
-
-.table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-    
-}
-
-
-.box1 {
-  background-color: var(--cor-fundo-2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  width: 1000px;
-  border-radius: 20px;
-  box-shadow: 5px 5px 10px #888888;
-}
-
-
-
-
-.img1{
-  width: 200px;
-margin: 20px;
-border: 5px solid rgb(128, 128, 128);
-border-radius: 10px;
-box-shadow: 5px 5px 10px #888888;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
