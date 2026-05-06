@@ -294,14 +294,21 @@
 
 
 
-
+body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 800px;          
+  margin: 0;
+  background-color: var(--cor-fundo);
+}
 
 
 .table {
     width: 400px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 5px 5px 10px #888888;
+    box-shadow: 5px 5px 10px #636161;
 }
 
 .table thead {
@@ -316,12 +323,15 @@
 }
 
 
-
 .box1 {
-    display: flex;
-    justify-content: center; 
-    align-items: center;    
-    height: 800px;           
+  background-color: var(--cor-fundo-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 1000px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #888888;
 }
 
 
