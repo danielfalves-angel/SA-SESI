@@ -120,7 +120,7 @@
 
 .navbar-lateral{
     height: 90%;
-    width: 100px;
+    width: 120px;
     position: fixed;
     top: 10%;
     left: 0;
@@ -143,9 +143,9 @@
 }
 
 .img-navbar-lateral{
-    width: 310px;
+    width: 180px;
     position: absolute;
-    top: -60px;
+    top: -45px;
 }
 
 .flex{
@@ -161,13 +161,13 @@
  }
 
 
-#botao-navbar-lateral{
+.botao-navbar-lateral{
     height: 100px;
     width: 250px;
     background-color: var(--cor-fundo);
     border-radius: 4px;
     border: solid var(--cor-fundo);
-    margin: 7px;
+    padding: 20% 0;
     font-size: 40px;
     
 }
@@ -192,16 +192,13 @@ padding-right: 10px;
 }
 
 
-#all-center{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
 
 
 
-li{
+
+.li{
 list-style: none;
+padding: 20px 0;
 }
 
 
@@ -211,6 +208,45 @@ list-style: none;
 
 
 
+
+
+
+
+
+
+.nav-lateral{
+  justify-content: center;
+  width: 4%;
+  height: 100%;
+  background-color: rgb(131, 131, 131);
+}
+
+
+.celula-nav{
+  text-align: center;
+  margin-bottom: 30%;
+  display: flex;
+  width: 70%;
+  height: 6%;
+  background-color: red;
+  overflow: hidden;
+  border-radius: 20%;
+  align-items: center;
+}
+
+.celula-nav:hover{
+  margin-bottom: 30%;
+  display: flex;
+  width: 200%;
+  height: 6%;
+  background-color: red;
+  border-radius: 10%;
+}
+
+#maior{
+  padding-left: 2%;
+  font-size: 500%;
+}
 
 
 
