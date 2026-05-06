@@ -10,8 +10,8 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#bodyLogin.bg-light{
-    background-color: var(--cor-fundo);
+#bodyLogin.bg-light {
+  background-color: var(--cor-fundo);
 }
 
 #bodyLogin {
@@ -23,7 +23,11 @@
   background-color: var(--cor-fundo);
 }
 
+
 .caixa-p {
+  display: flex;
+  width: 30%;
+  height: 100%;
   padding: 3%;
   gap: 1%;
   background-color: var(--cor-fundo-2);
@@ -121,16 +125,16 @@
 .navbar1{
     background-color: var(--cor-fundo-2);
     width: 100%;
-    height: 180px;
+    height: 10%;
     z-index: 20;
 }
 
 
 .navbar-lateral{
-    height: 100%;
-    width: 40px;
+    height: 90%;
+    width: 100px;
     position: fixed;
-    top: 0;
+    top: 10%;
     left: 0;
     background-color: var(--cor-fundo-2);
     transition: .2s;
@@ -139,10 +143,10 @@
 }
 
 .navbar-lateral:hover{
-    height: 100%;
-    width: 350px;
+    height: 90%;
+    width: 400px;
     position: fixed;
-    top: 0;
+    top: 10%;
     left: 0;
     background-color: var(--cor-fundo-2);
     transition: .2s;
@@ -150,19 +154,18 @@
     z-index: 10;
 }
 
-.img-navbar-lateral{
-    width: 310px;
-    position: absolute;
-    top: -60px;
+.img-navbar-lateral {
+  width: 310px;
+  position: absolute;
+  top: -60px;
 }
 
-.flex{
-    display: flex;
+.flex {
+  display: flex;
 }
 
 .botoes-navbar-lateral{
-    padding: 0 40px;
-    width: 10px;
+    width: 600px;
     
 }
  .center{
@@ -170,7 +173,7 @@
  }
 
 
-.botao-navbar-lateral{
+#botao-navbar-lateral{
     height: 100px;
     width: 250px;
     background-color: var(--cor-fundo);
@@ -195,10 +198,22 @@
     margin: 7px;
 }
 
+.botao-navbar-lateral-img{
+padding-right: 10px;
+ font-size: 50px;
+}
+
+
 #all-center{
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+
+
+li{
+list-style: none;
 }
 
 
@@ -294,22 +309,21 @@
 
 
 
-
-
-
-
-
-
-
-
-
+body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 800px;          
+  margin: 0;
+  background-color: var(--cor-fundo);
+}
 
 
 .table {
     width: 400px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 5px 5px 10px #888888;
+    box-shadow: 5px 5px 10px #636161;
 }
 
 .table thead {
@@ -324,12 +338,15 @@
 }
 
 
-
 .box1 {
-    display: flex;
-    justify-content: center; 
-    align-items: center;    
-    height: 800px;           
+  background-color: var(--cor-fundo-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 1000px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #888888;
 }
 
 
@@ -423,7 +440,3 @@ box-shadow: 5px 5px 10px #888888;
 
 
 /* IGACIO *\
-
-
-
-
