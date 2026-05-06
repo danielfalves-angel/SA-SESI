@@ -165,25 +165,25 @@
 .botao-navbar-lateral{
     height: 100px;
     width: 250px;
-    background-color: #fcc897;
+    background-color: var(--cor-fundo);
     border-radius: 4px;
-    border: solid #fcc897;
+    border: solid var(--cor-fundo);
     margin: 7px;
     font-size: 40px;
     
 }
 
 .botao-navbar-lateral:hover{
-    background-color: #f3c8a0;
+    background-color: var(--cor-fundo);
     border-radius: 4px;
-    border: solid #ffad60;
+    border: solid var(--cor-fundo);
     margin: 7px;
 }
 
 .botao-navbar-lateral:active{
-    background-color: #fcb97b;
+    background-color: var(--cor-fundo);
     border-radius: 4px;
-    border: solid #fcb97b;
+    border: solid var(--cor-fundo-2);
     margin: 7px;
 }
 
