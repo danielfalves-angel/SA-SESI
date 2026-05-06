@@ -76,6 +76,14 @@
   text-align: center;
 }
 
+#bodySensor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
 
 
 
