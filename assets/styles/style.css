@@ -1,5 +1,5 @@
 :root {
-  --cor-fundo: whitesmoke;
+  --cor-fundo: #B4B4B4;
   --cor-fundo-2: #9D9D9D;
   --cor-texto: #000000;
   --cor-erro: #ff0000;
@@ -10,8 +10,6 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 97%;
 }
-
-/*   Rafael    */
 
 #bodyLogin.bg-light {
   background-color: var(--cor-fundo);
@@ -30,11 +28,6 @@ body {
   background-color: var(--cor-fundo);
 }
 
-
-
-/* daniel */
-
-
 .mainm {
   display: flex;
   justify-content: center;
@@ -48,12 +41,7 @@ body {
   padding: 3%;
   gap: 1%;
   background-color: var(--cor-fundo-2);
-  margin: 25px;
 }
-
-
-/* daniel */
-
 
 #mainLogin {
   padding: 3%;
@@ -108,13 +96,6 @@ body {
   align-items: center;
 
 
-}
-
-.table {
-    width: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 5px 5px 10px #888888;
 }
 
 
@@ -324,11 +305,13 @@ body {
 }
 
 
-
 .mapa {
- display: flex; 
- justify-content: center; 
- align-items: center;
- padding: 10%;
-
+    height: 100vh;              
+    display: flex;
+    justify-content: center;    
+    align-items: center;       
+    
 }
+
+
+
