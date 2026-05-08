@@ -130,11 +130,11 @@ body {
 
 /*   Arthur    */
 
-.gap{
+.gap {
   margin-top: -30px;
 }
 
-.nav{
+.nav {
   height: 15%;
   width: 100%;
   background-color: var(--cor-fundo-2);
@@ -154,14 +154,14 @@ body {
 }
 
 .img-texto {
-  margin: 60px 0; 
+  margin: 60px 0;
   display: flex;
   align-items: center;
   background-color: rgb(255, 255, 255);
   overflow: hidden;
-  border-radius: 15px; 
+  border-radius: 15px;
   cursor: pointer;
-  transition: width 0.3s ease; 
+  transition: width 0.3s ease;
 }
 
 .img-texto:hover {
@@ -169,9 +169,10 @@ body {
   margin: 60px 0;
   display: flex;
   align-items: center;
-  background-color: rgba(83, 129, 228, 0.897);
-  border: solid 1px rgb(93, 93, 253); 
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(0, 0, 0);
   cursor: pointer;
+
 }
 
 .img-texto:active {
@@ -191,13 +192,13 @@ body {
 }
 
 .img {
-  margin-left: 8,5px; 
+  margin-left: 8, 5px;
   color: black;
 }
 
-.texto{
+.texto {
 
-margin: 0 10px;
+  margin: 0 10px;
 
 }
 
@@ -272,83 +273,43 @@ margin: 0 10px;
 
 
 
-#flexis {
-  display: flex !important;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.body1 {
+  margin: 0;
+  background-color: #f9f4f4;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
 
-
-#box1 {
-
-  height: 100%;
+.mapa {
+ display: flex; 
+ justify-content: center; 
+ align-items: center;
+ padding: 10%;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* IGACIO *\
