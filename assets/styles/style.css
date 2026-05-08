@@ -30,6 +30,11 @@ body {
   background-color: var(--cor-fundo);
 }
 
+
+
+/* daniel */
+
+
 .mainm {
   display: flex;
   justify-content: center;
@@ -44,6 +49,10 @@ body {
   gap: 1%;
   background-color: var(--cor-fundo-2);
 }
+
+
+/* daniel */
+
 
 #mainLogin {
   padding: 3%;
