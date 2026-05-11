@@ -20,48 +20,38 @@
     <nav class="menu-lateral">
         <div class="botoes">
             <div class="text-icon">
-                <a href="../public/home.html">
-                  <button class="botao">
-                      <span class="icon"><i class="bi bi-house-fill"></i></span>
-                      <span class="text">Home</span>
-                  </button>
-                </a>
+                <button onclick="telaHome()" class="botao">
+                    <span class="icon"><i class="bi bi-house-fill"></i></span>
+                    <span class="text">Home</span>
+                </button>  
             </div>
 
             <div class="text-icon">
-                <a href="../public/sensores.html">
-                  <button class="botao">
-                  <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
-                  <span class="text">Sensores</span>
-                  </button>
-                </a>
+                <button onclick="telaSensores()"  class="botao" >
+                <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
+                <span class="text">Sensores</span>
+                </button>
             </div>
 
             <div class="text-icon">
-                <a href="../public/trem.html">
-                  <button class="botao">
-                  <span class="icon"><i class="bi bi-train-front"></i></span>
-                  <span class="text">Trens</span>
-                  </button>
-                </a>
+                <button onclick="telaTrens()" class="botao">
+                <span class="icon"><i class="bi bi-train-front"></i></span>
+                <span class="text">Trens</span>
+                </button>
             </div>
 
             <div class="text-icon">
-                <a href="../public/relatorios.html">
-                  <button class="botao">
-                  <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
-                  <span class="text">Relatórios</span>
-                  </button>
-                </a>
+                <button onclick="telaRelatorios()" class="botao">
+                <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
+                <span class="text">Relatórios</span>
+                </button>
             </div>
 
             <div class="text-icon">
-                <a href="../index.html">
-                  <button class="botao">
-                  <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                  <span class="text">Sair</span>
-                  </button>
-                </a>
+                <button onclick="telaSair()" class="botao">
+                <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
+                <span class="text">Sair</span>
+                </button>
             </div>
             
             
@@ -79,6 +69,7 @@
 
 
 </header>
+
   <div class="gap" id="bodySensor">
   <table class="table">
   <thead>
@@ -135,6 +126,7 @@
   </tbody>
 </table>
 </div>
+<script src="../scripts/home.js"></script>
 </body>
 </html>
 
