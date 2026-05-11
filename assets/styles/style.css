@@ -1,5 +1,5 @@
 :root {
-  --cor-fundo: whitesmoke;
+  --cor-fundo: #f5f5f5;
   --cor-fundo-2: #9D9D9D;
   --cor-texto: #000000;
   --cor-erro: #ff0000;
@@ -30,8 +30,7 @@ body {
 
 .mainm {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
   min-height: 100vh;  
 
 }
@@ -222,12 +221,8 @@ body {
 }
 
 .logo {
-  margin-top: -0,7%;
-  height: 100%; 
-}
-
-.gap{
-  height: 10%;
+  margin-top: -0.3%;
+  height: 110%; 
 }
 
 .flexbox{
@@ -244,7 +239,8 @@ body {
   height: 82%;
   margin: 6% 10%;
   border-radius: 30px;
-  background-color: grey;
+  background-color: var(--cor-fundo-2);
+  overflow: scroll;
 }
 
 .flex{
@@ -254,6 +250,10 @@ body {
 .text-home{
   font-size: large;
 }
+
+
+
+
 
 
 
