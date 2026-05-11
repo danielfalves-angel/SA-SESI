@@ -1,5 +1,5 @@
 :root {
-  --cor-fundo: #B4B4B4;
+  --cor-fundo: white;
   --cor-fundo-2: #9D9D9D;
   --cor-texto: #000000;
   --cor-erro: #ff0000;
@@ -91,11 +91,19 @@ body {
 }
 
 #bodySensor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh;  
 
 
+}
+
+.table {
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px #888888;
 }
 
 
@@ -172,6 +180,7 @@ body {
   display: flex;
   transition: .2S;
   cursor: pointer;
+  
 }
 
 .text-icon:hover {
@@ -318,4 +327,6 @@ body {
 }
 
 
-
+a {
+  text-decoration: none;
+}
