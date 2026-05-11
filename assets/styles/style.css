@@ -153,6 +153,7 @@ body {
   width: 100%;
   height: 8.8%; 
   position: fixed;
+  top: 0;
 }
 
 .menu-lateral {
@@ -221,17 +222,38 @@ body {
 }
 
 .logo {
-  margin-top: -1.68%;
-  height: 180%; 
+  margin-top: -0,7%;
+  height: 100%; 
 }
 
 .gap{
   height: 10%;
 }
 
+.flexbox{
+ 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh;  
+}
 
+.caixa{
+  padding: 3% 2%;
+  width: 80%;
+  height: 82%;
+  margin: 6% 10%;
+  border-radius: 30px;
+  background-color: grey;
+}
 
+.flex{
+  display: flex;
+}
 
+.text-home{
+  font-size: large;
+}
 
 
 
