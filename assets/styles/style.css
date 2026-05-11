@@ -1,5 +1,5 @@
 :root {
-  --cor-fundo: #B4B4B4;
+  --cor-fundo: white;
   --cor-fundo-2: #9D9D9D;
   --cor-texto: #000000;
   --cor-erro: #ff0000;
@@ -172,6 +172,7 @@ body {
   display: flex;
   transition: .2S;
   cursor: pointer;
+  
 }
 
 .text-icon:hover {
@@ -321,4 +322,6 @@ body {
 }
 
 
-
+a {
+  text-decoration: none;
+}
