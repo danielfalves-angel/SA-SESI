@@ -30,11 +30,14 @@ body {
 
 .mainm {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh;  
+
 }
 
 .caixa-p {
+  margin-top: 6%;
   display: flex;
   width: 30%;
   height: 100%;
@@ -222,7 +225,9 @@ body {
   height: 180%; 
 }
 
-
+.gap{
+  height: 10%;
+}
 
 
 
