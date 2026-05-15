@@ -235,25 +235,149 @@ body {
 
 .caixa{
   padding: 3% 2%;
-  width: 80%;
-  height: 82%;
-  margin: 6% 10%;
-  border-radius: 30px;
-  background-color: var(--cor-fundo-2);
-  overflow: scroll;
+  width: 50%;
+  height: 100%;
+  background-color: var(--cor-fundo);
 }
+
+.caixa_tabela{
+  position: fixed;
+  left: 35%;
+  top: 15%;
+  width: 100vh;
+  height: 100vh;
+  background-color: var(--cor-fundo);
+}
+
+.caixinha1{
+  background-color: var(--cor-fundo-2);
+  height: 45%;
+  width: 90%;
+  margin: 5%;
+  border-radius: 15px;
+  border: solid rgb(32, 32, 32);
+}
+
+.caixinha2{
+  padding: 1% 0 0 2%;
+   background-color: var(--cor-fundo-2);
+  height: 18%;
+  width: 60%;
+  margin: 5% 3%;
+  border-radius: 15px;
+  border: solid rgb(32, 32, 32);
+}
+
+.caixinha3{
+   background-color: var(--cor-fundo-2);
+  height: 72%;
+  width: 100%;
+  margin: 0;
+  border-radius: 15px;
+  border: solid rgb(32, 32, 32);
+}
+
+.botao_tabela{
+  position: absolute;
+  top: 16%;
+  left: 79.5%;
+  width: 3%;
+  height: 6%;
+  border-radius: 50%;
+  background-color: rgb(65, 65, 65);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+.botao_tabela:hover{
+  position: absolute;
+  top: 16%;
+  left: 79.5%;
+  width: 3%;
+  height: 6%;
+  border-radius: 50%;
+  background-color: rgb(95, 95, 95);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  transition: .3s;
+}
+
+.ponteiro{
+  position: absolute;
+  top: -15%;
+  left: 18%;
+  color: var(--cor-fundo);
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: xx-large;
+}
+
+
+
+
+.grafico_barra{
+  width: 100%;
+  height: 90%;
+  margin: 3%;
+}
+
+.grafico_circulo{
+  position: fixed;
+  top: 17%;
+  width: 50%;
+  height: 80%;
+  margin: 3%;
+
+}
+
+
+
 
 .flex{
   display: flex;
+  height: 100%;
+  width: 100%;
 }
 
 .text-home{
   font-size: large;
 }
 
+ .calendario {
+  height: 100%;
+      background: var(--cor-fundo);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px var(--cor-texto);
+    }
 
+    .mes {
+      text-align: left;
+      font-size: 24px;
+      margin: -2% 0 0 0;
+      font-weight: bold;
+    }
 
+ th, td {
+      width: 70px;
+      height: 30px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
 
+    th {
+      background: #4a90e2;
+      color: white;
+    }
+
+    td:hover {
+      background: #e3f2fd;
+      cursor: pointer;
+    }
 
 
 
