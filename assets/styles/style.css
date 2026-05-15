@@ -320,7 +320,7 @@ body {
 
 
 .grafico_barra{
-  width: 100%;
+  width: 90%;
   height: 90%;
   margin: 3%;
 }
@@ -364,7 +364,7 @@ body {
 
  th, td {
       width: 70px;
-      height: 30px;
+      height: 25px;
       text-align: center;
       border: 1px solid #ddd;
     }
