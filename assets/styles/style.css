@@ -4,6 +4,8 @@
   --cor-texto: #000000;
   --cor-erro: #ff0000;
   --cor-sucesso: #00ff4c;
+  --cor-navbar1: #1b1b1b;
+  --cor-navbar2: #303030;
 }
 
 * {
@@ -101,6 +103,10 @@ body {
 
 }
 
+.botaoTexto{
+  text-align: center;
+}
+
 .table {
     width: 400px;
     border-radius: 10px;
@@ -148,7 +154,7 @@ body {
 
 .navbar-principal {
   text-align: center;
-  background-color: rgb(45, 45, 46);
+  background-color: var(--cor-navbar1);
   width: 100%;
   height: 8.8%; 
   position: fixed;
@@ -156,9 +162,9 @@ body {
 }
 
 .menu-lateral {
-  width: 44px; 
+  width: 48px; 
   height: 100%;
-  background-color: rgb(45, 45, 46);
+  background-color: var(--cor-navbar2);
   padding: 8px; 
   box-shadow: 2.4px 0 0 rgb(24, 24, 73); 
   overflow: hidden;
@@ -256,6 +262,7 @@ body {
   margin: 5%;
   border-radius: 15px;
   border: solid rgb(32, 32, 32);
+  overflow: hidden;
 }
 
 .caixinha2{
@@ -266,6 +273,11 @@ body {
   margin: 5% 3%;
   border-radius: 15px;
   border: solid rgb(32, 32, 32);
+  overflow: hidden;
+}
+
+.text-cadastro{
+  margin-top: 7%;
 }
 
 .caixinha3{
@@ -275,6 +287,7 @@ body {
   margin: 0;
   border-radius: 15px;
   border: solid rgb(32, 32, 32);
+  overflow: hidden;
 }
 
 .botao_tabela{
@@ -297,7 +310,7 @@ body {
   width: 3%;
   height: 6%;
   border-radius: 50%;
-  background-color: rgb(95, 95, 95);
+  background-color: rgb(131, 130, 130);
   text-align: center;
   text-decoration: none;
   border: none;
@@ -306,14 +319,14 @@ body {
 
 .ponteiro{
   position: absolute;
-  top: -15%;
+  top: -1%;
   left: 18%;
   color: var(--cor-fundo);
   cursor: pointer;
   text-decoration: none;
   border: none;
   background-color: transparent;
-  font-size: xx-large;
+  font-size: 35px;
 }
 
 
@@ -327,9 +340,10 @@ body {
 
 .grafico_circulo{
   position: fixed;
-  top: 17%;
-  width: 50%;
-  height: 80%;
+  top: 19%; 
+  width: 48%;
+  height: 75%;
+  max-height: 75%;
   margin: 3%;
 
 }
@@ -363,8 +377,8 @@ body {
     }
 
  th, td {
-      width: 70px;
-      height: 25px;
+      width: 90px;
+      height: 40px;
       text-align: center;
       border: 1px solid #ddd;
     }
