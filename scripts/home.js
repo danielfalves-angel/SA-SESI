@@ -11,7 +11,7 @@ function telaRelatorios(){
 window.location.href = "relatorios.html";
 }
 function telaTabela(){
-    window.location.href = "tabela.html";
+    window.location.href = "ids.html";
 }
 function telaSair(){
     window.location.href = "../index.html";
