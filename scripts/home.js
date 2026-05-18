@@ -10,6 +10,9 @@ function telaTrens(){
 function telaRelatorios(){
 window.location.href = "relatorios.html";
 }
+function telaTabela(){
+    window.location.href = "tabela.html";
+}
 function telaSair(){
     window.location.href = "../index.html";
 }
