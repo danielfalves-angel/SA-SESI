@@ -101,6 +101,10 @@ body {
 
 }
 
+.botaoTexto{
+  text-align: center;
+}
+
 .table {
     width: 400px;
     border-radius: 10px;
