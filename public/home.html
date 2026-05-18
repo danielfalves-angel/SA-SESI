@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/styles/style.css">
 
@@ -16,200 +17,192 @@
     <header>
 
         <nav class="navbar-principal">
-            <span><img class="logo" src="../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"alt=""></span>
+            <span><img class="logo" src="../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
+                    alt=""></span>
         </nav>
 
-    <nav class="menu-lateral">
-        <div class="botoes">
-            <div class="text-icon">
-                <button onclick="telaHome()" class="botao">
-                    <span class="icon"><i class="bi bi-house-fill"></i></span>
-                    <span class="text">Home</span>
-                </button>  
-            </div>
+        <nav class="menu-lateral">
+            <div class="botoes">
+                <div class="text-icon">
+                    <button onclick="telaHome()" class="botao">
+                        <span class="icon"><i class="bi bi-house-fill"></i></span>
+                        <span class="text">Home</span>
+                    </button>
+                </div>
 
-            <div class="text-icon">
-                <button onclick="telaSensores()"  class="botao" >
-                <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
-                <span class="text">Sensores</span>
-                </button>
+                <div class="text-icon">
+                    <button onclick="telaSensores()" class="botao">
+                        <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
+                        <span class="text">Sensores</span>
+                    </button>
+                </div>
             </div>
-        </div>
 
             <div class="text-icon">
                 <button onclick="telaTrens()" class="botao">
-                <span class="icon"><i class="bi bi-train-front"></i></span>
-                <span class="text">Trens</span>
+                    <span class="icon"><i class="bi bi-train-front"></i></span>
+                    <span class="text">Trens</span>
                 </button>
             </div>
 
             <div class="text-icon">
                 <button onclick="telaRelatorios()" class="botao">
-                <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
-                <span class="text">Relatórios</span>
+                    <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
+                    <span class="text">Relatórios</span>
                 </button>
             </div>
 
             <div class="text-icon">
                 <button onclick="telaSair()" class="botao">
-                <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                <span class="text">Sair</span>
+                    <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
+                    <span class="text">Sair</span>
                 </button>
             </div>
-            
-            
-                
-             
-        </div> 
-
-         </nav>
 
 
 
 
-   
-
-
-
-</header>
-
-
-
-
-
-<main>
- 
-<div class="flex">
-
-
-
-<div class="caixa">
-
-    <div>
-
-        <div class="caixinha1">
-
-            <div class="calendario">
-    <div class="mes">Maio 2026</div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Dom</th>
-          <th>Seg</th>
-          <th>Ter</th>
-          <th>Qua</th>
-          <th>Qui</th>
-          <th>Sex</th>
-          <th>Sáb</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-
-        <tr>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-        </tr>
-
-        <tr>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-          <td>14</td>
-          <td class="hoje">15</td>
-          <td>16</td>
-        </tr>
-
-        <tr>
-          <td>17</td>
-          <td>18</td>
-          <td>19</td>
-          <td>20</td>
-          <td>21</td>
-          <td>22</td>
-          <td>23</td>
-        </tr>
-
-        <tr>
-          <td>24</td>
-          <td>25</td>
-          <td>26</td>
-          <td>27</td>
-          <td>28</td>
-          <td>29</td>
-          <td>30</td>
-        </tr>
-
-        <tr>
-          <td>31</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
             </div>
 
-        </div>
+        </nav>
+
+    </header>
 
 
-        <div class="caixinha1">
-            <div class="grafico_barra">
-                <canvas id="barra"></canvas>
-            </div>  
-        </div>
+    <main>
 
-    </div>
+        <div class="flex">
 
-</div>
 
-<div class="caixa">
 
-    <div>
-        
-       
-        <div>
-            <div class="caixinha2">
-                <h1 class="text-cadastro">Tabela de cadastros</h1>
-                <div class="botao_tabela"><button onclick="telaTabela()" class="ponteiro">></button></div>
+            <div class="caixa">
+
+                <div>
+
+                    <div class="caixinha1">
+
+                        <div class="calendario">
+                            <div class="mes">Maio 2026</div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Dom</th>
+                                        <th>Seg</th>
+                                        <th>Ter</th>
+                                        <th>Qua</th>
+                                        <th>Qui</th>
+                                        <th>Sex</th>
+                                        <th>Sáb</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>12</td>
+                                        <td>13</td>
+                                        <td>14</td>
+                                        <td class="hoje">15</td>
+                                        <td>16</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>17</td>
+                                        <td>18</td>
+                                        <td>19</td>
+                                        <td>20</td>
+                                        <td>21</td>
+                                        <td>22</td>
+                                        <td>23</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>24</td>
+                                        <td>25</td>
+                                        <td>26</td>
+                                        <td>27</td>
+                                        <td>28</td>
+                                        <td>29</td>
+                                        <td>30</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>31</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                    <div class="caixinha1">
+                        <div class="grafico_barra">
+                            <canvas id="barra"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            
-        </div>
-            
-      
-        
 
-        <div class="caixinha3">
-            <div class="grafico_circulo">
-                <canvas id="circulo"></canvas>
+            <div class="caixa">
+
+                <div>
+
+
+                    <div>
+                        <div class="caixinha2">
+                            <h1 class="text-cadastro">Tabela de cadastros</h1>
+                            <div class="botao_tabela"><button onclick="telaTabela()" class="ponteiro">></button></div>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="caixinha3">
+                        <div class="grafico_circulo">
+                            <canvas id="circulo"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+
+
         </div>
 
-    </div>
-
-</div>
-
-
-</div>
 
 
 
@@ -224,13 +217,11 @@
 
 
 
-
-</main>
-
+    </main>
 
 
-<footer>
-</footer>
+    <footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
     <script src="../scripts/home.js"></script>

@@ -103,13 +103,17 @@ body {
 
 }
 
+.tabela_texto{
+  text-align: center;
+}
+
+
 .table {
     width: 400px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 5px 5px 10px #888888;
 }
-
 
 
 
@@ -206,7 +210,7 @@ body {
 
 .icon {
   margin-left: -2.4%; 
-  padding-right: 2.4%;
+  padding-right: 4%;
 }
 
 .text {
