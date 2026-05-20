@@ -118,6 +118,24 @@ body {
 
 
 
+/* daniel */
+#SenhaSensor{
+  padding: 3%;
+  gap: 1%;
+  border-radius: 5%;
+  box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
+  background-color: var(--cor-fundo-2);
+}
+#navSensor{
+  padding: 3%;
+  gap: 1%;
+  border-radius: 5%;
+  box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
+  background-color: var(--cor-fundo-2);
+}
+.navSens{
+  display: flex;
+}
 
 
 
