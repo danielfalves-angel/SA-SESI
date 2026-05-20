@@ -63,6 +63,33 @@
 
     </header>
 
+    <main>
+
+▼<form id="formCadastro">
+<label for="Id">Id: </label>
+<input type="number" id="idsensor" placeholder="Digite o id do sensor">
+<label for="Nome">Nome: </label>
+<input type="text" id="nomesensor" placeholder="Digite o nome do sensor">
+<label for="Rota">Rota: </label>
+<input type="text" id="rotasensor" placeholder="Digite a rota">
+<label for="unidade">Selecionea unidade: </label>
+▸ <select name="unidade" id="unidadesensor"> </select>
+<option value="Temperatura">Celcius</option>
+<option value="Velocidade">Km/h</option>
+<option value="Peso">Kg</option>
+<label for="valor">Valor: </label>
+<label for="status">Selecionea o status: </label>
+▸ <select name="status" id="statussensor"> </select>
+<option value="Funcionando">Funcionando</option>
+<option value="Em funcionamento">Em funcionamento</option>
+<option value="Defeituoso">Defeituoso</option>
+<input type="number" id="valorsensor" placeholder="Digite o valor">
+<button type="submit">Enviar</button>
+<div id="resultado"></div>
+</form>
+
+    </main>
+
     <footer></footer>
     <script src="../scripts/home.js"></script>
     

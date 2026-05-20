@@ -114,6 +114,19 @@ body {
     box-shadow: 5px 5px 10px #888888;
 }
 
+#formCadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-navbar2)
+    padding: 3%;
+    margin: 5% 40% 3% 40%;
+    border-radius: 20px;
+    border: 1px black;
+    box-shadow: 0 4px 10px var(--cor-texto);
+
+}
 
 
 
