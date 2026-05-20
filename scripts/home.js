@@ -16,3 +16,12 @@ function telaTabela(){
 function telaSair(){
     window.location.href = "../index.html";
 }
+function telaCadastro(){
+    window.location.href = "cadastro.html";
+}
+function telaEditar(){
+    window.location.href = "editar.html";
+}
+function telaExcluir(){
+window.location.href = "excluir.html";
+}
