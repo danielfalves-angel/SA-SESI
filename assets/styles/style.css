@@ -6,6 +6,7 @@
   --cor-sucesso: #00ff4c;
   --cor-navbar1: #1b1b1b;
   --cor-navbar2: #303030;
+  --cor-caixa_sensores: #c7c7c7;
 }
 
 * {
@@ -119,7 +120,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--cor-navbar2)
+    background-color: var(--cor-navbar2);
     padding: 3%;
     margin: 5% 40% 3% 40%;
     border-radius: 20px;
@@ -131,6 +132,24 @@ body {
 
 
 
+/* daniel */
+#SenhaSensor{
+  padding: 3%;
+  gap: 1%;
+  border-radius: 5%;
+  box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
+  background-color: var(--cor-fundo-2);
+}
+#navSensor{
+  padding: 3%;
+  gap: 1%;
+  border-radius: 5%;
+  box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
+  background-color: var(--cor-fundo-2);
+}
+.navSens{
+  display: flex;
+}
 
 
 
@@ -405,11 +424,57 @@ body {
       cursor: pointer;
     }
 
+    
+
+    /*CADASTRO DE SENSORES*/
+
+    .campo{
+      width: 80%;
+      height: 100%;
+      margin: 0 10%;
+
+    }
+
+    .campo1{
+      background-color: var(--cor-caixa_sensores);
+      width: 100%;
+      height: 280px;
+      margin: 10% 0 1% 0;
+      border-radius: 15px;
+      box-shadow: 10px 5px 10px 0 var(--cor-fundo-2);
+    }
+
+    .campo2{
+      background-color: var(--cor-caixa_sensores);
+      width: 100%;
+      height: 200px;
+      margin: 1% 0;
+      border-radius: 15px;
+      box-shadow: 10px 5px 20px 0 var(--cor-fundo-2);
+    }
+
+    .campo3{
+      background-color: var(--cor-caixa_sensores);
+      width: 100%;
+      height: 160px;
+      margin: 1% 0;
+      border-radius: 15px;
+      box-shadow: 10px 5px 20px 0 var(--cor-fundo-2);
+    }
 
 
+    .icone-texto{
+      padding: 20px;
+      display: flex;
+      justify-content: left;
+      font-size: 25px;
+      
+    }
 
-
-
+    .icone{
+      padding: 2px 5px 0 0;
+      font-size: 30px;
+    }
 
 
 
