@@ -1,27 +1,27 @@
 function telaSensores() {
     window.location.href = "sensores.html";
 }
-function telaHome(){
+function telaHome() {
     window.location.href = "home.html";
 }
-function telaTrens(){
+function telaTrens() {
     window.location.href = "trem.html";
 }
-function telaRelatorios(){
-window.location.href = "relatorios.html";
+function telaRelatorios() {
+    window.location.href = "relatorios.html";
 }
-function telaTabela(){
+function telaTabela() {
     window.location.href = "ids.html";
 }
-function telaSair(){
+function telaSair() {
     window.location.href = "../index.html";
 }
-function telaCadastro(){
+function telaCadastro() {
     window.location.href = "cadastro.html";
 }
-function telaEditar(){
+function telaEditar() {
     window.location.href = "editar.html";
 }
-function telaExcluir(){
-window.location.href = "excluir.html";
+function telaExcluir() {
+    window.location.href = "excluir.html";
 }
