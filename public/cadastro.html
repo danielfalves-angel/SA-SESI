@@ -148,7 +148,7 @@
                                 <br>
                                 <label class="caixinha" for="UnidadeMedida"> Unidade de medida:</label>
                                 <select type="text" id="UnidadeMedida" placeholder="medida">
-                                    <option value=""> Selecione</option>
+                                    <option value=""> Medida</option>
                                     <option value="opcao1">opção 1</option>
                                     <option value="opcao2">opção 2</option>
                                     </select>
@@ -156,23 +156,70 @@
 
                             <div>
                                 <label class="caixinha" for="TipoSensor"> Tipo do sensor:</label>
-                                <input type="text" id="TipoSensor" placeholder="Selecione">
+                                <select type="text" id="TipoSensor" placeholder="tipo">
+                                    <option value=""> Selecione Tipo</option>
+                                    <option value="opcao1">opção 1</option>
+                                    <option value="opcao2">opção 2</option>
+                                    </select>
                                 <br>
                                 <label class="caixinha" for="FaixaMedida"> Faixa de medida:</label>
-                                <input type="text" id="FaixaMedida">
+                                <input type="text" id="FaixaMedida" placeholder="min">
+                                <span>a</span>
+                                <input type="text" id="FaixaMedida" placeholder="max">
                             </div>
 
+                            <div>
+                                <label class="caixinha" for="EscolerID"> Escolher ID:</label>
+                                <input type="text" id="EscolherID" placeholder="Ex. XXXX-XXXX">
+                                <br>
+                                <label class="caixinha" for="IntervaloLeitura"> Intervalo de Leitura</label>
+                                <input type="text" id="IntervaloLeitura" placeholder="Ex. 10">
+                            </div>
 
-
-
-
+                            <div>
+                                <label class="caixinha" for="Valor"> Valor:</label>
+                                <input type="text" id="Valor" placeholder="EX. 40">
+                                <br>
+                                <label class="caixinha" for="Descricao"> Descrição: </label>
+                                <input type="text" id="Descricao" placeholder="Opcional">
+                            </div>
 
                             </div>
                         </form>
                 </div>
                 
                 <div class="campo2">
+                    <div class="icone-texto">
+                        <span class="icone"><i class="bi bi-broadcast"></i></span>
+                        <span><p>Associação</p></span>
+                    </div>
 
+                    <div class="flex">
+                        <div>
+                             <label class="caixinha" for="Equipamento"> Equipamento: </label>
+                                <select type="text" id="Equipamento" placeholder="Equipamento">
+                                    <option value=""> Selecione o Equipamento</option>
+                                    <option value="opcao1">opção 1</option>
+                                    <option value="opcao2">opção 2</option>
+                                </select>
+                        </div>
+                        <div>
+                            <label class="caixinha" for="Localização"> Localização: </label>
+                                <select type="text" id="Localização" placeholder="Localização">
+                                    <option value=""> Selecione a Localização</option>
+                                    <option value="opcao1">opção 1</option>
+                                    <option value="opcao2">opção 2</option>
+                                </select>
+                        </div>
+                        <div>
+                            <label class="caixinha" for="Grupo"> Grupo: </label>
+                                <select type="text" id="Grupo" placeholder="Grupo">
+                                    <option value=""> Opcional</option>
+                                    <option value="opcao1">opção 1</option>
+                                    <option value="opcao2">opção 2</option>
+                                </select>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="campo3">
