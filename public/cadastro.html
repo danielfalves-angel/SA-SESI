@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <link rel="stylesheet" href="../assets/styles/style.css">
     <title>Cadastro de Sensores</title>
 </head>
+
 <body>
-        <header>
+    <header>
 
         <nav class="navbar-principal">
             <span><img class="logo" src="../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
@@ -63,7 +65,35 @@
 
     </header>
 
-        <header>
+    <main>
+
+        ▼<form id="formCadastro">
+            <label for="Id">Id: </label>
+            <input type="number" id="idsensor" placeholder="Digite o id do sensor">
+            <label for="Nome">Nome: </label>
+            <input type="text" id="nomesensor" placeholder="Digite o nome do sensor">
+            <label for="Rota">Rota: </label>
+            <input type="text" id="rotasensor" placeholder="Digite a rota">
+            <label for="unidade">Selecionea unidade: </label>
+            ▸ <select name="unidade" id="unidadesensor"> </select>
+            <option value="Temperatura">Celcius</option>
+            <option value="Velocidade">Km/h</option>
+            <option value="Peso">Kg</option>
+            <label for="valor">Valor: </label>
+            <label for="status">Selecionea o status: </label>
+            ▸ <select name="status" id="statussensor"> </select>
+            <option value="Funcionando">Funcionando</option>
+            <option value="Em funcionamento">Em funcionamento</option>
+            <option value="Defeituoso">Defeituoso</option>
+            <input type="number" id="valorsensor" placeholder="Digite o valor">
+            <button type="submit">Enviar</button>
+            <div id="resultado"></div>
+        </form>
+
+    </main>
+
+    <footer></footer>
+    <header>
 
         <nav class="navbar-principal">
             <span><img class="logo" src="../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
@@ -226,10 +256,62 @@
 
                 </div>
 
+        <div class="campo">
+            <div class="sensor_titulo">
 
             </div>
 
-        
+            <div class="campo1">
+                <div class="icone-texto">
+                    <span class="icone"><i class="bi bi-broadcast"></i></span>
+                    <span>
+                        <p>Inforamções de Sensores</p>
+                    </span>
+                </div>
+                <form id="CadastrarSensor1">
+                    <div class="flex">
+
+                        <div>
+                            <label class="caixinha" for="NomeSensor"> Nome do sensor:</label>
+                            <input type="text" id="NomeSensor" placeholder="nome sensor...">
+                            <br>
+                            <label class="caixinha" for="UnidadeMedida"> Unidade de medida:</label>
+                            <select type="text" id="UnidadeMedida" placeholder="medida">
+                                <option value=""> Selecione</option>
+                                <option value="opcao1">opção 1</option>
+                                <option value="opcao2">opção 2</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="caixinha" for="TipoSensor"> Tipo do sensor:</label>
+                            <input type="text" id="TipoSensor" placeholder="Selecione">
+                            <br>
+                            <label class="caixinha" for="FaixaMedida"> Faixa de medida:</label>
+                            <input type="text" id="FaixaMedida">
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="campo2">
+
+            </div>
+
+            <div class="campo3">
+
+            </div>
+
+
+        </div>
+
+
 
 
 
@@ -249,6 +331,7 @@
     </footer>
 
     <script src="../scripts/home.js"></script>
-    
+
 </body>
+
 </html>
