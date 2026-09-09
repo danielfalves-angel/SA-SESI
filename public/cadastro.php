@@ -1,3 +1,49 @@
+<?php
+include '../infra/connect.php';
+if (!isset($conn) || $conn === null) {
+    die('Erro ao conectar com o banco de dados.');
+}
+
+$sql = "SELECT * FROM usuarios";
+$resultado = mysqli_query($conn, $sql);
+
+if ($resultado === false) {
+    die('Erro ao consultar usuários: ' . mysqli_error($conn));
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $preco = $_POST['preco'];
+    $categoria = $_POST['categoria'];
+    $dado_armazenado = $_POST['dado_armazenado'];
+    $usuario_id = $_POST['usuario'];
+
+    $sql = "INSERT INTO pratos (nome, descricao, preco, categoria, id_usuario, dado_armazenado) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt === false) {
+        die('Erro ao preparar a inserção de sensor: ' . mysqli_error($conn));
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ssdsi', $nome, $descricao, $preco, $categoria, $usuario_id);
+
+    if (mysqli_stmt_execute($stmt)) {
+        echo "Sensor cadastrado com sucesso!";
+        echo "<br><a href='../index.php'>Voltar</a>";
+        exit();
+    } else {
+        echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
+?>
+
+
+
 <html lang="en">
 
 <head>
