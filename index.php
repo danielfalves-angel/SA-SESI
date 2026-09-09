@@ -1,3 +1,40 @@
+<?php
+include 'infra/connect.php';
+if (!isset($conn) || $conn === null) {
+    die('Erro ao conectar com o banco de dados.');
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $senha = $_POST['senha'] ?? '';
+    $email = $_POST['email'] ?? '';
+
+    $sql = "INSERT INTO usuarios (senha, email) VALUES (?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt === false) {
+        die('Erro ao preparar a consulta: ' . mysqli_error($conn));
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ss', $senha, $email);
+
+    if (mysqli_stmt_execute($stmt)) {
+        echo "Usuário cadastrado coms sucesso!";
+        echo "<br><a href='../index.php'>Voltar</a>";
+        mysqli_stmt_close($stmt);
+        exit();
+    } else {
+        echo "Erro ao cadastrar usuário: " . mysqli_error($conn);
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+?>
+
+
+
+
+
+
 <html lang="en">
 
 <head>
