@@ -1,3 +1,4 @@
+<?php
 const ctx = document.getElementById('barra');
 
 new Chart(ctx, {
