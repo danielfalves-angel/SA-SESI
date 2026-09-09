@@ -13,20 +13,19 @@ if ($resultado === false) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
-    $preco = $_POST['preco'];
-    $categoria = $_POST['categoria'];
-    $dado_armazenado = $_POST['dado_armazenado'];
+    $rota = $_POST['rota'];
+    $unidade = $_POST['unidade'];
+    $status = $_POST['status'];
     $usuario_id = $_POST['usuario'];
 
-    $sql = "INSERT INTO pratos (nome, descricao, preco, categoria, id_usuario, dado_armazenado) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO pratos (nome, rota, unidade, status, id_usuario) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
         die('Erro ao preparar a inserção de sensor: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'ssdsi', $nome, $descricao, $preco, $categoria, $usuario_id);
+    mysqli_stmt_bind_param($stmt, 'ssdsi', $nome, $rota, $unidade, $status, $usuario_id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Sensor cadastrado com sucesso!";
@@ -113,24 +112,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        ▼<form id="formCadastro">
+        ▼<form id="formCadastro" method="POST">
             <label for="Id">Id: </label>
-            <input type="number" id="idsensor" placeholder="Digite o id do sensor">
+            <input type="number" id="id" placeholder="Digite o id do sensor">
             <label for="Nome">Nome: </label>
-            <input type="text" id="nomesensor" placeholder="Digite o nome do sensor">
+            <input type="text" id="nome" placeholder="Digite o nome do sensor">
             <label for="Rota">Rota: </label>
-            <input type="text" id="rotasensor" placeholder="Digite a rota">
+            <input type="text" id="rota" placeholder="Digite a rota">
             <label for="unidade">Selecionea unidade: </label>
-            ▸ <select name="unidade" id="unidadesensor"> </select>
-            <option value="Temperatura">Celcius</option>
-            <option value="Velocidade">Km/h</option>
-            <option value="Peso">Kg</option>
+            ▸ <select name="unidade" id="unidade"> </select>
+            <option value="Temperatura">celcius</option>
+            <option value="Velocidade">km/h</option>
+            <option value="Peso">kg</option>
             <label for="valor">Valor: </label>
             <label for="status">Selecionea o status: </label>
             ▸ <select name="status" id="statussensor"> </select>
-            <option value="Funcionando">Funcionando</option>
-            <option value="Em funcionamento">Em funcionamento</option>
-            <option value="Defeituoso">Defeituoso</option>
+            <option value="Funcionando">funcionando</option>
+            <option value="Em funcionamento">em funcionamento</option>
+            <option value="Defeituoso">defeituoso</option>
             <input type="number" id="valorsensor" placeholder="Digite o valor">
             <button type="submit">Enviar</button>
             <div id="resultado"></div>
