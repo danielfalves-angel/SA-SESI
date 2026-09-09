@@ -1,3 +1,4 @@
+<?php
 function telaSensores() {
     window.location.href = "sensores.html";
 }
