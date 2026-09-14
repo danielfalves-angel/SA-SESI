@@ -1,12 +1,11 @@
-<?php
-const ctx2 = document.getElementById('circulo');
+const ctx = document.getElementById('barra');
 
-new Chart(ctx2, {
-  type: 'pie',
+new Chart(ctx, {
+  type: 'bar',
   data: {
     labels: ['Defeitos', 'Sensores Novos', 'Servissos', 'Revisões', 'Produtos'],
     datasets: [{
-      label: 'Linguagens',
+      label: 'Gráfico de barra',
       data: [7, 19, 9, 5, 15],
       backgroundColor: [
         '#FF6384',
@@ -15,16 +14,13 @@ new Chart(ctx2, {
         '#4BC0C0',
         '#3bbe51'
       ],
+
       borderColor: '#fff',
-      borderWidth: 2
+      borderWidth: 1
     }]
   },
   options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'right'
-      },
+    scales: {
 
     }
   }
