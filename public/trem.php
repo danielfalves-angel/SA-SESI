@@ -26,57 +26,61 @@
                     alt=""></span>
         </nav>
 
-
         <nav class="menu-lateral">
             <div class="botoes">
-                <div class="text-icon">
-                    <button onclick="telaHome()" class="botao">
-                        <span class="icon"><i class="bi bi-house-fill"></i></span>
-                        <span class="text">Home</span>
-                    </button>
+                <div class="text-icon"> 
+                    <a href="home.php">
+                        <button class="botao">
+                            <span class="icon"><i class="bi bi-house-fill"></i></span>
+                            <span class="text">Home</span>
+                        </button>
+                    </a>
                 </div>
 
                 <div class="text-icon">
-                    <button onclick="telaSensores()" class="botao">
-                        <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
-                        <span class="text">Sensores</span>
-                    </button>
+                    <a href="sensores.php">
+                        <button class="botao">
+                            <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
+                            <span class="text">Sensores</span>
+                        </button>
+                    </a>
                 </div>
+            </div>
 
-                <div class="text-icon">
-                    <button onclick="telaTrens()" class="botao">
+            <div class="text-icon">
+                <a href="trem.php">
+                    <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
                     </button>
-                </div>
+                </a>
 
-                <div class="text-icon">
-                    <button onclick="telaRelatorios()" class="botao">
+            </div>
+
+            <div class="text-icon">
+                <a href="relatorios.php">
+                    <button class="botao">
                         <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
                         <span class="text">Relatórios</span>
                     </button>
-                </div>
+                </a>
+            </div>
 
-                <div class="text-icon">
-                    <button onclick="telaSair()" class="botao">
+            <div class="text-icon">
+                <a href=""></a>
+                    <button class="botao">
                         <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="text">Sair</span>
                     </button>
-                </div>
-
-
-
 
             </div>
 
 
 
 
-
-
+            </div>
 
         </nav>
-
 
     </header>
 
