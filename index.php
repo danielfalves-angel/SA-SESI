@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_bind_param($stmt, 'ss', $senha, $email);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Usuário cadastrado coms sucesso!";
-        echo "<br><a href='../index.php'>Voltar</a>";
+        echo "Usuário cadastrado com sucesso!";
+        echo "<br><a href='public/home.php'>Voltar</a>";
         mysqli_stmt_close($stmt);
         exit();
     } else {
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="col">
             <div class="formLogin">
                 <h1 id="titulo">Login</h1>
-                <form id="formLogin">
+                <form id="formLogin" action="public/home.php" method="POST">
                     <div class="C-email">
                         <label class="email" for="email">Email: </label>
                         <input type="email" id="email" placeholder="Email" required>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-    <script src="scripts/login.js"></script>
+    <script src="scripts/login.php"></script>
 </body>
 
 

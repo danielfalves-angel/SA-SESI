@@ -1,28 +1,28 @@
 <?php
 function telaSensores() {
-    window.location.href = "sensores.html";
+    window.location.href = "sensores.php";
 }
 function telaHome() {
-    window.location.href = "home.html";
+    window.location.href = "home.php";
 }
 function telaTrens() {
-    window.location.href = "trem.html";
+    window.location.href = "trem.php";
 }
 function telaRelatorios() {
-    window.location.href = "relatorios.html";
+    window.location.href = "relatorios.php";
 }
 function telaTabela() {
-    window.location.href = "ids.html";
+    window.location.href = "ids.php";
 }
 function telaSair() {
-    window.location.href = "../index.html";
+    window.location.href = "../index.php";
 }
 function telaCadastro() {
-    window.location.href = "cadastro.html";
+    window.location.href = "cadastro.php";
 }
 function telaEditar() {
-    window.location.href = "editar.html";
+    window.location.href = "editar.php";
 }
 function telaExcluir() {
-    window.location.href = "excluir.html";
+    window.location.href = "excluir.php";
 }
