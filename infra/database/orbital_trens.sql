@@ -12,6 +12,7 @@ create table sensor (
     id int primary key auto_increment,
     nome varchar(100) not null,
     rota varchar(100) not null,
+    id_usuario int,
     unidade enum('celcius', 'km/h', 'kg') not null,
     status enum('funcionando', 'em funcionamento', 'defeituoso') not null,
     foreign key (id_usuario) references usuarios(id)
