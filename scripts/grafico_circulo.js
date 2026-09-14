@@ -1,4 +1,3 @@
-
 const ctx2 = document.getElementById('circulo');
 
 new Chart(ctx2, {
