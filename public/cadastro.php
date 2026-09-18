@@ -124,19 +124,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
 
         ▼<form id="formCadastro" method="POST">
-            <label for="Id">Id: </label>
+            <label class="label" for="Id">Id: </label>
             <input type="number" id="id" placeholder="Digite o id do sensor">
-            <label for="Nome">Nome: </label>
+            <label class="label" for="Nome">Nome: </label>
             <input type="text" id="nome" placeholder="Digite o nome do sensor">
-            <label for="Rota">Rota: </label>
+            <label class="label" for="Rota">Rota: </label>
             <input type="text" id="rota" placeholder="Digite a rota">
-            <label for="unidade">Selecionea unidade: </label>
+            <label class="label" for="unidade">Selecionea unidade: </label>
             ▸ <select name="unidade" id="unidade"> </select>
             <option value="Temperatura">celcius</option>
             <option value="Velocidade">km/h</option>
             <option value="Peso">kg</option>
-            <label for="valor">Valor: </label>
-            <label for="status">Selecionea o status: </label>
+            <label class="label" for="valor">Valor: </label>
+            <label class="label" for="status">Selecionea o status: </label>
             ▸ <select name="status" id="statussensor"> </select>
             <option value="Funcionando">funcionando</option>
             <option value="Em funcionamento">em funcionamento</option>
@@ -223,16 +223,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="campo1">
                     <div class="icone-texto">
                         <span class="icone"><i class="bi bi-broadcast"></i></span>
-                        <span><p>Inforamções de Sensores</p></span>
+                        <span><p>Cadastrar Sensor</p></span>
                     </div>
                         <form id="CadastrarSensor1">
                             <div class="flex">
 
-                            <div>
+                            <div class="CadastrarSensor1_campos">
                                 <label class="caixinha" for="NomeSensor"> Nome do sensor:</label>
+                                <br>
                                 <input type="text" id="NomeSensor" placeholder="nome sensor...">
                                 <br>
                                 <label class="caixinha" for="UnidadeMedida"> Unidade de medida:</label>
+                                <br>
                                 <select type="text" id="UnidadeMedida" placeholder="medida">
                                     <option value=""> Medida</option>
                                     <option value="opcao1">opção 1</option>
@@ -240,8 +242,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </select>
                             </div>
 
-                            <div>
+                            <div class="CadastrarSensor1_campos">
                                 <label class="caixinha" for="TipoSensor"> Tipo do sensor:</label>
+                                <br>
                                 <select type="text" id="TipoSensor" placeholder="tipo">
                                     <option value=""> Selecione Tipo</option>
                                     <option value="opcao1">opção 1</option>
@@ -249,28 +252,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </select>
                                 <br>
                                 <label class="caixinha" for="FaixaMedida"> Faixa de medida:</label>
+                                <br>
                                 <input type="text" id="FaixaMedida" placeholder="min">
                                 <span>a</span>
                                 <input type="text" id="FaixaMedida" placeholder="max">
                             </div>
 
-                            <div>
+                            <div class="CadastrarSensor1_campos">
                                 <label class="caixinha" for="EscolerID"> Escolher ID:</label>
+                                <br>
                                 <input type="text" id="EscolherID" placeholder="Ex. XXXX-XXXX">
                                 <br>
                                 <label class="caixinha" for="IntervaloLeitura"> Intervalo de Leitura</label>
+                                <br>
                                 <input type="text" id="IntervaloLeitura" placeholder="Ex. 10">
                             </div>
 
-                            <div>
+                            <div class="CadastrarSensor1_campos">
                                 <label class="caixinha" for="Valor"> Valor:</label>
+                                <br>
                                 <input type="text" id="Valor" placeholder="EX. 40">
                                 <br>
                                 <label class="caixinha" for="Descricao"> Descrição: </label>
+                                <br>
                                 <input type="text" id="Descricao" placeholder="Opcional">
                             </div>
 
+                            
                             </div>
+                            <button type="submit">Cadastrar</button>
+
                         </form>
                 </div>
                 
@@ -283,6 +294,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="flex">
                         <div>
                              <label class="caixinha" for="Equipamento"> Equipamento: </label>
+                             <br>
                                 <select type="text" id="Equipamento" placeholder="Equipamento">
                                     <option value=""> Selecione o Equipamento</option>
                                     <option value="opcao1">opção 1</option>
@@ -291,6 +303,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div>
                             <label class="caixinha" for="Localização"> Localização: </label>
+                            <br>
                                 <select type="text" id="Localização" placeholder="Localização">
                                     <option value=""> Selecione a Localização</option>
                                     <option value="opcao1">opção 1</option>
@@ -299,6 +312,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div>
                             <label class="caixinha" for="Grupo"> Grupo: </label>
+                            br
                                 <select type="text" id="Grupo" placeholder="Grupo">
                                     <option value=""> Opcional</option>
                                     <option value="opcao1">opção 1</option>
@@ -309,6 +323,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 
                 <div class="campo3">
+
+                    
+                <div class="alarme"></div>
 
                 </div>
 
@@ -361,6 +378,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="campo3">
+
 
             </div>
 
