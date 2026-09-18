@@ -1,3 +1,8 @@
+<?php
+include "infra/connect.php";
+$usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
+?>
+
 <html lang="en">
 
 <head>
