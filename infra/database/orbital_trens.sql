@@ -13,10 +13,16 @@ create table usuarios (
 create table sensor (
     id int primary key auto_increment,
     nome varchar(100) not null,
+    unidade_de_medida enum('celcius', 'km/h', 'kg') not null,
+    valor varchar(100) not null,
+    tipo_de_sensor enum('Temperatura', 'Velocidade', 'Peso') not null,
+    intervalo_de_leitura varchar(100) not null,
+    tipo_de_area enum('plano', 'aclive', 'declive') not null,
+    descricao varchar(100) not null,
+    localizacao varchar(100) not null,
     rota varchar(100) not null,
-    id_usuario int,
-    unidade enum('celcius', 'km/h', 'kg') not null,
     status enum('funcionando', 'em funcionamento', 'defeituoso') not null,
+    id_usuario int,
     foreign key (id_usuario) references usuarios(id)
 );
 
