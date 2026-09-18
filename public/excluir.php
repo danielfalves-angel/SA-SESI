@@ -10,7 +10,8 @@
     <title>Excluir sensores</title>
 </head>
 
-<body>
+<body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
+>
     <header>
 
         <nav class="navbar-principal">
