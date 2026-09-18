@@ -15,7 +15,7 @@ function telaTabela() {
     window.location.href = "ids.php";
 }
 function telaSair() {
-    window.location.href = "../index.php";
+    window.location.href = "index.php";
 }
 function telaCadastro() {
     window.location.href = "cadastro.php";
