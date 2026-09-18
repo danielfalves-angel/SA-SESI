@@ -205,9 +205,9 @@
 
         </tbody>
       </table>
-      <button onclick="telaCadastro()">Cadastro de Sensores</button>
-      <button onclick="telaEditar()">Editar Sensores</button>
-      <button onclick="telaExcluir()">Excluir Sensores</button>
+      <a href="cadastro.php"><button onclick="telaCadastro()">Cadastro de Sensores</button></a>
+      <a href="editar.php"><button onclick="telaEditar()">Editar Sensores</button></a>
+      <a href="excluir.php"><button onclick="telaExcluir()">Excluir Sensores</button></a>
     </div>
   </div>
   </div>
