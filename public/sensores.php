@@ -1,220 +1,70 @@
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sensores</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../assets/styles/style.css">
-  <link rel="icon" type="image/png" href="../assets/img/logoIconSemFundo.png">
-
-
 </head>
 
 <body>
-  <header>
+    <div class="">
 
-        <nav class="navbar-principal">
-            <span><img class="logo" src="../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
-                    alt=""></span>
-        </nav>
+    <main>
+        <h1>Gerenciador de Animais</h1>
+        <button><a href="public/cadastrar_animal.php"> Novo Animal</a></button>
+        <button><a href="public/cadastrar_usuario.php"> Novo Usuário</a></button>
+        <br>
+        <br>
+        <form method="POST">
+            <label for="usuario">Filtro por Usuário</label>
+            <select id="usuario" name="usuario">
+                <option value="">Todos</option>
+                <?php
+                $sqlUsuarios = "SELECT * FROM usuarios";
+                $resultadoUsuarios = mysqli_query($conn, $sqlUsuarios);
+                while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)) {
+                    echo "<option value='{$usuario['id']}'>{$usuario['nome']}</option>";
+                }
 
-        <nav class="menu-lateral">
-            <div class="botoes">
-                <div class="text-icon"> 
-                    <a href="home.php">
-                        <button class="botao">
-                            <span class="icon"><i class="bi bi-house-fill"></i></span>
-                            <span class="text">Home</span>
-                        </button>
-                    </a>
-                </div>
+                ?>
+            </select>
+            <button type="submit">Filtrar</button>
+            <br>
+            <br>
+        </form>
+        <div class="table_animais">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>rota</th>
+                    <th>Raça</th>
+                    <th>Porte</th>
+                    <th>Idade</th>
+                    <th>ID do Usuário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    </div>
+                    <?php
 
-                <div class="text-icon">
-                    <a href="sensores.php">
-                        <button class="botao">
-                            <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
-                            <span class="text">Sensores</span>
-                        </button>
-                    </a>
-                </div>
-            </div>
+                    while ($animal = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td>{$animal['nome']}</td>";
+                        echo "<td>{$animal['especie']}</td>";
+                        echo "<td>{$animal['raca']}</td>";
+                        echo "<td>{$animal['porte']}</td>";
+                        echo "<td>{$animal['idade']}</td>";
+                        echo "<td>{$animal['id_usuario']}</td>";
+                        echo "<td>
+                                <a href='public/editar_animal.php?id={$animal['id']}'>Editar</a> |
+                                <a href='public/excluir_animal.php?id={$animal['id']}'>Excluir</a>
+                              </td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 
-            <div class="text-icon">
-                <a href="trem.php">
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-train-front"></i></span>
-                        <span class="text">Trens</span>
-                    </button>
-                </a>
-
-            </div>
-
-            <div class="text-icon">
-                <a href="relatorios.php">
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
-                        <span class="text">Relatórios</span>
-                    </button>
-                </a>
-            </div>
-
-            <div class="text-icon">
-                <a href=""></a>
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                        <span class="text">Sair</span>
-                    </button>
-
-            </div>
-
-
-
-
-            </div>
-
-        </nav>
-
-    </header>
-
-
-
-  <div class="gap" id="bodySensor">
-    <div class="botaoTexto">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#id</th>
-            <th scope="col">Sensores</th>
-            <th scope="col">Rota</th>
-            <th scope="col">Unidade </th>
-            <th scope="col">Valor </th>
-            <th scope="col">Status </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">#1</th>
-            <td>Mark</td>
-            <td>645</td>
-            <td>Celcius</td>
-            <td>42</td>
-            <td>Funcionando</td>
-
-          </tr>
-          <tr>
-            <th scope="row">#2</th>
-            <td>Jacob</td>
-            <td>5345</td>
-            <td>Km/h</td>
-            <td>145</td>
-            <td>Funcionando</td>
-
-          </tr>
-          <tr>
-            <th scope="row">#3</th>
-            <td>John</td>
-            <td>395</td>
-            <td>Kg</td>
-            <td>163000</td>
-            <td>Em manutenção</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">#4</th>
-            <td>Alberto</td>
-            <td>234</td>
-            <td>Celcius</td>
-            <td>45</td>
-            <td>Funcionando</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">#5</th>
-            <td>Pele</td>
-            <td>1281</td>
-            <td>Km/h</td>
-            <td>203</td>
-            <td>Funcionando</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">#6</th>
-            <td>Plinio</td>
-            <td>5776</td>
-            <td>Kg</td>
-            <td>144000</td>
-            <td>Funcionando</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">#7</th>
-            <td>Colin</td>
-            <td>1414</td>
-            <td>Km/h</td>
-            <td>214</td>
-            <td>Funcionando</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">#8</th>
-            <td>Tomazia</td>
-            <td>2222</td>
-            <td>Km/h</td>
-            <td>203</td>
-            <td>Funcionando</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">#9</th>
-            <td>Freitas</td>
-            <td>3131</td>
-            <td>Peso</td>
-            <td>189000</td>
-            <td>Funcionando</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">#10</th>
-            <td>Lencina</td>
-            <td>1313</td>
-            <td>Celcius</td>
-            <td>67</td>
-            <td>Funcionando</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row">@#$@#</th>
-            <td>$@#$%</td>
-            <td>gfdgsa234</td>
-            <td>45yfg5$%#</td>
-            <td>3%#$%t</td>
-            <td>Defeituoso</td>
-
-          </tr>
-
-        </tbody>
-      </table>
-      <a href="cadastro.php"><button onclick="telaCadastro()">Cadastro de Sensores</button></a>
-      <a href="editar.php"><button onclick="telaEditar()">Editar Sensores</button></a>
-      <a href="excluir.php"><button onclick="telaExcluir()">Excluir Sensores</button></a>
-    </div>
-  </div>
-  </div>
-
-
-
-  <script src="../scripts/home.js"></script>
+</div>
 </body>
 
 </html>

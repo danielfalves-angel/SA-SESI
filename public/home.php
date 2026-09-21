@@ -12,7 +12,8 @@
     <title>Home</title>
 </head>
 
-<body>
+
+<body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
 
 
     <header>
@@ -194,7 +195,7 @@
                     <div>
                         <div class="caixinha2">
                             <h1 class="text-cadastro">Tabela de cadastros</h1>
-                            <div class="botao_tabela"><button onclick="telaTabela()" class="ponteiro">></button></div>
+                            <div class="botao_tabela"><a href="tabela.php"><button onclick="telaTabela()" class="ponteiro">></button></a></div>
                         </div>
 
                     </div>
