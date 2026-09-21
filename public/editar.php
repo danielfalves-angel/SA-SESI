@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header>
+   <header>
 
         <nav class="navbar-principal">
             <span><img class="logo" src="../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
