@@ -2,9 +2,9 @@
 
     $host = "localhost";
     $user = "root";
-    $password = "";
+    $password = "root";
     $database = "orbital_trens";
-    $conn = mysqli_connect($host, $user, $password, $database, 3307);
+    $conn = mysqli_connect($host, $user, $password, $database);
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
