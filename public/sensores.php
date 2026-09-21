@@ -14,57 +14,63 @@
    
    <header><?php include '../scripts/navbar.php'; ?></header>
 
+<body>
+    <div class="">
 
-  <header>
-        <nav class="navbar-principal">
-            <span><img class="logo" src="../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
-                    alt=""></span>
-        </nav>
-        <nav class="menu-lateral">
-            <div class="botoes">
-                <div class="text-icon"> 
-                    <a href="home.php">
-                        <button class="botao">
-                            <span class="icon"><i class="bi bi-house-fill"></i></span>
-                            <span class="text">Home</span>
-                        </button>
-                    </a>
-                </div>
-                <div class="text-icon">
-                    <a href="sensores.php">
-                        <button class="botao">
-                            <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
-                            <span class="text">Sensores</span>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="text-icon">
-                <a href="trem.php">
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-train-front"></i></span>
-                        <span class="text">Trens</span>
-                    </button>
-                </a>
-            </div>
-            <div class="text-icon">
-                <a href="relatorios.php">
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
-                        <span class="text">Relatórios</span>
-                    </button>
-                </a>
-            </div>
-            <div class="text-icon">
-                <a href=""></a>
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                        <span class="text">Sair</span>
-                    </button>
-            </div>
-            </div>
-        </nav>
-    </header>
+    <main>
+        <h1>Gerenciador de Sensores</h1>
+
+
+        <button><a href="public/cadastrar_sensor.php"> Novo Sensor</a></button>
+        <br>
+        <br>
+        <form method="POST">
+                
+            </select>
+           
+        </form>
+        <div class="table_sensores">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>rota</th>
+                    <th>unidade</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th>ID do Sensor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    </div>
+                    <?php
+
+                    while ($sensor = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td>{$sensor['nome']}</td>";
+                        echo "<td>{$sensor['rota']}</td>";
+                        echo "<td>{$sensor['unidade']}</td>";
+                        echo "<td>{$sensor['valor']}</td>";
+                        echo "<td>{$sensor['status']}</td>";
+                        echo "<td>{$sensor['id_sensor']}</td>";
+                        echo "<td>
+                                <a href='public/editar_sensor.php?id={$sensor['id']}'>Editar</a> |
+                                <a href='public/excluir_sensor.php?id={$sensor['id']}'>Excluir</a>
+                              </td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</div>
+</body>
+
+
   
       <a href="cadastro_sensores.php"><button onclick="telaCadastro()">Cadastro de Sensores</button></a>
       <a href="editar_sensores.php"><button onclick="telaEditar()">Editar Sensores</button></a>
