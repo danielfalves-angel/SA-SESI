@@ -96,6 +96,7 @@ mysqli_stmt_close($stmt);
 
     </header>
 
+    
 
     <footer></footer>
     <script src="../scripts/home.js"></script>
