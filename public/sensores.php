@@ -4,38 +4,75 @@
     <div class="">
 
     <main>
-        <h1>Gerenciador de Animais</h1>
-        <button><a href="public/cadastrar_animal.php"> Novo Animal</a></button>
-        <button><a href="public/cadastrar_usuario.php"> Novo Usuário</a></button>
+        <h1>Gerenciador de Sensores</h1>
+
+                <nav class="menu-lateral">
+            <div class="botoes">
+                <div class="text-icon"> 
+                    <a href="home.php">
+                        <button class="botao">
+                            <span class="icon"><i class="bi bi-house-fill"></i></span>
+                            <span class="text">Home</span>
+                        </button>
+                    </a>
+                </div>
+
+                <div class="text-icon">
+                    <a href="sensores.php">
+                        <button class="botao">
+                            <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
+                            <span class="text">Sensores</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-icon">
+                <a href="trem.php">
+                    <button class="botao">
+                        <span class="icon"><i class="bi bi-train-front"></i></span>
+                        <span class="text">Trens</span>
+                    </button>
+                </a>
+
+            </div>
+
+            <div class="text-icon">
+                <a href="relatorios.php">
+                    <button class="botao">
+                        <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
+                        <span class="text">Relatórios</span>
+                    </button>
+                </a>
+            </div>
+
+            <div class="text-icon">
+                <a href=""></a>
+                    <button class="botao">
+                        <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
+                        <span class="text">Sair</span>
+                    </button>
+
+            </div>
+
+        <button><a href="public/cadastrar_sensor.php"> Novo Sensor</a></button>
         <br>
         <br>
         <form method="POST">
-            <label for="usuario">Filtro por Usuário</label>
-            <select id="usuario" name="usuario">
-                <option value="">Todos</option>
-                <?php
-                $sqlUsuarios = "SELECT * FROM usuarios";
-                $resultadoUsuarios = mysqli_query($conn, $sqlUsuarios);
-                while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)) {
-                    echo "<option value='{$usuario['id']}'>{$usuario['nome']}</option>";
-                }
-
-                ?>
+                
             </select>
-            <button type="submit">Filtrar</button>
-            <br>
-            <br>
+           
         </form>
-        <div class="table_animais">
+        <div class="table_sensores">
         <table>
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>rota</th>
-                    <th>Raça</th>
-                    <th>Porte</th>
-                    <th>Idade</th>
-                    <th>ID do Usuário</th>
+                    <th>unidade</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th>ID do Sensor</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -44,17 +81,17 @@
                     </div>
                     <?php
 
-                    while ($animal = mysqli_fetch_assoc($resultado)) {
+                    while ($sensor = mysqli_fetch_assoc($resultado)) {
                         echo "<tr>";
-                        echo "<td>{$animal['nome']}</td>";
-                        echo "<td>{$animal['especie']}</td>";
-                        echo "<td>{$animal['raca']}</td>";
-                        echo "<td>{$animal['porte']}</td>";
-                        echo "<td>{$animal['idade']}</td>";
-                        echo "<td>{$animal['id_usuario']}</td>";
+                        echo "<td>{$sensor['nome']}</td>";
+                        echo "<td>{$sensor['rota']}</td>";
+                        echo "<td>{$sensor['unidade']}</td>";
+                        echo "<td>{$sensor['valor']}</td>";
+                        echo "<td>{$sensor['status']}</td>";
+                        echo "<td>{$sensor['id_sensor']}</td>";
                         echo "<td>
-                                <a href='public/editar_animal.php?id={$animal['id']}'>Editar</a> |
-                                <a href='public/excluir_animal.php?id={$animal['id']}'>Excluir</a>
+                                <a href='public/editar_sensor.php?id={$sensor['id']}'>Editar</a> |
+                                <a href='public/excluir_sensor.php?id={$sensor['id']}'>Excluir</a>
                               </td>";
                         echo "</tr>";
                     }
