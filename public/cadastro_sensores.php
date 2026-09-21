@@ -13,27 +13,27 @@ if ($resultado === false) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
-    $rota = $_POST['rota'];
-    $unidade = $_POST['unidade'];
-    $valor = $_POST['valor'];
-    $status = $_POST['status'];
+    $especie = $_POST['especie'];
+    $raca = $_POST['raca'];
+    $porte = $_POST['porte'];
+    $idade = $_POST['idade'];
+    $usuario_id = $_POST['usuario'];
 
-
-    $sql = "INSERT INTO sensores (nome, rota, unidade, valor, status) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO animais (nome, especie, raca, porte, idade, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
-        die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
+        die('Erro ao preparar a inserção do animal: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'ssssii', $nome, $rota, $unidade, $valor, $status);
+    mysqli_stmt_bind_param($stmt, 'ssssii', $nome, $especie, $raca, $porte, $idade, $usuario_id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Sensor cadastrado com sucesso!";
+        echo "Animal cadastrado com sucesso!";
         echo "<br><a href='../index.php'>Voltar</a>";
         exit();
     } else {
-        echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
+        echo "Erro ao cadastrar animal: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);
@@ -48,26 +48,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Sensores</title>
+    <title>Cadastro de Animais</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body>
     <form method="POST">
-        <label for="nome">Nome do sensor:</label>
+        <label for="nome">Nome do Animal:</label>
         <input type="text" name="nome" id="nome" required>
         <br>
-        <label for="rota">Rota:</label>
-        <input type="text" name="rota" id="rota" required>
+        <label for="especie">Espécie:</label>
+        <input type="text" name="especie" id="especie" required>
         <br>
-        <label for="unidade">Unidade:</label>
-        <input type="text" name="unidade" id="unidade" required>
+        <label for="raca">Raça:</label>
+        <input type="text" name="raca" id="raca" required>
         <br>
-        <label for="valor">Valor:</label>
-        <input type="text" name="valor" id="valor" required>
+        <label for="porte">Porte:</label>
+        <input type="text" name="porte" id="porte" required>
         <br>
-        <label for="status">Status:</label>
-        <input type="number" name="status" id="status" required>
+        <label for="idade">Idade:</label>
+        <input type="number" name="idade" id="idade" required>
         <br>
     
         <label for="usuario">Usuário:</label>
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
         </select>
         <br>
-        <button type="submit">Cadastrar Sensor</button>
+        <button type="submit">Cadastrar Animal</button>
     </form>
     <button type="button" onclick="window.location.href='../index.php'">Voltar</button>
 </body>
