@@ -112,8 +112,7 @@
                 </p>
                 <p>
                     Conclui-se que o sistema de sensores e monitoramento tem desempenhado um papel fundamental na
-                    melhoria
-                    da operação ferroviária, permitindo maior controle, agilidade na tomada de decisões e prevenção de
+                    melhoria da operação ferroviária, permitindo maior controle, agilidade na tomada de decisões e prevenção de
                     incidentes.
                 </p>
             </div>
