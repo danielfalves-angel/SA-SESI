@@ -1,4 +1,11 @@
-   <html lang="en">
+<?php
+
+include '../infra/connect.php';
+
+$resultado = mysqli_query($conn, "SELECT * FROM sensor");
+
+?>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
