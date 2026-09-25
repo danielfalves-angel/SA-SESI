@@ -22,7 +22,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
    <header><?php include '../scripts/navbar.php'; ?></header>
 
 <body>
-    <div class="">
+    <div class="corpo">
 
     <main>
         <h1>Gerenciador de Sensores</h1>
@@ -37,6 +37,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
            
         </form>
         <div class="table_sensores">
+            <div class="table_sensores_centro">
         <table>
             <thead>
                 <tr>
@@ -52,6 +53,8 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
             <tbody>
                 <tr>
                     </div>
+                    </div>
+                    
                     <?php
 
                     while ($sensor = mysqli_fetch_assoc($resultado)) {
@@ -72,6 +75,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                 </tr>
             </tbody>
         </table>
+        <br>
               <a href="cadastro_sensores.php"><button onclick="telaCadastro()">Cadastro de Sensores</button></a>
       <a href="editar_sensores.php"><button onclick="telaEditar()">Editar Sensores</button></a>
       <a href="excluir_sensor.php"><button onclick="telaExcluir()">Excluir Sensores</button></a>

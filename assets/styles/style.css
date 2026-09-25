@@ -422,11 +422,11 @@ td {
   width: 90px;
   height: 40px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid #252222;
 }
 
 th {
-  background: #4a90e2;
+  background: #556f8d;
   color: white;
 }
 
@@ -495,8 +495,14 @@ td:hover {
 }
 
 
+.table_sensores{
+display: flex;
+justify-content: center; 
+}
 
-
+.table_sensores_centro{
+  text-align: center;
+}
 
 
 
