@@ -61,13 +61,13 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                         echo "<tr>";
                         echo "<td>{$sensor['nome']}</td>";
                         echo "<td>{$sensor['rota']}</td>";
-                        echo "<td>{$sensor['unidade']}</td>";
+                        echo "<td>{$sensor['unidade_de_medida']}</td>";
                         echo "<td>{$sensor['valor']}</td>";
                         echo "<td>{$sensor['status']}</td>";
-                        echo "<td>{$sensor['id_sensor']}</td>";
+                        echo "<td>{$sensor['id']}</td>";
                         echo "<td>
-                                <a href='public/editar_sensor.php?id={$sensor['id']}'>Editar</a> |
-                                <a href='public/excluir_sensor.php?id={$sensor['id']}'>Excluir</a>
+                                <a href='editar_sensores.php?id={$sensor['id']}'>Editar</a> |
+                                <a href='excluir_sensores.php?id={$sensor['id']}'>Excluir</a>
                               </td>";
                         echo "</tr>";
                     }
