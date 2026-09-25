@@ -2,7 +2,7 @@
 
 include '../infra/connect.php';
 
-$resultado = mysqli_query($conn, "SELECT * FROM sensor");
+$resultado = mysqli_query($conn, "SELECT * FROM sensores");
 
 ?>
 <html lang="en">
@@ -28,7 +28,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
         <h1>Gerenciador de Sensores</h1>
 
 
-        <button><a href="public/cadastrar_sensor.php"> Novo Sensor</a></button>
+        <button><a href="public/cadastrar_sensores.php"> Novo Sensor</a></button>
         <br>
         <br>
         <form method="POST">
@@ -64,10 +64,10 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                         echo "<td>{$sensor['unidade']}</td>";
                         echo "<td>{$sensor['valor']}</td>";
                         echo "<td>{$sensor['status']}</td>";
-                        echo "<td>{$sensor['id_sensor']}</td>";
+                        echo "<td>{$sensor['id']}</td>";
                         echo "<td>
-                                <a href='public/editar_sensor.php?id={$sensor['id']}'>Editar</a> |
-                                <a href='public/excluir_sensor.php?id={$sensor['id']}'>Excluir</a>
+                                <a href='public/editar_sensores.php?id={$sensor['id']}'>Editar</a> |
+                                <a href='public/excluir_sensores.php?id={$sensor['id']}'>Excluir</a>
                               </td>";
                         echo "</tr>";
                     }

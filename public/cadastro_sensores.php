@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $unidade = $_POST['unidade'];
     $valor = $_POST['valor'];
     $status = $_POST['status'];
+    session_start(); 
+$usuario_id = $_SESSION['id_usuario'] ?? null;
    
 
     $sql = "INSERT INTO sensores (nome, rota, unidade, valor, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
