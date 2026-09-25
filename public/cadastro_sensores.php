@@ -14,23 +14,25 @@ if ($resultado === false) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $rota = $_POST['rota'];
-    $unidade = $_POST['unidade'];
+    $unidade = $_POST['unidade_de_medida'];
     $valor = $_POST['valor'];
     $status = $_POST['status'];
+    session_start(); 
+$usuario_id = $_SESSION['id_usuario'] ?? null;
    
 
-    $sql = "INSERT INTO sensores (nome, rota, unidade, valor, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO sensor (nome, rota, unidade_de_medida, valor, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
         die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'ssssii', $nome, $rota, $unidade, $valor, $status, $usuario_id);
+    mysqli_stmt_bind_param($stmt, 'sssdsi', $nome, $rota, $unidade, $valor, $status, $usuario_id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Sensor cadastrado com sucesso!";
-        echo "<br><a href='../index.php'>Voltar</a>";
+        echo "<br><a href='../public/sensores.php'>Voltar</a>";
         exit();
     } else {
         echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
@@ -60,16 +62,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="rota">Rota:</label>
         <input type="text" name="rota" id="rota" required>
         <br>
-        <label for="unidade">Unidade:</label>
-        <input type="text" name="unidade" id="unidade" required>
-        <br>
+
+         <label for="unidade_de_medida">Unidade de medida: </label>
+            <select name="unidade_de_medida" id="unidade_de_medida">
+                <option value=""> Selecione</option>
+                <option value="celcius">celcius</option>
+                <option value="km/h">km/h</option>
+                <option value="kg">kg</option>
+            </select>
+
+            <br>
+
         <label for="valor">Valor:</label>
         <input type="number" name="valor" id="valor" required>
         <br>
-        <label for="status">Status:</label>
-        <input type="text" name="status" id="status" required>
-        <br>
     
+        <label for="status">Status: </label>
+            <select name="status" id="status">
+                <option value=""> Selecione</option>
+                <option value="funcionando">funcionando</option>
+                <option value="defeituoso">defeituoso</option>
+            </select>
+            <br>
     
         <button type="submit">Cadastrar Sensor</button>
     </form>
