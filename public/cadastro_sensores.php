@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'ssssii', $nome, $rota, $unidade, $valor, $status, $usuario_id);
+    mysqli_stmt_bind_param($stmt, 'sssdsi', $nome, $rota, $unidade, $valor, $status, $usuario_id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Sensor cadastrado com sucesso!";
