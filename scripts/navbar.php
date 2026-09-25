@@ -66,6 +66,15 @@
 
             </div>
 
+            <div class="text-icon">
+<a href="../index.php">
+    <button class="botao">
+        <span class="icon"><i class="bi bi-box-arrow-in-right"></i></span>
+        <span class="text">Login</span>
+    </button>
+    </a>
+</div>
+
 
 
 
