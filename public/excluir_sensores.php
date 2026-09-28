@@ -10,8 +10,8 @@ $stmt = mysqli_prepare($conn, "DELETE FROM sensor WHERE id = ?");
 mysqli_stmt_bind_param($stmt, 'i', $id);
 
 if (mysqli_stmt_execute($stmt)) {
-    echo "Sensor excluído com sucesso.";
-    echo "<br><a href='../public/sensores.php'>Voltar</a>";
+    echo '<script>alert("Sensor excluído com sucesso.");</script>';
+    echo '<script>window.location.href = "../public/sensores.php";</script>';
 } else {
     echo "Erro ao excluir sensor: " . mysqli_error($conn);
 }

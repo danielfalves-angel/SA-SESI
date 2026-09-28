@@ -31,8 +31,8 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
     mysqli_stmt_bind_param($stmt, 'sssdsi', $nome, $rota, $unidade, $valor, $status, $usuario_id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Sensor cadastrado com sucesso!";
-        echo "<br><a href='../public/sensores.php'>Voltar</a>";
+        echo '<script>alert("Sensor cadastrado com sucesso.");</script>';
+        echo '<script>window.location.href = "../public/sensores.php";</script>';
         exit();
     } else {
         echo "Erro ao cadastrar sensor: " . mysqli_error($conn);

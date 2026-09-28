@@ -58,11 +58,12 @@
             </div>
 
             <div class="text-icon">
-                <a href=""></a>
+                <a href="../index.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="text">Sair</span>
                     </button>
+                </a>
 
             </div>
 
