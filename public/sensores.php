@@ -28,7 +28,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
         <h1>Gerenciador de Sensores</h1>
 
 
-        <button><a href="public/cadastrar_sensores.php"> Novo Sensor</a></button>
+    
         <br>
         <br>
         <form method="POST">

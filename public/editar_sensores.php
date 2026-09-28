@@ -1,21 +1,4 @@
 
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/styles/style.css">
-    <title>Editar Sensores</title>
-</head>
-
-<body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
->
-
-<header><?php include '../scripts/navbar.php'; ?></header>
-
 <?php
 
 include '../infra/connect.php';
@@ -25,7 +8,7 @@ if (!isset($conn) || $conn === null) {
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-$sql = "SELECT * FROM sensores WHERE id = ?";
+$sql = "SELECT * FROM sensor WHERE id = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
@@ -75,7 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
-<body>
+<body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
+    
+<header><?php include '../scripts/navbar.php'; ?></header>
+
     <form method="POST">
 
         <label for="nome">Nome:</label>
@@ -98,20 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <button type="button" onclick="window.location.href='../index.php'">Voltar</button>
 
-</body>
-
-</html>
-
-
-
-            </div>
-
-        </nav>
-
-    </header>
-
-    <footer></footer>
-    <script src="../scripts/home.js"></script>
 </body>
 
 </html>
