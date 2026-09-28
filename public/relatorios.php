@@ -20,46 +20,52 @@
         <div class="gap"></div>
         <div class="caixa-p">
             <div>
-                <h1>
-                    Relatório
-                </h1>
-                <p>
-                    Este relatório apresenta a análise das operações ferroviárias realizadas no período avaliado, com o
-                    objetivo de monitorar o desempenho do sistema, identificar possíveis falhas e propor melhorias.
-                </p>
-                <p>
-                    Durante o período analisado, foi observado um funcionamento geral estável das operações, com a
-                    maioria
-                    dos trens cumprindo os horários programados. Os sensores instalados ao longo da via permitiram o
-                    acompanhamento em tempo real das condições dos trilhos e do desempenho dos veículos, contribuindo
-                    para a
-                    detecção preventiva de problemas.
-                </p>
-                <p>
-                    Foram registradas algumas ocorrências pontuais, como atrasos em determinados trechos e pequenas
-                    variações nas condições da via, que foram rapidamente identificadas pelo sistema e encaminhadas para
-                    manutenção. Essas ações reduziram riscos operacionais e evitaram falhas mais graves.
-                </p>
-                <p>
-                    Os dados coletados também indicam uma boa eficiência no fluxo ferroviário, com otimização no tempo
-                    de
-                    viagem e redução de paradas não programadas. A utilização de tecnologia de monitoramento demonstrou
-                    ser
-                    essencial para aumentar a segurança e a confiabilidade do sistema.
-                </p>
-                <p>
-                    Conclui-se que o sistema de sensores e monitoramento tem desempenhado um papel fundamental na
-                    melhoria da operação ferroviária, permitindo maior controle, agilidade na tomada de decisões e prevenção de
-                    incidentes.
-                </p>
+                <h1>Escrever Relatório</h1>
+
+    <?php if (!empty($erro)): ?>
+        <div class="erro"><?= $erro; ?></div>
+    <?php endif; ?>
+
+    <!-- Formulário para envio -->
+    <form method="POST" action="">
+        <div>
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome...">
+        </div>
+        <div>
+            <label for="texto">Relatório / Comentário:</label>
+            <textarea id="texto" name="texto" required placeholder="Escreva seu relatório aqui..."></textarea>
+        </div>
+        <button type="submit">Enviar Relatório</button>
+    </form>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <h2>Relatórios Salvos</h2>
+
+    <!-- Lista de Relatórios -->
+                <div class="lista-comentarios">
+                    <?php if (empty($relatorios)): ?>
+                        <p class="sem-relatorios">Nenhum relatório cadastrado ainda. Seja o primeiro a escrever!</p>
+                    <?php else: ?>
+                        <?php foreach ($relatorios as $r): ?>
+                            <div class="comentario">
+                                <div class="comentario-header">
+                                    <strong><?= $r['nome']; ?></strong>
+                                    <span><?= $r['data']; ?></span>
+                                </div>
+                                <div class="comentario-texto"><?= $r['texto']; ?></div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </main>
 
     <footer>
 
-    </footer>
-    <script src="../scripts/home.js"></script>
+    </footer
 </body>
 
 </html>
