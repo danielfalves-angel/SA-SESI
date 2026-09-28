@@ -131,8 +131,8 @@
 
                     <div>
                         <div class="caixinha2">
-                            <h1 class="text-cadastro">Tabela de cadastros</h1>
-                            <div class="botao_tabela"><a href="tabela.php"><button onclick="telaTabela()" class="ponteiro">></button></a></div>
+                            <h1 class="text-cadastro">Tabela de Usuarios cadastros</h1>
+                            <div class="botao_tabela"><a href="usuarios_cadastrados.php"><button onclick="telaTabela()" class="ponteiro">></button></a></div>
                         </div>
 
                     </div>
