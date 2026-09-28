@@ -77,15 +77,15 @@ if (!isset($conn) || $conn === null) {
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-$sql = "SELECT * FROM animais WHERE id = ?";
+$sql = "SELECT * FROM sensores WHERE id = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
-$resultadoAnimal = mysqli_stmt_get_result($stmt);
-$animal = mysqli_fetch_assoc($resultadoAnimal);
+$resultadoSensor = mysqli_stmt_get_result($stmt);
+$sensor = mysqli_fetch_assoc($resultadoSensor);
 
-if (!$animal) {
-    die('Animal não encontrado.');
+if (!$sensor) {
+    die('Sensor não encontrado.');
 }
 
 $sql = "SELECT * FROM usuarios";
@@ -97,22 +97,21 @@ if ($resultado === false) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome']);
-    $especie = trim($_POST['especie']);
-    $raca = trim($_POST['raca']);
-    $porte = trim($_POST['porte']);
-    $idade = (int) $_POST['idade'];
+    $localizacao = trim($_POST['localizacao']);
+    $tipo = trim($_POST['tipo']);
+    $status = trim($_POST['status']);
     $usuario_id = (int) $_POST['usuario'];
 
-    $sql = "UPDATE animais SET nome = ?, especie = ?, raca = ?, porte = ?, idade = ?, id_usuario = ? WHERE id = ?";
+    $sql = "UPDATE sensores SET nome = ?, localizacao = ?, tipo = ?, status = ?, id_usuario = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'ssssiii', $nome, $especie, $raca, $porte, $idade, $usuario_id, $id);
+    mysqli_stmt_bind_param($stmt, 'ssssiii', $nome, $localizacao, $tipo, $status, $usuario_id, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Animal atualizado com sucesso!";
+        echo "Sensor atualizado com sucesso!";
         echo "<br><a href='../index.php'>Voltar</a>";
         exit();
     } else {
-        echo "Erro ao atualizar animal: " . mysqli_error($conn);
+        echo "Erro ao atualizar sensor: " . mysqli_error($conn);
     }
 }
 
@@ -124,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Animal</title>
+    <title>Editar Sensor</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
@@ -132,15 +131,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST">
 
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($animal['nome']); ?>" required>
-        <label for="rota">Rota:</label>
-        <input type="text" name="rota" id="rota" value="<?php echo htmlspecialchars($animal['rota']); ?>" required>
-        <label for="unidade">Unidade:</label>
-        <input type="text" name="unidade" id="unidade" value="<?php echo htmlspecialchars($animal['unidade']); ?>" required>
-        <label for="valor">Valor:</label>
-        <input type="text" name="valor" id="valor" value="<?php echo htmlspecialchars($animal['valor']); ?>" required>
+        <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
+        <label for="localizacao">Localização:</label>
+        <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
+        <label for="tipo">Tipo:</label>
+        <input type="text" name="tipo" id="tipo" value="<?php echo htmlspecialchars($sensor['tipo']); ?>" required>
         <label for="status">Status:</label>
-        <input type="number" name="status" id="status" value="<?php echo htmlspecialchars($animal['status']); ?>" required>
+        <input type="number" name="status" id="status" value="<?php echo htmlspecialchars($sensor['status']); ?>" required>
         
             <?php
             while ($row = mysqli_fetch_assoc($resultado)) {
