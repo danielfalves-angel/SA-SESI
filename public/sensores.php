@@ -76,9 +76,8 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
             </tbody>
         </table>
         
-              <a href="cadastro_sensores.php"><button onclick="telaCadastro()">Cadastro de Sensores</button></a>
-      <a href="editar_sensores.php"><button onclick="telaEditar()">Editar Sensores</button></a>
-      <a href="excluir_sensor.php"><button onclick="telaExcluir()">Excluir Sensores</button></a>
+              <a href="cadastro_sensores.php"><button onclick="telaCadastro()">Cadastrar Sensores</button></a>
+
     </main>
 
 </div>
