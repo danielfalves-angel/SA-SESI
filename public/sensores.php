@@ -67,7 +67,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                         echo "<td>{$sensor['id']}</td>";
                         echo "<td>
                                 <a href='editar_sensores.php?id={$sensor['id']}'>Editar</a> |
-                                <a href='excluir_sensores.php?id={$sensor['id']}'>Excluir</a>
+                                <a href='excluir_sensores.php?id={$sensor['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
                               </td>";
                         echo "</tr>";
                     }
@@ -83,9 +83,4 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
 </div>
 </body>
 
-    </div>
-  </div>
-  </div>
-  <script src="../scripts/home.js"></script>
-</body>
 </html>
