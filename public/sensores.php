@@ -22,13 +22,13 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
    <header><?php include '../scripts/navbar.php'; ?></header>
 
 <body>
-    <div class="">
+    <div class="corpo">
 
     <main>
         <h1>Gerenciador de Sensores</h1>
 
 
-        <button><a href="public/cadastrar_sensor.php"> Novo Sensor</a></button>
+        <button><a href="public/cadastrar_sensores.php"> Novo Sensor</a></button>
         <br>
         <br>
         <form method="POST">
@@ -37,6 +37,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
            
         </form>
         <div class="table_sensores">
+            <div class="table_sensores_centro">
         <table>
             <thead>
                 <tr>
@@ -52,19 +53,21 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
             <tbody>
                 <tr>
                     </div>
+                    </div>
+                    
                     <?php
 
                     while ($sensor = mysqli_fetch_assoc($resultado)) {
                         echo "<tr>";
                         echo "<td>{$sensor['nome']}</td>";
                         echo "<td>{$sensor['rota']}</td>";
-                        echo "<td>{$sensor['unidade']}</td>";
+                        echo "<td>{$sensor['unidade_de_medida']}</td>";
                         echo "<td>{$sensor['valor']}</td>";
                         echo "<td>{$sensor['status']}</td>";
-                        echo "<td>{$sensor['id_sensor']}</td>";
+                        echo "<td>{$sensor['id']}</td>";
                         echo "<td>
-                                <a href='public/editar_sensor.php?id={$sensor['id']}'>Editar</a> |
-                                <a href='public/excluir_sensor.php?id={$sensor['id']}'>Excluir</a>
+                                <a href='editar_sensores.php?id={$sensor['id']}'>Editar</a> |
+                                <a href='excluir_sensores.php?id={$sensor['id']}'>Excluir</a>
                               </td>";
                         echo "</tr>";
                     }
@@ -72,6 +75,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                 </tr>
             </tbody>
         </table>
+        
               <a href="cadastro_sensores.php"><button onclick="telaCadastro()">Cadastro de Sensores</button></a>
       <a href="editar_sensores.php"><button onclick="telaEditar()">Editar Sensores</button></a>
       <a href="excluir_sensor.php"><button onclick="telaExcluir()">Excluir Sensores</button></a>
