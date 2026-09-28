@@ -30,7 +30,7 @@
 
     <div class="caixa_tabela">
 
-      <h1>Tabela de cadastros</h1>
+      <h1>Tabela de Usuarios cadastros</h1>
       <table class="table">
         <thead>
           <tr>
