@@ -52,10 +52,24 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Sensores</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-<body>
+
+<header><?php include '../scripts/navbar.php'; ?></header>
+
+
+<body class="body3">
+  
+<div class="corpo2">
+  
+  <div class="titulo-sensor">
+    <i class="bi bi-broadcast-pin"></i>
+    <span>Informações do Sensor</span>
+</div>
+
     <form method="POST">
+
         <label for="nome">Nome do Sensor:</label>
         <input type="text" name="nome" id="nome" required>
         <br>
@@ -88,6 +102,8 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
         <button type="submit">Cadastrar Sensor</button>
     </form>
     <button type="button" onclick="window.location.href='../index.php'">Voltar</button>
+</div>
+
 </body>
 
 </html>
