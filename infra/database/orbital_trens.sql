@@ -27,8 +27,8 @@ create table sensor (
     foreign key (id_usuario) references usuarios(id)
 );
 
-insert into usuarios (nome, email, senha) values
-('Arthur', 'arthur@email.com', '123456'),
-('Rafael', 'rafael@email.com', '654321'),
-('Daniel', 'daniel@email.com', '654321'),
-('Ignacio', 'ignacio@email.com', '987654');
+insert into usuarios (nome, email, telefone, senha, cargo, status) values
+('Arthur', 'arthur@email.com', '1234567890', '123456', 'administrador', 'ativo'),
+('Rafael', 'rafael@email.com', '0987654321', '654321', 'administrador', 'ativo'),
+('Daniel', 'daniel@email.com', '1111111111', '654321', 'administrador', 'ativo'),
+('Ignacio', 'ignacio@email.com', '2222222222', '987654', 'usuario', 'ativo');
