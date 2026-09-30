@@ -435,6 +435,11 @@ td:hover {
   cursor: pointer;
 }
 
+.corpo{
+  justify-content: center;
+  text-align: center;
+}
+
 
 
 /*CADASTRO DE SENSORES*/
@@ -505,6 +510,15 @@ justify-content: center;
   text-align: center;
 }
 
+
+.table_usuarios{
+display: flex;
+justify-content: center; 
+}
+
+.table_usuarios_centro{
+  text-align: center;
+}
 
 
 

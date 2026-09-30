@@ -39,6 +39,16 @@
             </div>
 
             <div class="text-icon">
+                    <a href="usuarios_cadastrados.php">
+                        <button class="botao">
+                            <span class="icon"><i class="bi bi-person"></i></span>
+                            <span class="text">Usuários</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-icon">
                 <a href="trem.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
