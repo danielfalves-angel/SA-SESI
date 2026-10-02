@@ -42,7 +42,7 @@
                     <a href="usuarios_cadastrados.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-person"></i></span>
-                            <span class="text">Funcionários</span>
+                            <span class="text">Usuários</span>
                         </button>
                     </a>
                 </div>
@@ -52,7 +52,7 @@
                     <a href="usuarios_cadastrados.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-person"></i></span>
-                            <span class="text">Administradores</span>
+                            <span class="text">ADMs</span>
                         </button>
                     </a>
                 </div>
