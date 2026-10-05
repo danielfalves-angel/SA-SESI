@@ -1,31 +1,34 @@
 <?php
-session_start();
-require_once 'conect.php';
 
-// Se já estiver logado, vai direto para a Home
-if (isset($_SESSION['usuario_logado'])) {
-    header("Location: public/home.php");
+if (!isset($_SESSION['usuario'])) {
+    header('Location: index.php');
     exit();
 }
 
-$erro = "";
+
+if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != 'adm') {
+    header('Location: ../public/home.php');
+    exit();
+}
+
+require_once '../infra/connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-    $resultado = mysqli_query($conn, $sql);
-
-    if ($usuario = mysqli_fetch_assoc($resultado)) {
-        $_SESSION['usuario_logado'] = $usuario['email'];
-        header("Location: public/home.php");
-        exit();
+    $sql = "INSERT INTO usuarios(email, senha, cargo) VALUES ('$email', '$senha', 'comum')";
+    $conn->query($sql);
+    if ($conn->affected_rows > 0) {
+        echo "Usuário cadastrado com sucesso!";
     } else {
-        $erro = "E-mail ou senha incorretos!";
+        echo "Erro ao cadastrar usuário: " . $conn->error;
     }
+    header('Location: ../public/adm.php');
+    exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
