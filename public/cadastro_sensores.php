@@ -101,7 +101,7 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
     
         <button type="submit">Cadastrar Sensor</button>
     </form>
-    <button type="button" onclick="window.location.href='../index.php'">Voltar</button>
+    <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
 </div>
 
 </body>
