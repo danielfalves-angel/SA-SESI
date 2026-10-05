@@ -48,6 +48,9 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
 <html lang="en">
 
 <head>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Sensores</title>
@@ -60,50 +63,63 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
 
 
 <body class="body3">
-  
-<div class="corpo2">
-  
-  <div class="titulo-sensor">
-    <i class="bi bi-broadcast-pin"></i>
-    <span>Informações do Sensor</span>
-</div>
 
-    <form method="POST">
+    <div class="titulo3">
+        <i class="bi bi-broadcast"></i>
+        <span>Cadastro de Sensor</span>
+    </div>
 
-        <label for="nome">Nome do Sensor:</label>
-        <input type="text" name="nome" id="nome" required>
-        <br>
-        <label for="rota">Rota:</label>
-        <input type="text" name="rota" id="rota" required>
-        <br>
+    <div class="container-central">
+        <div class="corpo2">
+            <div class="titulo-sensor">
+                <i class="bi bi-broadcast-pin"></i>
+                <span>Informações do Sensor</span>
+            </div>
 
-         <label for="unidade_de_medida">Unidade de medida: </label>
-            <select name="unidade_de_medida" id="unidade_de_medida">
-                <option value=""> Selecione</option>
-                <option value="celcius">celcius</option>
-                <option value="km/h">km/h</option>
-                <option value="kg">kg</option>
-            </select>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome do Sensor:</label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
 
-            <br>
+                <div class="form-group">
+                    <label for="rota">Rota:</label>
+                    <input type="text" name="rota" id="rota" required>
+                </div>
 
-        <label for="valor">Valor:</label>
-        <input type="number" name="valor" id="valor" required>
-        <br>
-    
-        <label for="status">Status: </label>
-            <select name="status" id="status">
-                <option value=""> Selecione</option>
-                <option value="funcionando">funcionando</option>
-                <option value="defeituoso">defeituoso</option>
-            </select>
-            <br>
-    
-        <button type="submit">Cadastrar Sensor</button>
-    </form>
-    <button type="button" onclick="window.location.href='../index.php'">Voltar</button>
-</div>
+                <div class="form-group">
+                    <div class="">
+                        <label for="unidade_de_medida">Unidade de medida:</label>
+                    </div>
+                    <select name="unidade_de_medida" id="unidade_de_medida" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="celcius">celcius</option>
+                        <option value="km/h">km/h</option>
+                        <option value="kg">kg</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" step="any" name="valor" id="valor" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select name="status" id="status" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="funcionando">funcionando</option>
+                        <option value="defeituoso">defeituoso</option>
+                    </select>
+                </div>
+
+                <div class="botoes-container">
+                    <button type="button" class="btn-voltar" onclick="window.location.href='../index.php'">Voltar</button>
+                    <button type="submit" class="btn-cadastrar">Cadastrar Sensor</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </body>
-
 </html>
