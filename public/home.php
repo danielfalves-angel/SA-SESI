@@ -4,6 +4,17 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: index.php');
     exit();
 }
+        require_once 'connect.php';
+        $sql = "SELECT email, cargo FROM usuarios WHERE email = '{$_SESSION['usuario']}'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row['email'] . "</td><td>" . $row['cargo'] . "</td></tr>";
+            }
+        } else {
+            echo "<tr><td colspan='2'>Nenhum usuário encontrado</td></tr>";
+        }
+
 ?>
 
 <html lang="en">
