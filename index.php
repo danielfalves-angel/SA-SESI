@@ -39,8 +39,6 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
                     <div class="d-botao">
                         <button class="btn btn-primary" class="botao" type="submit">
                             <h6 class="submit">Enviar</h6>              
-                            <?php  select * from usuarios
-                            WHERE email = '$admemail' AND senha = '$admsenha' status = '$status'?>
                         </button>
                     </div>
                     <div id="resultado"></div>
