@@ -1,6 +1,17 @@
 <?php
 include "infra/connect.php";
 $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
+
+session_start();
+if(isset($_SESSION['usuarios'])) {
+    if($_SESSION['cargo'] == 'adm') {
+        header('Location: public/adm.php');
+    } else {
+        header('Location: public/home.php');
+    }
+    exit();
+
+}
 ?>
 
 <html lang="en">
