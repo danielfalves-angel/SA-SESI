@@ -1,20 +1,10 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit();
 }
-        require_once 'connect.php';
-        $sql = "SELECT email, cargo FROM usuarios WHERE email = '{$_SESSION['usuario']}'";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row['email'] . "</td><td>" . $row['cargo'] . "</td></tr>";
-            }
-        } else {
-            echo "<tr><td colspan='2'>Nenhum usuário encontrado</td></tr>";
-        }
-
 ?>
 
 <html lang="en">
@@ -35,14 +25,10 @@ if (!isset($_SESSION['usuario'])) {
 <body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
 
 
-    <header><?php include '../scripts/navbar.php'; ?></header>
 
 
     <main>
-
         <div class="flex">
-
-
 
             <div class="caixa">
 
@@ -174,18 +160,6 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
 
 
@@ -193,9 +167,12 @@ if (!isset($_SESSION['usuario'])) {
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
-    <script src="../scripts/home.js"></script>
+    <script src="../scripts/home.php"></script>
     <script src="../scripts/grafico_barra.js"></script>
     <script src="../scripts/grafico_circulo.js"></script>
+    <header><?php include '../scripts/navbar.php';
+            exit(); ?></header>
+
 </body>
 
 </html>

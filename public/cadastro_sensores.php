@@ -48,6 +48,9 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
 <html lang="en">
 
 <head>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Sensores</title>
@@ -60,22 +63,18 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
 
 
 <body class="body3">
-  
-<div class="corpo2">
-  
-  <div class="titulo-sensor">
-    <i class="bi bi-broadcast-pin"></i>
-    <span>Informações do Sensor</span>
-</div>
 
-    <form method="POST">
+    <div class="titulo3">
+        <i class="bi bi-broadcast"></i>
+        <span>Cadastro de Sensor</span>
+    </div>
 
-        <label for="nome">Nome do Sensor:</label>
-        <input type="text" name="nome" id="nome" required>
-        <br>
-        <label for="rota">Rota:</label>
-        <input type="text" name="rota" id="rota" required>
-        <br>
+    <div class="container-central">
+        <div class="corpo2">
+            <div class="titulo-sensor">
+                <i class="bi bi-broadcast-pin"></i>
+                <span>Informações do Sensor</span>
+            </div>
 
          <label for="unidade_de_medida">Unidade de medida: </label>
             <select name="unidade_de_medida" id="unidade_de_medida" required>
@@ -85,7 +84,10 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
                 <option value="kg">kg</option>
             </select>
 
-            <br>
+                <div class="form-group">
+                    <label for="rota">Rota:</label>
+                    <input type="text" name="rota" id="rota" required>
+                </div>
 
         <label for="valor">Valor:</label>
         <input type="number" name="valor" id="valor" required>
@@ -105,5 +107,4 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
 </div>
 
 </body>
-
 </html>

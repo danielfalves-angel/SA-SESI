@@ -2,16 +2,7 @@
 include "infra/connect.php";
 $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
 
-session_start();
-if(isset($_SESSION['usuarios'])) {
-    if($_SESSION['cargo'] == 'adm') {
-        header('Location: public/adm.php');
-    } else {
-        header('Location: public/home.php');
-    }
-    exit();
 
-}
 ?>
 
 <html lang="en">
@@ -38,14 +29,15 @@ if(isset($_SESSION['usuarios'])) {
         <div class="col">
             <div class="formLogin">
                 <h1 id="titulo">Login</h1>
-                <form id="formLogin" action="public/home.php" method="POST">
+
+                <form id="formLogin" action="scripts/login.php" method="POST">
                     <div class="C-email">
                         <label class="email" for="email">Email: </label>
-                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
                     </div>
                     <div class="C-senha">
                         <label class="senha" for="senha">Senha: </label>
-                        <input type="password" id="senha" placeholder="Senha" required>
+                        <input type="password" name="senha" id="senha" placeholder="Senha" required>
                     </div>
                     <div class="d-botao">
                         <button class="btn btn-primary" class="botao" type="submit">
@@ -54,6 +46,7 @@ if(isset($_SESSION['usuarios'])) {
                     </div>
                     <div id="resultado"></div>
                 </form>
+
                 <div>
                     <h2 id="mensagem"></h2>
                     <div class="toggle" id="toggle">
@@ -72,7 +65,6 @@ if(isset($_SESSION['usuarios'])) {
 
 
 
-    <script src="scripts/login.php"></script>
 </body>
 
 

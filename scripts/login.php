@@ -1,47 +1,25 @@
 <?php
-let cadastro = false;
+session_start();
+include('../infra/connect.php');
 
-document.getElementById("toggle").onclick = () => {
-    cadastro = !cadastro;
-    document.getElementById("titulo").innerText = cadastro ? "Cadastro" : "Login";
-    document.querySelector("button").innerText = cadastro ? "Cadastrar" : "Entrar";
-    document.getElementById("toggle").innerText = cadastro
-        ? "Já tem conta? Faça Login!"
-        : "Não tem conta? Cadastre-se!";
-    document.getElementById("mensagem").innerText = "";
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-document.getElementById("formLogin").onsubmit = (e) => {
-    e.preventDefault();
+    $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+    $result = $conn->query($query);
 
-    let email = document.getElementById("email").value;
-    let senha = document.getElementById("senha").value;
-    let mensagem = document.getElementById("mensagem");
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+        $_SESSION['usuario'] = $usuario['email'];
+        $_SESSION['tipo'] = $usuario['cargo'];
 
-    mensagem.innerHTML = "";
-
-    if (!email.includes("@") || !email.includes(".")) {
-        mensagem.innerHTML = "<div class='erro'><p> Email Inválido!</p></div>";
-        return;
-    }
-
-    if (senha.length < 4) {
-        mensagem.innerHTML = "<div class='erro'><p> Senha muito curta!</p></div>";
-        return;
-    }
-
-    if (cadastro) {
-        localStorage.setItem(email, senha);
-        mensagem.innerHTML = "<div class='sucesso'><p> Cadastrado com sucesso!</p></div>";
+        
+        header('Location: ../public/home.php');
+        
+        exit();
     } else {
-        let salva = localStorage.getItem(email);
-        if (salva === senha) {
-            mensagem.innerHTML = "<div class='sucesso'><p>Login com sucesso!</p></div>";
-            window.location.href = "public/home.php";
-        } else {
-            mensagem.innerHTML = "<div class='erro'><p>Dados Incorretos!</p></div>";
-        }
+        echo "Email ou senha incorretos.";
     }
-    document.getElementById("formLogin").reset();
-    document.getElementById("resultado").innerHTML = "Cadastro realizado com sucesso!<br>" + "Nome: " + nome;
-};
+}
+?>
