@@ -78,7 +78,7 @@ $usuario_id = $_SESSION['id_usuario'] ?? null;
         <br>
 
          <label for="unidade_de_medida">Unidade de medida: </label>
-            <select name="unidade_de_medida" id="unidade_de_medida">
+            <select name="unidade_de_medida" id="unidade_de_medida" required>
                 <option value=""> Selecione</option>
                 <option value="celcius">celcius</option>
                 <option value="km/h">km/h</option>
