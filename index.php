@@ -1,6 +1,17 @@
 <?php
 include "infra/connect.php";
 $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
+
+session_start();
+if(isset($_SESSION['usuarios'])) {
+    if($_SESSION['cargo'] == 'adm') {
+        header('Location: public/adm.php');
+    } else {
+        header('Location: public/home.php');
+    }
+    exit();
+
+}
 ?>
 
 <html lang="en">
@@ -39,7 +50,6 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
                     <div class="d-botao">
                         <button class="btn btn-primary" class="botao" type="submit">
                             <h6 class="submit">Enviar</h6>              
-                            
                         </button>
                     </div>
                     <div id="resultado"></div>
