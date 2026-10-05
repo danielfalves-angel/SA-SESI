@@ -57,17 +57,17 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios");
                     
                     <?php
 
-                    while ($sensor = mysqli_fetch_assoc($resultado)) {
+                    while ($usuario = mysqli_fetch_assoc($resultado)) {
                         echo "<tr>";
-                        echo "<td>{$sensor['nome']}</td>";
-                        echo "<td>{$sensor['email']}</td>";
-                        echo "<td>{$sensor['telefone']}</td>";
-                        echo "<td>{$sensor['cargo']}</td>";
-                        echo "<td>{$sensor['status']}</td>";
-                        echo "<td>{$sensor['id']}</td>";
+                        echo "<td>{$usuario['nome']}</td>";
+                        echo "<td>{$usuario['email']}</td>";
+                        echo "<td>{$usuario['telefone']}</td>";
+                        echo "<td>{$usuario['cargo']}</td>";
+                        echo "<td>{$usuario['status']}</td>";
+                        echo "<td>{$usuario['id']}</td>";
                         echo "<td>
-                                <a href='editar_usuarios.php?id={$sensor['id']}'>Editar</a> |
-                                <a href='excluir_usuarios.php?id={$sensor['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
+                                <a href='editar_usuarios.php?id={$usuario['id']}'>Editar</a> |
+                                <a href='excluir_usuarios.php?id={$usuario['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
                               </td>";
                         echo "</tr>";
                     }
@@ -76,7 +76,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios");
             </tbody>
         </table>
         
-              <a href="cadastro_usuarios.php"><button onclick="telaCadastro()">Cadastrar Usuários</button></a>
+              <a href="cadastro_usuarios.php"><button">Cadastrar Usuários</button></a>
 
     </main>
 
