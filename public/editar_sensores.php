@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Sensor atualizado com sucesso!";
-        echo "<br><a href='../index.php'>Voltar</a>";
+        echo "<br><a href='sensores.php'>Voltar</a>";
         exit();
     } else {
         echo "Erro ao atualizar sensor: " . mysqli_error($conn);
@@ -58,20 +58,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
-<body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
-    
 <header><?php include '../scripts/navbar.php'; ?></header>
+
+<body class="body3" class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
+<div class="corpo2">
+
 
     <form method="POST">
 
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
+        <br>
         <label for="localizacao">Localização:</label>
         <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
+        <br>
         <label for="tipo">Tipo:</label>
         <input type="text" name="tipo" id="tipo" value="<?php echo htmlspecialchars($sensor['tipo']); ?>" required>
         <label for="status">Status:</label>
         <input type="number" name="status" id="status" value="<?php echo htmlspecialchars($sensor['status']); ?>" required>
+        <br>
         
             <?php
             while ($row = mysqli_fetch_assoc($resultado)) {
@@ -82,8 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </select>
         <button type="submit">Atualizar Sensor</button>
     </form>
-    <button type="button" onclick="window.location.href='../index.php'">Voltar</button>
-
+    <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
+</div>
 </body>
 
 </html>
