@@ -1,12 +1,14 @@
 :root {
-  --cor-fundo: #f5f5f5;
+  --cor-fundo: #031520;
   --cor-fundo-2: #9D9D9D;
   --cor-fundo-3: #a1a1a1;
   --cor-texto: #000000;
   --cor-erro: #ff0000;
   --cor-sucesso: #00ff4c;
-  --cor-navbar1: #1b1b1b;
-  --cor-navbar2: #494949;
+  
+
+  --cor-navbar1: #104744; 
+  --cor-navbar2: #051622; 
   --cor-caixa_sensores: #c7c7c7;
 }
 
@@ -195,32 +197,45 @@ background-image: url('../assets/img/background.png');
 /*   Arthur    */
 
 .navbar-principal {
-  text-align: center;
-  background-color: var(--cor-navbar1);
+  display: flex;
+  align-items: center;      
+  justify-content: flex-start; /* Alinha o conteúdo totalmente à esquerda */
+  background: linear-gradient(to top, var(--cor-navbar1), var(--cor-navbar2));
   width: 100%;
-  height: 8.8%;
+  height: 6%;
   position: fixed;
   top: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 11;
+  box-sizing: border-box;
 }
 
 .menu-lateral {
   width: 48px;
   height: 100%;
-  background-color: var(--cor-navbar2);
+  /* Gradiente acompanhando a mesma direção e cores */
+  background: linear-gradient(to bottom, var(--cor-navbar1), var(--cor-navbar2));
   padding: 8px;
-  box-shadow: 2.4px 0 0 rgb(24, 24, 73);
   overflow: hidden;
   position: fixed;
   top: 8.8%;
   left: 0;
   transition: .2s;
   z-index: 10;
+  flex-direction: column;
 }
 
 .menu-lateral:hover {
   width: 240px;
   transition: .2s;
   z-index: 10;
+}
+
+.logo-container {
+  background: var(--cor-navbar1);
+  border-right: 2px solid #fff;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); 
+  height: 15vh;
 }
 
 .text-icon {
@@ -270,7 +285,7 @@ background-image: url('../assets/img/background.png');
 
 .logo {
   margin-top: -0.3%;
-  height: 110%;
+  height: 100%;
 }
 
 .flexbox {
@@ -783,7 +798,7 @@ a {
   box-sizing: border-box;
   transition: border-color 0.2s, background-color 0.2s;
 }
-}
+
 
 .form-group input:focus,
 .form-group select:focus {
