@@ -23,7 +23,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 
-    <title>Trens</title>
+    <title>Sensores</title>
 </head>
    
 
@@ -32,7 +32,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
     <div class="corpo">
 
     <main>
-        <h1>Gerenciador de Trens</h1>
+        <h1>Gerenciador de Sensores</h1>
 
 
     
@@ -50,12 +50,10 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                 <tr>
                     <th>Nome</th>
                     <th>rota</th>
-                    <th>Velocidade</th>
-                    <th>Peso</th>
-                    <th>Temperatura</th>
-                    <th>Tempo</th>
+                    <th>unidade</th>
+                    <th>Valor</th>
                     <th>Status</th>
-                    <th>ID do Trem</th>
+                    <th>ID do Sensor</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -66,19 +64,17 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                     
                     <?php
 
-                    while ($trem = mysqli_fetch_assoc($resultado)) {
+                    while ($sensor = mysqli_fetch_assoc($resultado)) {
                         echo "<tr>";
-                        echo "<td>{$trem['nome']}</td>";
-                        echo "<td>{$trem['rota']}</td>";
-                        echo "<td>{$trem['velocidade']}</td>";
-                        echo "<td>{$trem['peso']}</td>";
-                        echo "<td>{$trem['temperatura']}</td>";
-                        echo "<td>{$trem['tempo']}</td>";
-                        echo "<td>{$trem['status']}</td>";
-                        echo "<td>{$trem['id']}</td>";
+                        echo "<td>{$sensor['nome']}</td>";
+                        echo "<td>{$sensor['rota']}</td>";
+                        echo "<td>{$sensor['unidade_de_medida']}</td>";
+                        echo "<td>{$sensor['valor']}</td>";
+                        echo "<td>{$sensor['status']}</td>";
+                        echo "<td>{$sensor['id']}</td>";
                         echo "<td>
-                                <a href='editar_trens.php?id={$trem['id']}'>Editar</a> |
-                                <a href='excluir_trens.php?id={$trem['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
+                                <a href='editar_sensores.php?id={$sensor['id']}'>Editar</a> |
+                                <a href='excluir_sensores.php?id={$sensor['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
                               </td>";
                         echo "</tr>";
                     }
@@ -87,7 +83,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
             </tbody>
         </table>
         
-              <a href="cadastro_trens.php"><button onclick="telaCadastro()">Cadastrar Trens</button></a>
+              <a href="cadastro_trens.php"><button>Cadastrar Trens</button></a>
     <br><br>
     <a href="../home.php"><button>Voltar</button></a>
     </main>

@@ -67,7 +67,7 @@ $id = $_SESSION['id'] ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Sensores</title>
-    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="<?= $base_url ?>assets/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -107,23 +107,24 @@ $id = $_SESSION['id'] ?? null;
                     <input type="text" name="rota" id="rota" required>
                 </div>
 
-        <label for="valor">Valor:</label>
-        <input type="number" name="valor" id="valor" required>
-        <br>
-    
-        <label for="status">Status: </label>
-            <select name="status" id="status">
-                <option value=""> Selecione</option>
-                <option value="funcionando">funcionando</option>
-                <option value="defeituoso">defeituoso</option>
-            </select>
-            <br>
-    
-        <button type="submit">Cadastrar Sensor</button>
-    </form>
-    <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
-</div>
+                <label for="valor">Valor:</label>
+                <input type="number" name="valor" id="valor" required>
+                <br>
 
-<header><?php include '../../scripts/navbar.php'; ?></header>
+                <label for="status">Status: </label>
+                <select name="status" id="status">
+                    <option value=""> Selecione</option>
+                    <option value="funcionando">funcionando</option>
+                    <option value="defeituoso">defeituoso</option>
+                </select>
+                <br>
+            
+                <button type="submit">Cadastrar Sensor</button>
+            </form>
+        </div>
+        <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
+    </div>
+
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 </html>

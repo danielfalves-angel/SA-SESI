@@ -65,7 +65,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="<?= $base_url ?>trem.php">
+                <a href="<?= $base_url ?>trens/trens.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
@@ -127,7 +127,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="<?= $base_url ?>trem.php">
+                <a href="<?= $base_url ?>trens/trens.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>

@@ -6,15 +6,15 @@ if (!isset($conn) || $conn === null) {
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-$sql = "SELECT * FROM sensor WHERE id = ?";
+$sql = "SELECT * FROM trem WHERE id = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
-$resultadoSensor = mysqli_stmt_get_result($stmt);
-$sensor = mysqli_fetch_assoc($resultadoSensor);
+$resultadotrem = mysqli_stmt_get_result($stmt);
+$trem = mysqli_fetch_assoc($resultadotrem);
 
-if (!$sensor) {
-    die('Sensor não encontrado.');
+if (!$trem) {
+    die('trem não encontrado.');
 }
 
 $sql = "SELECT * FROM usuarios";
@@ -31,16 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = trim($_POST['status']);
     $usuario_id = (int) $_POST['usuario'];
 
-    $sql = "UPDATE sensor SET nome = ?, localizacao = ?, tipo = ?, status = ?, id_usuario = ? WHERE id = ?";
+    $sql = "UPDATE trem SET nome = ?, localizacao = ?, tipo = ?, status = ?, id_usuario = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, 'ssssiii', $nome, $localizacao, $tipo, $status, $usuario_id, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Sensor atualizado com sucesso!";
-        echo "<br><a href='sensores.php'>Voltar</a>";
+        echo "trem atualizado com sucesso!";
+        echo "<br><a href='tremes.php'>Voltar</a>";
         exit();
     } else {
-        echo "Erro ao atualizar sensor: " . mysqli_error($conn);
+        echo "Erro ao atualizar trem: " . mysqli_error($conn);
     }
 }
 
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Trem</title>
+    <title>Editar trem</title>
     <link rel="stylesheet" href="../../styles/style.css">
 </head>
 
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             ?>
         </select>
-        <button type="submit">Atualizar Trem</button>
+        <button type="submit">Atualizar Tren</button>
     </form>
     <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
 </div>
