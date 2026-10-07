@@ -13,7 +13,7 @@ if (isset($_SESSION['usuario'])) {
         <nav class="menu-lateral">
             <div class="botoes">
                 <div class="text-icon">
-                    <a href="home.php">
+                    <a href="../public/home.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-house-fill"></i></span>
                             <span class="text">Home</span>
@@ -23,7 +23,7 @@ if (isset($_SESSION['usuario'])) {
                 </div>
 
                 <div class="text-icon">
-                    <a href="sensores.php">
+                    <a href="../public/sensores/sensores.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
                             <span class="text">Sensores</span>
@@ -32,8 +32,8 @@ if (isset($_SESSION['usuario'])) {
                 </div>
             </div>
 
-            <div class="text-icon">
-                <a href="usuarios_cadastrados.php">
+            <div class="text-icon"> 
+                <a href="../public/usuarios/usuarios.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-person"></i></span>
                         <span class="text">Usuários</span>
@@ -43,7 +43,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="usuarios_cadastrados.php">
+                <a href="../public/administradores/administradores.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-person"></i></span>
                         <span class="text">ADMs</span>
@@ -53,7 +53,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="trem.php">
+                <a href="../public/trem.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
@@ -63,7 +63,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="relatorios.php">
+                <a href="../public/relatorios.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
                         <span class="text">Relatórios</span>
@@ -95,16 +95,17 @@ if (isset($_SESSION['usuario'])) {
         <nav class="menu-lateral">
             <div class="botoes">
                 <div class="text-icon">
-                    <a href="home.php">
+                    <a href="../public/home.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-house-fill"></i></span>
                             <span class="text">Home</span>
+
                         </button>
                     </a>
                 </div>
 
                 <div class="text-icon">
-                    <a href="sensores.php">
+                    <a href="../public/sensores/sensores.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
                             <span class="text">Sensores</span>
@@ -114,7 +115,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="trem.php">
+                <a href="../public/trem.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
@@ -124,7 +125,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="relatorios.php">
+                <a href="../public/relatorios.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
                         <span class="text">Relatórios</span>
@@ -142,9 +143,7 @@ if (isset($_SESSION['usuario'])) {
 
             </div>
             </div>
-
         </nav>
-
 
 
 <?php
