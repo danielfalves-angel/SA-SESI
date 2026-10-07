@@ -41,7 +41,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
                     <th>Telefone</th>
                     <th>Ações</th>
                 </tr>
-                <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
+                <?php while ($usuario = mysqli_fetch_assoc($resultado)) { ?>
                     <tr>
                         <td><?php echo $usuario["id"] ?></td>
                         <td><?php echo $usuario["nome"] ?></td>
