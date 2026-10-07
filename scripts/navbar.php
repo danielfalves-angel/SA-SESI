@@ -1,10 +1,15 @@
 <?php
 
-session_start();
+// Captura o caminho atual da URL (ex: /nome_do_usuario/SA-SESI/public/sensores/sensores.php)
+$caminho_atual = $_SERVER['REQUEST_URI'];
 
-if (!isset($_SESSION['usuario'])) {
-    header('Location: ../index.php');
-    exit();
+// Pega a parte da URL até a pasta 'public/'
+if (strpos($caminho_atual, '/public/') !== false) {
+    // Isola o caminho desde a pasta do usuário até 'public/'
+    $base_url = explode('/public/', $caminho_atual)[0] . '/public/';
+} else {
+    // Fallback caso a pasta public não esteja na URL
+    $base_url = '/SA-SESI/public/';
 }
 
 if (isset($_SESSION['usuario'])) {
@@ -20,7 +25,7 @@ if (isset($_SESSION['usuario'])) {
         <nav class="menu-lateral">
             <div class="botoes">
                 <div class="text-icon">
-                    <a href="../public/home.php">
+                    <a href="<?= $base_url ?>home.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-house-fill"></i></span>
                             <span class="text">Home</span>
@@ -30,7 +35,7 @@ if (isset($_SESSION['usuario'])) {
                 </div>
 
                 <div class="text-icon">
-                    <a href="../public/sensores/sensores.php">
+                    <a href="<?= $base_url ?>sensores/sensores.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
                             <span class="text">Sensores</span>
@@ -40,7 +45,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon"> 
-                <a href="../public/usuarios/usuarios.php">
+                <a href="<?= $base_url ?>usuarios/usuarios.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-person"></i></span>
                         <span class="text">Usuários</span>
@@ -50,7 +55,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../public/administradores/administradores.php">
+                <a href="<?= $base_url ?>administradores/administradores.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-person"></i></span>
                         <span class="text">ADMs</span>
@@ -60,7 +65,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../public/trem.php">
+                <a href="<?= $base_url ?>trem.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
@@ -70,7 +75,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../public/relatorios.php">
+                <a href="<?= $base_url ?>relatorios.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
                         <span class="text">Relatórios</span>
@@ -79,7 +84,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../scripts/logout.php">
+                <a href="<?= $base_url ?>../scripts/logout.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="text">Sair</span>
@@ -102,7 +107,7 @@ if (isset($_SESSION['usuario'])) {
         <nav class="menu-lateral">
             <div class="botoes">
                 <div class="text-icon">
-                    <a href="../public/home.php">
+                    <a href="<?= $base_url ?>home.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-house-fill"></i></span>
                             <span class="text">Home</span>
@@ -112,7 +117,7 @@ if (isset($_SESSION['usuario'])) {
                 </div>
 
                 <div class="text-icon">
-                    <a href="../public/sensores/sensores.php">
+                    <a href="<?= $base_url ?>sensores/sensores.php">
                         <button class="botao">
                             <span class="icon"><i class="bi bi-broadcast-pin"></i></span>
                             <span class="text">Sensores</span>
@@ -122,7 +127,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../public/trem.php">
+                <a href="<?= $base_url ?>trem.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
@@ -132,7 +137,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../public/relatorios.php">
+                <a href="<?= $base_url ?>relatorios.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
                         <span class="text">Relatórios</span>
@@ -141,7 +146,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../scripts/logout.php">
+                <a href="<?= $base_url ?>logout.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="text">Sair</span>

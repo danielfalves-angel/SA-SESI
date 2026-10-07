@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-include '../infra/connect.php';
+include '../../infra/connect.php';
 
 $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'");
 

@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-include '../infra/connect.php';
+include '../../infra/connect.php';
 
 $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administrador'");
 
@@ -20,8 +20,8 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/styles/style.css">
-    <link rel="icon" type="image/png" href="../assets/img/logoIconSemFundo.png">
+    <link rel="stylesheet" href="../../assets/styles/style.css">
+    <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 
     <title>Usuários Cadastrados</title>
 </head>
@@ -89,7 +89,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
     
    
 </div>
-<header><?php include '../scripts/navbar.php'; ?></header>
+<header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>
