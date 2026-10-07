@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION["sessao"]=$value;
+echo $_SESSION["sessao"];
 
 if (!isset($_SESSION['usuario'])) {
     header('Location: index.php');
