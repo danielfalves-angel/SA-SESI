@@ -40,7 +40,7 @@ $id = $_SESSION['id'] ?? null;
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Sensor cadastrado com sucesso.");</script>';
-        echo '<script>window.location.href = "../public/sensores.php";</script>';
+        echo '<script>window.location.href = "../public/sensores.plhp";</script>';
         exit();
     } else {
         echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
@@ -85,40 +85,41 @@ $id = $_SESSION['id'] ?? null;
             </div>
 
             <form method="POST">
-        <label for="nome">nome:</label>
-        <input type="number" name="nome" id="nome" required>
-        <br> 
-            
-         <label for="unidade_de_medida">Unidade de medida: </label>
-            <select name="unidade_de_medida" id="unidade_de_medida" required>
-                <option value=""> Selecione</option>
-                <option value="celcius">celcius</option>
-                <option value="km/h">km/h</option>
-                <option value="kg">kg</option>
-            </select>
+                <label for="nome">nome:</label>
+                <input type="number" name="nome" id="nome" required>
+                <br> 
+                    
+                <label for="unidade_de_medida">Unidade de medida: </label>
+                <select name="unidade_de_medida" id="unidade_de_medida" required>
+                    <option value=""> Selecione</option>
+                    <option value="celcius">celcius</option>
+                    <option value="km/h">km/h</option>
+                    <option value="kg">kg</option>
+                </select>
 
                 <div class="form-group">
                     <label for="rota">Rota:</label>
                     <input type="text" name="rota" id="rota" required>
                 </div>
 
-        <label for="valor">Valor:</label>
-        <input type="number" name="valor" id="valor" required>
-        <br>
-    
-        <label for="status">Status: </label>
-            <select name="status" id="status">
-                <option value=""> Selecione</option>
-                <option value="funcionando">funcionando</option>
-                <option value="defeituoso">defeituoso</option>
-            </select>
-            <br>
-    
-        <button type="submit">Cadastrar Sensor</button>
-    </form>
-    <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
-</div>
+                <label for="valor">Valor:</label>
+                <input type="number" name="valor" id="valor" required>
+                <br>
 
-<header><?php include '../../scripts/navbar.php'; ?></header>
+                <label for="status">Status: </label>
+                <select name="status" id="status">
+                    <option value=""> Selecione</option>
+                    <option value="funcionando">funcionando</option>
+                    <option value="defeituoso">defeituoso</option>
+                </select>
+                <br>
+            
+                <button type="submit">Cadastrar Sensor</button>
+            </form>
+        </div>
+        <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
+    </div>
+
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 </html>

@@ -33,7 +33,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon"> 
-                <a href="../public/usuarios/usuarios.php">
+                <a href="../public/usuarios/usuarios.php"> 
                     <button class="botao">
                         <span class="icon"><i class="bi bi-person"></i></span>
                         <span class="text">Usuários</span>
