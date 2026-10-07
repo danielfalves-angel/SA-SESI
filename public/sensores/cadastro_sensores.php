@@ -40,7 +40,7 @@ $id = $_SESSION['id'] ?? null;
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Sensor cadastrado com sucesso.");</script>';
-        echo '<script>window.location.href = "../public/sensores.php";</script>';
+        echo '<script>window.location.href = "sensores.php";</script>';
         exit();
     } else {
         echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
@@ -86,7 +86,7 @@ $id = $_SESSION['id'] ?? null;
 
             <form method="POST">
         <label for="nome">nome:</label>
-        <input type="number" name="nome" id="nome" required>
+        <input type="text" name="nome" id="nome" required>
         <br> 
             
          <label for="unidade_de_medida">Unidade de medida: </label>

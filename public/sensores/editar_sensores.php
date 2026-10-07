@@ -19,23 +19,17 @@ if (!$sensor) {
     die('Sensor não encontrado.');
 }
 
-$sql = "SELECT * FROM usuarios";
-$resultado = mysqli_query($conn, $sql);
-
-if ($resultado === false) {
-    die('Erro ao consultar usuários: ' . mysqli_error($conn));
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = trim($_POST['nome']);
-    $localizacao = trim($_POST['localizacao']);
-    $tipo = trim($_POST['tipo']);
-    $status = trim($_POST['status']);
-    $usuario_id = (int) $_POST['usuario'];
+    $nome = ($_POST['nome']);
+    $unidade = ($_POST['unidade_de_medida']);
+    $rota = ($_POST['rota']);
+    $valor = ($_POST['valor']);
+    $status = $_POST['status'];
 
-    $sql = "UPDATE sensor SET nome = ?, localizacao = ?, tipo = ?, status = ?, id_usuario = ? WHERE id = ?";
+    $sql = "UPDATE sensor SET nome = ?, unidade_de_medida = ?, rota = ?, valor = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'ssssiii', $nome, $localizacao, $tipo, $status, $usuario_id, $id);
+    mysqli_stmt_bind_param($stmt, 'ssidsi', $nome, $unidade, $rota, $valor, $status, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Sensor atualizado com sucesso!";
@@ -58,37 +52,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../../styles/style.css">
 </head>
 
-<header><?php include '../../scripts/navbar.php'; ?></header>
 
-<body class="body3" class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
-<div class="corpo2">
 
+<body class="body3">
+
+    <div class="titulo3">
+        <i class="bi bi-broadcast"></i>
+        <span>Cadastro de Sensor</span>
+    </div>
+
+    <div class="container-central">
+        <div class="corpo2">
+            <div class="titulo-sensor">
+                <i class="bi bi-broadcast-pin"></i>
+                <span>Informações do Sensor</span>
+            </div>
 
     <form method="POST">
-
-        <label for="nome">Nome:</label>
+        <label for="nome">nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
+        <br> 
+            
+         <label for="unidade_de_medida">Unidade de medida: </label>
+            <select name="unidade_de_medida" id="unidade_de_medida" required>
+                <option value="<?php echo htmlspecialchars($sensor['unidade_de_medida']); ?>"> <?php echo htmlspecialchars($sensor['unidade_de_medida']); ?></option>
+                <option value="celcius">celcius</option>
+                <option value="km/h">km/h</option>
+                <option value="kg">kg</option>
+            </select>
+
+                <div class="form-group">
+                    <label for="rota">Rota:</label>
+                    <input type="text" name="rota" id="rota" value="<?php echo htmlspecialchars($sensor['rota']); ?>" required>
+                </div>
+
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" id="valor" value="<?php echo htmlspecialchars($sensor['valor']); ?>" required>
         <br>
-        <label for="localizacao">Localização:</label>
-        <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
-        <br>
-        <label for="tipo">Tipo:</label>
-        <input type="text" name="tipo" id="tipo" value="<?php echo htmlspecialchars($sensor['tipo']); ?>" required>
-        <label for="status">Status:</label>
-        <input type="number" name="status" id="status" value="<?php echo htmlspecialchars($sensor['status']); ?>" required>
-        <br>
-        
-            <?php
-            while ($row = mysqli_fetch_assoc($resultado)) {
-                $selected = ($row['id'] == $sensor['id_usuario']) ? 'selected' : '';
-                echo "<option value='{$row['id']}' {$selected}>{$row['nome']}</option>";
-            }
-            ?>
-        </select>
-        <button type="submit">Atualizar Sensor</button>
+    
+        <label for="status">Status: </label>
+            <select name="status" id="status">
+                <option value="<?php echo htmlspecialchars($sensor['status']); ?>"> <?php echo htmlspecialchars($sensor['status']); ?></option>
+                <option value="funcionando">funcionando</option>
+                <option value="defeituoso">defeituoso</option>
+            </select>
+            <br>
+    
+        <button type="submit">Editar Sensor</button>
     </form>
     <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
 </div>
+
+<header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>
