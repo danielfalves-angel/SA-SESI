@@ -83,7 +83,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
             </tbody>
         </table>
         
-              <a href="cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
+              <a href="../usuarios/cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
 
     </main>
     

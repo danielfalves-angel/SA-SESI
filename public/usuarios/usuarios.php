@@ -39,7 +39,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
         <br>
         <form method="POST">
                 
-            </select>
            <h1>Gerenciador de Usuários</h1>
         </form>
         <div class="table_usuarios">

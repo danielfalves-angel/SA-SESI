@@ -21,7 +21,7 @@ if ($usuarios === false) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
-    $senha = $_POST[''];
+    $senha = $_POST['senha'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
     $cargo = $_POST['cargo'];
