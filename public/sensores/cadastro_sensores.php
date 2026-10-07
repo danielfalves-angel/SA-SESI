@@ -1,5 +1,10 @@
 <?php
-session_start(); 
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.php');
+    exit();
+}
 
 if (!isset($_SESSION['usuario'])) {
     header('Location: ../../index.php');
@@ -40,7 +45,7 @@ $id = $_SESSION['id'] ?? null;
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Sensor cadastrado com sucesso.");</script>';
-        echo '<script>window.location.href = "../public/sensores.plhp";</script>';
+        echo '<script>window.location.href = "sensores.php";</script>';
         exit();
     } else {
         echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
@@ -85,17 +90,17 @@ $id = $_SESSION['id'] ?? null;
             </div>
 
             <form method="POST">
-                <label for="nome">nome:</label>
-                <input type="number" name="nome" id="nome" required>
-                <br> 
-                    
-                <label for="unidade_de_medida">Unidade de medida: </label>
-                <select name="unidade_de_medida" id="unidade_de_medida" required>
-                    <option value=""> Selecione</option>
-                    <option value="celcius">celcius</option>
-                    <option value="km/h">km/h</option>
-                    <option value="kg">kg</option>
-                </select>
+        <label for="nome">nome:</label>
+        <input type="text" name="nome" id="nome" required>
+        <br> 
+            
+         <label for="unidade_de_medida">Unidade de medida: </label>
+            <select name="unidade_de_medida" id="unidade_de_medida" required>
+                <option value=""> Selecione</option>
+                <option value="celcius">celcius</option>
+                <option value="km/h">km/h</option>
+                <option value="kg">kg</option>
+            </select>
 
                 <div class="form-group">
                     <label for="rota">Rota:</label>

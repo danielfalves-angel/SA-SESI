@@ -1,13 +1,12 @@
 <?php
 session_start();
-$_SESSION["sessao"]=$value;
-echo $_SESSION["sessao"];
 
 if (!isset($_SESSION['usuario'])) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit();
 }
 ?>
+
 
 <html lang="en">
 
@@ -116,6 +115,7 @@ if (!isset($_SESSION['usuario'])) {
                                     </tr>
                                 </tbody>
                             </table>
+               
                         </div>
 
                     </div>
@@ -134,7 +134,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="caixa">
 
                 <div>
-
+                
 
                     <div>
                         <div class="caixinha2">

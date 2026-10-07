@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.php');
+    exit();
+}
+
 if (isset($_SESSION['usuario'])) {
 
     if ($_SESSION['tipo'] === 'administrador') {
@@ -72,7 +79,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../index.php">
+                <a href="../scripts/logout.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="text">Sair</span>
@@ -134,7 +141,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="../index.php">
+                <a href="../scripts/logout.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="text">Sair</span>

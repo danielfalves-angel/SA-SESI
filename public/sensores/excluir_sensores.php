@@ -1,5 +1,13 @@
 <?php
-include '../infra/connect.php';
+
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.php');
+    exit();
+}
+
+include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
@@ -14,7 +22,7 @@ if (mysqli_stmt_execute($stmt)) {
 
 
     echo '<script>alert("Sensor excluído com sucesso.");</script>';
-    echo '<script>window.location.href = "../public/sensores.php";</script>';
+    echo '<script>window.location.href = "sensores.php";</script>';
 } else {
     echo "Erro ao excluir sensor: " . mysqli_error($conn);
 }
