@@ -21,6 +21,7 @@ if ($usuarios === false) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
     $cargo = $_POST['cargo'];
@@ -29,14 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $id = $_SESSION['id'] ?? null;
    
 
-    $sql = "INSERT INTO usuarios (nome, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO usuarios (nome, senha, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
         die('Erro ao preparar a inserção do usuario: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'sssss', $nome, $email, $telefone, $cargo, $status);
+    mysqli_stmt_bind_param($stmt, 'ssssss', $nome, $senha, $email, $telefone, $cargo, $status);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Usuário cadastrado com sucesso.");</script>';
@@ -82,6 +83,10 @@ $id = $_SESSION['id'] ?? null;
 
                     <label for="email">Email:</label>
                     <input type="email" name="email">
+                    <br>
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha">
                     <br>
 
                     <label for="telefone">Telefone:</label>

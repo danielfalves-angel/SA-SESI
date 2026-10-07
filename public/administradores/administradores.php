@@ -41,19 +41,19 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
         <form method="POST">
                 
             </select>
-           
+           <h1>Gerenciador de Administradores</h1>
         </form>
         <div class="table_usuarios">
             <div class="table_usuarios_centro">
         <table>
             <thead>
                 <tr>
+                    <th>ID do Usuário</th>
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Cargo</th>
                     <th>Status</th>
-                    <th>ID do Usuário</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -66,12 +66,12 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
 
                     while ($usuario = mysqli_fetch_assoc($resultado)) {
                         echo "<tr>";
+                        echo "<td>{$usuario['id']}</td>";
                         echo "<td>{$usuario['nome']}</td>";
                         echo "<td>{$usuario['email']}</td>";
                         echo "<td>{$usuario['telefone']}</td>";
                         echo "<td>{$usuario['cargo']}</td>";
                         echo "<td>{$usuario['status']}</td>";
-                        echo "<td>{$usuario['id']}</td>";
                         echo "<td>
                                 <a href='editar_usuarios.php?id={$usuario['id']}'>Editar</a> |
                                 <a href='excluir_usuarios.php?id={$usuario['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
@@ -83,7 +83,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
             </tbody>
         </table>
         
-              <a href="cadastro_usuarios.php"><button">Cadastrar Usuários</button></a>
+              <a href="../usuarios/cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
 
     </main>
     
