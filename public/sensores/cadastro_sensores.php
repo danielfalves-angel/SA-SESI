@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
@@ -6,125 +7,89 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-if (!isset($_SESSION['usuario'])) {
-    header('Location: ../../index.php');
-    exit();
-}
-
-
 include '../../infra/connect.php';
-if (!isset($conn) || $conn === null) {
-    die('Erro ao conectar com o banco de dados.');
-}
 
-$sql = "SELECT * FROM sensor";
-$resultado = mysqli_query($conn, $sql);
-
-if ($resultado === false) {
-    die('Erro ao consultar sensor: ' . mysqli_error($conn));
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'];
-    $rota = $_POST['rota'];
-    $unidade = $_POST['unidade_de_medida'];
-    $valor = $_POST['valor'];
-    $status = $_POST['status'];
-
-$id = $_SESSION['id'] ?? null;
-   
-
-    $sql = "INSERT INTO sensor (nome, rota, unidade_de_medida, valor, status, id) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-
-    if ($stmt === false) {
-        die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
-    }
-
-    mysqli_stmt_bind_param($stmt, 'sssdsi', $nome, $rota, $unidade, $valor, $status, $usuario_id);
-
-    if (mysqli_stmt_execute($stmt)) {
-        echo '<script>alert("Sensor cadastrado com sucesso.");</script>';
-        echo '<script>window.location.href = "sensores.php";</script>';
-        exit();
-    } else {
-        echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
-    }
-
-    mysqli_stmt_close($stmt);
-}
-
+$resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administrador'");
 
 ?>
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Sensores</title>
-    <link rel="stylesheet" href="<?= $base_url ?>assets/styles/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../assets/styles/style.css">
+    <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
+
+    <title>Usuários Cadastrados</title>
 </head>
+   
 
 
+<body>
+    <div class="corpo">
+
+    <main>
+        <h1>Gerenciador de Sensores</h1>
 
 
-
-<body class="body3">
-
-    <div class="titulo3">
-        <i class="bi bi-broadcast"></i>
-        <span>Cadastro de Sensor</span>
-    </div>
-
-    <div class="container-central">
-        <div class="corpo2">
-            <div class="titulo-sensor">
-                <i class="bi bi-broadcast-pin"></i>
-                <span>Informações do Sensor</span>
-            </div>
-
-            <form method="POST">
-        <label for="nome">nome:</label>
-        <input type="text" name="nome" id="nome" required>
-        <br> 
-            
-         <label for="unidade_de_medida">Unidade de medida: </label>
-            <select name="unidade_de_medida" id="unidade_de_medida" required>
-                <option value=""> Selecione</option>
-                <option value="celcius">celcius</option>
-                <option value="km/h">km/h</option>
-                <option value="kg">kg</option>
+    
+        <br>
+        <br>
+        <form method="POST">
+                
             </select>
+           
+        </form>
+        <div class="table_usuarios">
+            <div class="table_usuarios_centro">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Cargo</th>
+                    <th>Status</th>
+                    <th>ID do Usuário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    </div>
+                    </div>
+                    
+                    <?php
 
-                <div class="form-group">
-                    <label for="rota">Rota:</label>
-                    <input type="text" name="rota" id="rota" required>
-                </div>
+                    while ($usuario = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td>{$usuario['nome']}</td>";
+                        echo "<td>{$usuario['email']}</td>";
+                        echo "<td>{$usuario['telefone']}</td>";
+                        echo "<td>{$usuario['cargo']}</td>";
+                        echo "<td>{$usuario['status']}</td>";
+                        echo "<td>{$usuario['id']}</td>";
+                        echo "<td>
+                                <a href='editar_usuarios.php?id={$usuario['id']}'>Editar</a> |
+                                <a href='excluir_usuarios.php?id={$usuario['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
+                              </td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tr>
+            </tbody>
+        </table>
+        
+              <a href="cadastro_usuarios.php"><button">Cadastrar Usuários</button></a>
 
-                <label for="valor">Valor:</label>
-                <input type="number" name="valor" id="valor" required>
-                <br>
-
-                <label for="status">Status: </label>
-                <select name="status" id="status">
-                    <option value=""> Selecione</option>
-                    <option value="funcionando">funcionando</option>
-                    <option value="defeituoso">defeituoso</option>
-                </select>
-                <br>
-            
-                <button type="submit">Cadastrar Sensor</button>
-            </form>
-        </div>
-        <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
-    </div>
-
-    <header><?php include '../../scripts/navbar.php'; ?></header>
+    </main>
+    
+   
+</div>
+<header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
+
 </html>
