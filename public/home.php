@@ -7,6 +7,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 ?>
 
+
 <html lang="en">
 
 <head>
@@ -114,6 +115,7 @@ if (!isset($_SESSION['usuario'])) {
                                     </tr>
                                 </tbody>
                             </table>
+               
                         </div>
 
                     </div>
@@ -132,7 +134,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="caixa">
 
                 <div>
-
+                
 
                     <div>
                         <div class="caixinha2">

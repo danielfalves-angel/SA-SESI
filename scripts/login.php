@@ -19,7 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         exit();
     } else {
-        echo "Email ou senha incorretos.";
+        echo '<script>alert("Email ou senha incorretos.");</script>';    
+        echo '<script>window.location.href = "../index.php";</script>';
     }
 }
 ?>
+

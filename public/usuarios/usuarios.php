@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.php');
+    exit();
+}
+
 include '../infra/connect.php';
 
 $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'");
