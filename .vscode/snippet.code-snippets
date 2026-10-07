@@ -1,0 +1,11 @@
+{
+
+  "Abrir tag PHP": {
+    "prefix": "?",
+    "body": [
+      "<?php $0 ?>"
+    ],
+    "description": "Abre a tag curta do PHP com o cursor no meio"
+  }
+  
+}
