@@ -28,6 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
 
 $id = $_SESSION['id'] ?? null;
+
+    include '../../scripts/analizar_senha.php';
+    $seguranca = analisarSenha($senha);
+
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
    
 
     $sql = "INSERT INTO usuarios (nome, senha, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?, ?)";
