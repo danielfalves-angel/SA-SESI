@@ -15,12 +15,12 @@ $forca = 0;
 
 if($letrasMaiusculas>=1){$forca += 2;}
 if($letrasMinusculas>=4){$forca += 2;}
-if($quantidadeNumeros>=3){$forca += 2;}
+if($quantidadeNumeros>=2){$forca += 2;}
 if($caracteresEspeciais>=1){$forca += 2;}
 if($tamanho>=8){$forca += 2;}
 
 
-if($forca >= 6){
+if($forca >= 10){
     $seguranca = true;
 }else{
     echo '<script>alert("Senha inválida.");</script>';
