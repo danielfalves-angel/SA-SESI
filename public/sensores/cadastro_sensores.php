@@ -35,17 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rota = $_POST['rota'];
     $status = $_POST['status'];
 
-    $id = $_SESSION['id'] ?? null;
    
 
-    $sql = "UPDATE sensor SET nome = ?, descricao = ?, unidade_de_medida = ?, valor = ?, tipo_de_area = ?, localizacao = ?, rota = ?, status = ? WHERE id = ?";
+    $sql = "INSERT INTO sensor (nome, descricao, unidade_de_medida, valor, tipo_de_area, localizacao, rota, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-
+    mysqli_stmt_bind_param($stmt, 'sssissss', $nome, $descricao, $unidade, $valor, $area, $localizacao, $rota, $status);
+    
     if ($stmt === false) {
         die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'sssissisi', $nome, $descricao, $unidade, $valor, $area, $localizacao, $rota, $status, $id);
+    
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Sensor atualizado com sucesso.");</script>';
