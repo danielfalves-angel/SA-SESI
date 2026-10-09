@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "UPDATE rota SET nome = ?, destino = ?, partida = ?, descricao = ?, id = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param ($stmt, "ssssi", $nome, $destino, $partida, $descricao,$id);
+    mysqli_stmt_bind_param ($stmt, "ssssii", $nome, $destino, $partida, $descricao, $id, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Rota atualizada com sucesso!";
