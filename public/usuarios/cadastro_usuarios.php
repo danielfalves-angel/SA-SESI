@@ -35,14 +35,14 @@ $id = $_SESSION['id'] ?? null;
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
    
 
-    $sql = "INSERT INTO usuarios (nome, senha, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO usuarios (nome, senhaHash, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
         die('Erro ao preparar a inserção do usuario: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'ssssss', $nome, $senha, $email, $telefone, $cargo, $status);
+    mysqli_stmt_bind_param($stmt, 'ssssss', $nome, $senhaHash, $email, $telefone, $cargo, $status);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Usuário cadastrado com sucesso.");</script>';
