@@ -32,11 +32,13 @@ $resultado = mysqli_query($conn, "SELECT * FROM trem");
     <div class="corpo">
 
     <main>
-        <h1>Gerenciador de Trens</h1>
-
-
-    
         <br>
+        <br>
+        <br>
+        <br>
+        <h1>Gerenciador de Trens</h1>
+<br>
+  <a href="cadastro_trens.php"><button>Cadastrar Trens</button></a>
         <br>
         <form method="POST">
                 
@@ -87,9 +89,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM trem");
             </tbody>
         </table>
         
-              <a href="cadastro_trens.php"><button>Cadastrar Trens</button></a>
-    <br><br>
-    <a href="../home.php"><button>Voltar</button></a>
     </main>
 
 </div>
