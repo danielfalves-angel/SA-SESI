@@ -26,18 +26,21 @@ if ($resultado === false) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome']);
-    $localizacao = trim($_POST['localizacao']);
-    $tipo = trim($_POST['tipo']);
+    $rota = trim($_POST['rota']);
+    $velocidade = trim($_POST['velocidade']);
+    $peso = trim($_POST['peso']);
+    $temperatura = trim($_POST['temperatura']);
+    $tempo = trim($_POST['tempo']);
     $status = trim($_POST['status']);
-    $usuario_id = (int) $_POST['usuario'];
+    $id = (int) $_POST['id'];
 
-    $sql = "UPDATE trem SET nome = ?, localizacao = ?, tipo = ?, status = ?, id_usuario = ? WHERE id = ?";
+    $sql = "UPDATE trem SET nome = ?, rota = ?, velocidade = ?, peso = ?, temperatura = ?, tempo = ?, status = ?, id = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'ssssiii', $nome, $localizacao, $tipo, $status, $usuario_id, $id);
+    mysqli_stmt_bind_param($stmt, 'ssddddsii', $nome, $rota, $velocidade, $peso, $temperatura, $tempo, $status, $id, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "trem atualizado com sucesso!";
-        echo "<br><a href='tremes.php'>Voltar</a>";
+        echo "Trem atualizado com sucesso!";
+        echo "<br><a href='trens.php'>Voltar</a>";
         exit();
     } else {
         echo "Erro ao atualizar trem: " . mysqli_error($conn);
@@ -56,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../../styles/style.css">
 </head>
 
-<header><?php include '../../scripts/navbar.php'; ?></header>
+
 
 <body class="body3" class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
 <div class="corpo2">
@@ -64,29 +67,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST">
 
+        <label for="id">Id do Trem:</label>
+        <input type="number" name="id" id="id" value="<?php echo htmlspecialchars($trem['id']); ?>" required>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
         <br>
-        <label for="localizacao">Localização:</label>
-        <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($trem['localizacao']); ?>" required>
+        <label for="rota">Rota:</label>
+        <input type="text" name="rota" id="rota" value="<?php echo htmlspecialchars($trem['rota']); ?>" required>
         <br>
-        <label for="tipo">Tipo:</label>
-        <input type="text" name="tipo" id="tipo" value="<?php echo htmlspecialchars($trem['tipo']); ?>" required>
-        <label for="status">Status:</label>
-        <input type="number" name="status" id="status" value="<?php echo htmlspecialchars($trem['status']); ?>" required>
+        <label for="velocidade">Velocidade:</label>
+        <input type="text" name="velocidade" id="velocidade" value="<?php echo htmlspecialchars($trem['velocidade']); ?>" required>
         <br>
+        <label for="peso">Peso:</label>
+        <input type="text" name="peso" id="peso" value="<?php echo htmlspecialchars($trem['peso']); ?>" required>
+        <br>
+        <label for="temperatura">Temperatura:</label>
+        <input type="text" name="temperatura" id="temperatura" value="<?php echo htmlspecialchars($trem['temperatura']); ?>" required>
+        <br>
+        <label for="tempo">Tempo:</label>
+        <input type="text" name="tempo" id="tempo" value="<?php echo htmlspecialchars($trem['tempo']); ?>" required>
+        <br>
+        <label for="status">Status: </label>
+                <select name="status" id="status">
+                    <option value=""> Selecione</option>
+                    <option value="funcionando">funcionando</option>
+                    <option value="defeituoso">defeituoso</option>
+                </select>
+                <br>
         
             <?php
-            while ($row = mysqli_fetch_assoc($resultado)) {
-                $selected = ($row['id'] == $trem['id_usuario']) ? 'selected' : '';
+            while ($row = mysqli_fetch_assoc($resultadotrem)) {
+                $selected = ($row['id'] == $trem['id']) ? 'selected' : '';
                 echo "<option value='{$row['id']}' {$selected}>{$row['nome']}</option>";
             }
             ?>
         </select>
-        <button type="submit">Atualizar Tren</button>
+        <button type="submit">Atualizar Trem</button>
     </form>
     <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
 </div>
+<header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>

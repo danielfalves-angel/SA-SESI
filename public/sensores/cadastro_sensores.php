@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
@@ -57,24 +58,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_close($stmt);
 }
 
+$resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administrador'");
 
 ?>
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Sensores</title>
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+   
 
 
+<body>
+    <div class="corpo">
+
+    <main>
+        <h1>Gerenciador de Sensores</h1>
 
 
 
@@ -154,4 +157,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
+
 </html>

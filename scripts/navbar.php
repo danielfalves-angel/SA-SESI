@@ -18,8 +18,11 @@ if (isset($_SESSION['usuario'])) {
 
 ?>
         <nav class="navbar-principal">
+            <div class="logo-container">
+                
             <span><img class="logo" src="<?= $base_url ?>../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
                     alt=""></span>
+</div>
         </nav>
 
         <nav class="menu-lateral">
@@ -100,7 +103,7 @@ if (isset($_SESSION['usuario'])) {
     } else {
     ?>
         <nav class="navbar-principal">
-            <span><img class="logo" src="<?= $base_url ?>../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
+            <span><img class="logo-container" src="<?= $base_url ?>../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
                     alt=""></span>
         </nav>
 

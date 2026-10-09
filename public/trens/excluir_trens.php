@@ -14,7 +14,7 @@ if (!isset($conn) || $conn === null) {
 
 $id = $_GET['id'];
 
-$stmt = mysqli_prepare($conn, "DELETE FROM sensor WHERE id = ?");
+$stmt = mysqli_prepare($conn, "DELETE FROM trem WHERE id = ?");
 mysqli_stmt_bind_param($stmt, 'i', $id);
 
 if (mysqli_stmt_execute($stmt)) {

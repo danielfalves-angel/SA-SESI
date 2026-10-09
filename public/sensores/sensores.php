@@ -41,7 +41,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
         <form method="POST">
                 
             </select>
-           
+           <h1>Gerenciador de Sensores</h1>
         </form>
         <div class="table_sensores">
             <div class="table_sensores_centro">

@@ -31,33 +31,48 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
     <div class="corpo">
 
     <main>
-        <div>
-            <h2>Usuários Cadastrados</h2>
-            <table>
+        <h1>Gerenciador de Administradores</h1>
+
+
+    
+        <br>
+        <br>
+        <form method="POST">
+                
+           <h1>Gerenciador de Usuários</h1>
+        </form>
+        <div class="table_usuarios">
+            <div class="table_usuarios_centro">
+        <table>
+            <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>nome</th>
+                    <th>ID do Usuário</th>
+                    <th>Nome</th>
                     <th>Email</th>
                     <th>Telefone</th>
-                    <th>Ações</th>
+                    <th>Status</th>
                 </tr>
-                <?php while ($usuario = mysqli_fetch_assoc($resultado)) { ?>
-                    <tr>
-                        <td><?php echo $usuario["id"] ?></td>
-                        <td><?php echo $usuario["nome"] ?></td>
-                        <td><?php echo $usuario["email"] ?></td>
-                        <td><?php echo $usuario["telefone"] ?></td>
-                        <td>
-                            <a href="public/editar.php?id=<?php echo $usuario["id"] ?>">Editar</a>
-                            <a href="public/excluir.php?id=<?php echo $usuario["id"] ?>">Excluir</a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </table>
-        </div>
-        <button><a href="cadastro_usuarios.php">Adicionar Novo Usuário</a></button>
+            </thead>
+            <tbody>
+                <tr>
+                    </div>
+                    </div>
+                    
+                    <?php
+
+                    while ($usuario = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td>{$usuario['id']}</td>";
+                        echo "<td>{$usuario['nome']}</td>";
+                        echo "<td>{$usuario['email']}</td>";
+                        echo "<td>{$usuario['telefone']}</td>";
+                        echo "<td>{$usuario['status']}</td>";
+                    }
+                    ?>
+                </tr>
+            </tbody>
+        </table>
     </main>
-    
    
 </div>
 <header><?php include '../../scripts/navbar.php'; ?></header>
