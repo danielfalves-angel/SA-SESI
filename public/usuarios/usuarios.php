@@ -50,6 +50,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Status</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,6 +67,11 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
                         echo "<td>{$usuario['email']}</td>";
                         echo "<td>{$usuario['telefone']}</td>";
                         echo "<td>{$usuario['status']}</td>";
+                        echo "<td>
+                                <a href='../usuarios/editar_usuarios.php?id={$usuario['id']}'>Editar</a> |
+                                <a href='../usuarios/excluir_usuarios.php?id={$usuario['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
+                              </td>";
+                        echo "</tr>";
                     }
                     ?>
                 </tr>
