@@ -26,8 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefone = $_POST['telefone'];
     $cargo = $_POST['cargo'];
     $status = $_POST['status'];
-
-$id = $_SESSION['id'] ?? null;
+    $id = $_SESSION['id'] ?? null;
 
     include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
@@ -42,7 +41,7 @@ $id = $_SESSION['id'] ?? null;
         die('Erro ao preparar a inserção do usuario: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'ssssss', $nome, $senha, $email, $telefone, $cargo, $status);
+    mysqli_stmt_bind_param($stmt, 'ssssss', $nome, $senhaHash, $email, $telefone, $cargo, $status);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Usuário cadastrado com sucesso.");</script>';

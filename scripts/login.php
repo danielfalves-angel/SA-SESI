@@ -6,10 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-
-    $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senhaHash'";  
+    $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
