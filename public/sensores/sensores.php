@@ -32,17 +32,17 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
     <div class="corpo">
 
     <main>
+        <br>
+        <br>
+        <br>
+        <br>
         <h1>Gerenciador de Sensores</h1>
 
+<br>
+         <a href="cadastro_sensores.php"><button>Cadastrar Sensores</button></a>
+         <br>
+         <br>
 
-    
-        <br>
-        <br>
-        <form method="POST">
-                
-            </select>
-           <h1>Gerenciador de Sensores</h1>
-        </form>
         <div class="table_sensores">
             <div class="table_sensores_centro">
         <table>
@@ -88,10 +88,9 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                 </tr>
             </tbody>
         </table>
-        
-              <a href="cadastro_sensores.php"><button>Cadastrar Sensores</button></a>
+
     <br><br>
-    <a href="../home.php"><button>Voltar</button></a>
+   
     </main>
 
 </div>
