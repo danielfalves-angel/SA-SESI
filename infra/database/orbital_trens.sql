@@ -24,6 +24,14 @@ create table sensor (
     id_usuario int,
     foreign key (id_usuario) references usuarios(id)
 );
+
+create table rota(
+    id int primary key auto_increment,
+    nome varchar(100) not null,
+    destino varchar(100) not null,
+    partida varchar(100) not null
+);
+
 create table trem (
     id int primary key auto_increment,
     nome varchar(100) not null,
