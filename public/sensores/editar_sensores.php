@@ -37,18 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rota = $_POST['rota'];
     $status = $_POST['status'];
 
-    $id = $_SESSION['id'] ?? null;
 
     $sql = "UPDATE sensor SET nome = ?, descricao = ?, unidade_de_medida = ?, valor = ?, tipo_de_area = ?, localizacao = ?, rota = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'sssissisi', $nome, $descricao, $unidade, $valor, $area, $localizacao, $rota, $status, $id);
+    mysqli_stmt_bind_param($stmt, 'sssissssi', $nome, $descricao, $unidade, $valor, $area, $localizacao, $rota, $status, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Sensor atualizado com sucesso!";
-        echo "<br><a href='sensores.php'>Voltar</a>";
+        echo '<script>alert("Sensor atualizado com sucesso.");</script>';
+        echo '<script>window.location.href = "sensores.php";</script>';
         exit();
     } else {
-        echo "Erro ao atualizar sensor: " . mysqli_error($conn);
+        echo '<script>alert("Erro ao atualizar sensor.");</script>';
     }
 }
 
@@ -130,8 +129,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
 </div>
+</div>
 
-<header><?php include '../../scripts/navbar.php'; ?></header>
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>
