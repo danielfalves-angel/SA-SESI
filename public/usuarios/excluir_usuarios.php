@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-include '../infra/connect.php';
+include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
@@ -22,7 +22,7 @@ if (mysqli_stmt_execute($stmt)) {
 
 
     echo '<script>alert("Usuário excluído com sucesso.");</script>';
-    echo '<script>window.location.href = "../public/usuarios_cadastrados.php";</script>';
+    echo '<script>window.location.href = "usuarios.php";</script>';
 } else {
     echo "Erro ao excluir usuário: " . mysqli_error($conn);
 }
