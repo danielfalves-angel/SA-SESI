@@ -20,7 +20,7 @@ create table sensor (
     tipo_de_area enum('plano', 'aclive', 'declive') not null,
     localizacao varchar(100) not null,
     rota varchar(100) not null,
-    status enum('funcionando', 'em funcionamento', 'defeituoso') not null,
+    status enum('funcionando', 'defeituoso') not null,
     id_usuario int,
     foreign key (id_usuario) references usuarios(id)
 );
@@ -29,7 +29,8 @@ create table rota(
     id int primary key auto_increment,
     nome varchar(100) not null,
     destino varchar(100) not null,
-    partida varchar(100) not null
+    partida varchar(100) not null,
+    descricao varchar(100) not null
 );
 
 create table trem (
@@ -41,7 +42,7 @@ create table trem (
     temperatura int not null,
     tempo int not null,
     descricao varchar(100) not null,
-    status enum('funcionando', 'em funcionamento', 'defeituoso') not null,
+    status enum('funcionando', 'defeituoso') not null,
     id_usuario int,
     foreign key (id_usuario) references usuarios(id)
 );
