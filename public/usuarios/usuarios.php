@@ -30,15 +30,16 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
     <div class="corpo">
 
     <main>
-        <h1>Gerenciador de Administradores</h1>
-
-
-    
+        <br>
+    <br>
         <br>
         <br>
         <form method="POST">
                 
            <h1>Gerenciador de Usuários</h1>
+           
+             <a href="cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
+             <br>
         </form>
         <div class="table_usuarios">
             <div class="table_usuarios_centro">
@@ -77,7 +78,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
                 </tr>
             </tbody>
         </table>
-        <a href="cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
     </main>
    
 </div>
