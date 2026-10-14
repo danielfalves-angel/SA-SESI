@@ -89,12 +89,12 @@ $id = $_SESSION['id'] ?? null;
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" required>
         <br> 
+
+        <label for="partida">Partida: </label>
+         <input type="text" name="partida" id="partida" required>
             
          <label for="destino">Destino: </label>
          <input type="text" name="destino" id="destino" required>
-
-         <label for="partida">Partida: </label>
-         <input type="text" name="partida" id="partida" required>
 
          <label for="descricao">Descrição: </label>
          <input type="text" name="descricao" id="descricao" required>
