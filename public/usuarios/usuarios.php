@@ -37,10 +37,10 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
         <form method="POST">
                 
            <h1>Gerenciador de Usuários</h1>
-           
-             <a href="cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
-             <br>
         </form>
+                     <a href="cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
+                     <br>
+                     <br>
         <div class="table_usuarios">
             <div class="table_usuarios_centro">
         <table>
