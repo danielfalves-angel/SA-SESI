@@ -8,7 +8,6 @@ $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 $sql = "SELECT * FROM rota WHERE id = ?";
 $stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
 $resultadorota = mysqli_stmt_get_result($stmt);
 $rota = mysqli_fetch_assoc($resultadorota);
