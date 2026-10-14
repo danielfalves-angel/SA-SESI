@@ -101,10 +101,8 @@ $id = $_SESSION['id'] ?? null;
          <label for="velocidade">Velocidade: </label>
          <input type="text" name="velocidade" id="velocidade" required>
 
-                <div class="form-group">
                     <label for="rota">Rota:</label>
                     <input type="text" name="rota" id="rota" required>
-                </div>
 
                 <label for="peso">Peso:</label>
                 <input type="number" name="peso" id="peso" required>
