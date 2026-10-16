@@ -29,18 +29,17 @@ if (!$sensor) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
     $unidade = $_POST['unidade_de_medida'];
     $valor = $_POST['valor'];
-    $area = $_POST['tipo_de_area'];
     $localizacao = $_POST['localizacao'];
     $rota = $_POST['rota'];
+    $descricao = $_POST['descricao'];
     $status = $_POST['status'];
 
 
-    $sql = "UPDATE sensor SET nome = ?, descricao = ?, unidade_de_medida = ?, valor = ?, tipo_de_area = ?, localizacao = ?, rota = ?, status = ? WHERE id = ?";
+    $sql = "UPDATE sensor SET nome = ?, descricao = ?, unidade_de_medida = ?, valor = ?, localizacao = ?, rota = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'sssissssi', $nome, $descricao, $unidade, $valor, $area, $localizacao, $rota, $status, $id);
+    mysqli_stmt_bind_param($stmt, 'sssisssi', $nome, $descricao, $unidade, $valor, $localizacao, $rota, $status, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Sensor atualizado com sucesso.");</script>';
@@ -87,10 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
         <br> 
 
-        <label for="descricao">Descrição:</label>
-        <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($sensor['descricao']); ?>" required>
-        <br>
-
         <label for="unidade_de_medida">Unidade de medida: </label>
         <select name="unidade_de_medida" id="unidade_de_medida" required>
             <option value="<?php echo htmlspecialchars($sensor['unidade_de_medida']); ?>"> <?php echo htmlspecialchars($sensor['unidade_de_medida']); ?></option>
@@ -103,21 +98,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="number" name="valor" id="valor" value="<?php echo htmlspecialchars($sensor['valor']); ?>" required>
         <br>
 
-        <label for="tipo_de_area">Área:</label>
-        <select name="tipo_de_area" id="tipo_de_area" required>
-            <option value="<?php echo htmlspecialchars($sensor['tipo_de_area']); ?>"> <?php echo htmlspecialchars($sensor['tipo_de_area']); ?></option>
-            <option value="plano">plano</option>
-            <option value="aclive">aclive</option>
-            <option value="declive">declive</option>
-        </select>
-        <br>
-
         <label for="localizacao">Localização:</label>
         <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
         <br>
 
         <label for="rota">Rota:</label>
         <input type="text" name="rota" id="rota" value="<?php echo htmlspecialchars($sensor['rota']); ?>" required>
+        <br>
+
+            <label for="descricao">Descrição:</label>
+        <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($sensor['descricao']); ?>" required>
         <br>
             
         <label for="status">Status: </label>
