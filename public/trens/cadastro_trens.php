@@ -102,7 +102,7 @@ $id = $_SESSION['id'] ?? null;
                     <input type="text" name="rota" id="rota" required>
 
          <label for="velocidade">Velocidade (km/h): </label>
-         <input type="text" name="velocidade" id="velocidade" required>
+         <input type="number" name="velocidade" id="velocidade" required>
 
                 <label for="peso">Peso (kg):</label>
                 <input type="number" name="peso" id="peso" required>
