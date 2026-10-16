@@ -22,6 +22,12 @@ mysqli_stmt_execute($stmt);
 $resultadoSensor = mysqli_stmt_get_result($stmt);
 $sensor = mysqli_fetch_assoc($resultadoSensor);
 
+$sql = "SELECT * FROM rota";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_execute($stmt);
+$resultadoRota = mysqli_stmt_get_result($stmt);
+$rota = mysqli_fetch_assoc($resultadoRota);
+
 if (!$sensor) {
     die('Sensor não encontrado.');
 }
@@ -69,10 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body class="body3">
 
-    <div class="titulo3">
-        <i class="bi bi-broadcast"></i>
-        <span>Cadastro de Sensor</span>
-    </div>
 
     <div class="container-central">
         <div class="corpo2">
@@ -103,7 +105,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
 
         <label for="rota">Rota:</label>
-        <input type="text" name="rota" id="rota" value="<?php echo htmlspecialchars($sensor['rota']); ?>" required>
+   
+        <select name="rota" id="rota" required>
+            <option value="<?php echo htmlspecialchars($rota['nome']); ?>"> <?php echo htmlspecialchars($rota['nome']); ?></option>
+            <?php while ($rota = mysqli_fetch_assoc($resultadoRota)) { ?>
+                <option value="<?php echo $rota['id']; ?>"><?php echo $rota['nome']; ?></option>
+            <?php } ?>
+        </select>
         <br>
 
             <label for="descricao">Descrição:</label>
@@ -116,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="funcionando">funcionando</option>
                 <option value="defeituoso">defeituoso</option>
             </select>
-        <br>
+        <br><br>
             
                 <button type="submit">Editar Sensor</button>
     </form>

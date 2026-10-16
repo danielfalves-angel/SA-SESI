@@ -6,9 +6,11 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: ../../index.php');
     exit();
 }
+                
 
 
 include '../../infra/connect.php';
+$resultado2 = mysqli_query($conn, "SELECT * FROM rota");  
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
@@ -20,7 +22,6 @@ if ($resultado === false) {
     die('Erro ao consultar sensor: ' . mysqli_error($conn));
 }
                     
-                  
                    
                 
 
@@ -47,11 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     if (mysqli_stmt_execute($stmt)) {
-        echo '<script>alert("Sensor atualizado com sucesso.");</script>';
+        echo '<script>alert("Sensor cadastrado com sucesso.");</script>';
         echo '<script>window.location.href = "sensores.php";</script>';
         exit();
     } else {
-        echo "Erro ao atualizar sensor: " . mysqli_error($conn);
+        echo "Erro ao cadastrar sensor: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);
@@ -119,7 +120,12 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
         <br>
 
         <label for="rota">Rota:</label>
-        <input type="text" name="rota" id="rota" required>
+        <select name="rota" id="rota" required>
+            <option value=""> Selecione</option>
+            <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
+                <option value="<?php echo $rota['id']; ?>"><?php echo $rota['nome']; ?></option>
+            <?php } ?>
+        </select>
         <br>
 
         <label for="descricao">Descrição:</label>
