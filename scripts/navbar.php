@@ -30,7 +30,7 @@ if (isset($_SESSION['usuario'])) {
                 <div class="text-icon">
                     <a href="<?= $base_url ?>home.php">
                         <button class="botao">
-                            <span class="icon"><i class="bi bi-house-fill"></i></span>
+                            <span class="icon"><i class="bi bi-house"></i></span>
                             <span class="text">Home</span>
 
                         </button>
@@ -72,6 +72,16 @@ if (isset($_SESSION['usuario'])) {
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
+                    </button>
+                </a>
+
+            </div>
+
+            <div class="text-icon">
+                <a href="<?= $base_url ?>rota/rota.php">
+                    <button class="botao">
+                        <span class="icon"><i class="bi bi-signpost-split"></i></span>
+                        <span class="text">Rotas</span>
                     </button>
                 </a>
 
@@ -134,6 +144,16 @@ if (isset($_SESSION['usuario'])) {
                     <button class="botao">
                         <span class="icon"><i class="bi bi-train-front"></i></span>
                         <span class="text">Trens</span>
+                    </button>
+                </a>
+
+            </div>
+
+            <div class="text-icon">
+                <a href="<?= $base_url ?>rota/rota.php">
+                    <button class="botao">
+                        <span class="icon"><i class="bi bi-signpost-split"></i></span>
+                        <span class="text">Rotas</span>
                     </button>
                 </a>
 
