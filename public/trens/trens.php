@@ -53,10 +53,10 @@ $resultado = mysqli_query($conn, "SELECT * FROM trem");
                     <th>ID do Trem</th>
                     <th>Nome</th>
                     <th>Rota</th>
-                    <th>Velocidade</th>
-                    <th>Peso</th>
-                    <th>Temperatura</th>
-                    <th>Tempo</th>
+                    <th>Velocidade (km/h)</th>
+                    <th>Peso (kg)</th>
+                    <th>Temperatura (°C)</th>
+                    <th>Tempo (min)</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>

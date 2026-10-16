@@ -27,19 +27,18 @@ if ($resultado === false) {
   
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
     $unidade = $_POST['unidade_de_medida'];
     $valor = $_POST['valor'];
-    $area = $_POST['tipo_de_area'];
     $localizacao = $_POST['localizacao'];
     $rota = $_POST['rota'];
+    $descricao = $_POST['descricao'];
     $status = $_POST['status'];
 
    
 
-    $sql = "INSERT INTO sensor (nome, descricao, unidade_de_medida, valor, tipo_de_area, localizacao, rota, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO sensor (nome, descricao, unidade_de_medida, valor, localizacao, rota, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'sssissss', $nome, $descricao, $unidade, $valor, $area, $localizacao, $rota, $status);
+    mysqli_stmt_bind_param($stmt, 'sssisss', $nome, $descricao, $unidade, $valor, $localizacao, $rota, $status);
     
     if ($stmt === false) {
         die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
@@ -98,21 +97,10 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
             </div>
 
    
-
- 
-
-   
-  
-
-
     <form method="POST">
         <label for="nome">nome:</label>
         <input type="text" name="nome" id="nome" required>
         <br> 
-
-        <label for="descricao">Descrição:</label>
-        <input type="text" name="descricao" id="descricao" required>
-        <br>
 
         <label for="unidade_de_medida">Unidade de medida: </label>
         <select name="unidade_de_medida" id="unidade_de_medida" required>
@@ -126,21 +114,16 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
         <input type="number" name="valor" id="valor" required>
         <br>
 
-        <label for="tipo_de_area">Área:</label>
-        <select name="tipo_de_area" id="tipo_de_area" required>
-            <option value=""> Selecione</option>
-            <option value="plano">plano</option>
-            <option value="aclive">aclive</option>
-            <option value="declive">declive</option>
-        </select>
-        <br>
-
         <label for="localizacao">Localização:</label>
         <input type="text" name="localizacao" id="localizacao" required>
         <br>
 
         <label for="rota">Rota:</label>
         <input type="text" name="rota" id="rota" required>
+        <br>
+
+        <label for="descricao">Descrição:</label>
+        <input type="text" name="descricao" id="descricao" required>
         <br>
             
         <label for="status">Status: </label>
