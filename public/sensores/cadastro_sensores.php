@@ -97,13 +97,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
             </div>
 
    
-
- 
-
-   
-  
-
-
     <form method="POST">
         <label for="nome">nome:</label>
         <input type="text" name="nome" id="nome" required>
