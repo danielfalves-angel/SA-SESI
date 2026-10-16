@@ -50,12 +50,11 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                 <tr>
                     <th>ID do Sensor</th>
                     <th>Nome</th>
-                    <th>Descrição</th>
                     <th>unidade</th>
                     <th>Valor</th>
-                    <th>Área</th>
                     <th>Localização</th>
                     <th>Rota</th>
+                    <th>Descrição</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
@@ -71,12 +70,11 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                         echo "<tr>";
                         echo "<td>{$sensor['id']}</td>";
                         echo "<td>{$sensor['nome']}</td>";
-                        echo "<td>{$sensor['descricao']}</td>";
                         echo "<td>{$sensor['unidade_de_medida']}</td>";
                         echo "<td>{$sensor['valor']}</td>";
-                        echo "<td>{$sensor['tipo_de_area']}</td>";
                         echo "<td>{$sensor['localizacao']}</td>";
                         echo "<td>{$sensor['rota']}</td>";
+                        echo "<td>{$sensor['descricao']}</td>";
                         echo "<td>{$sensor['status']}</td>";
                         echo "<td>
                                 <a href='editar_sensores.php?id={$sensor['id']}'>Editar</a> |
