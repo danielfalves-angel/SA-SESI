@@ -858,3 +858,28 @@ a {
 .btn-cadastrar:hover {
   background-color: #485c7c;
 }
+
+
+
+.titulo_home{
+
+
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.titulo_home2{
+
+
+  
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: bold;
+}
