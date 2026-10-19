@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
    
 
-    $sql = "INSERT INTO usuarios (nome, senha, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO usuarios (nome, senhaHash, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
