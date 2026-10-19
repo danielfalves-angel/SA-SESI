@@ -23,9 +23,9 @@ if (!isset($_SESSION['usuario'])) {
 
 </head>
 
-<body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
+<body>
 >
-    <header><?php include '../scripts/navbar.php'; ?></header>
+ 
 
     <main class="mainm">
         <div class="gap"></div>
@@ -76,7 +76,8 @@ if (!isset($_SESSION['usuario'])) {
 
     <footer>
 
-    </footer
+    </footer>
+    
 </body>
-
+   <header><?php include '../scripts/navbar.php'; ?></header>
 </html>
