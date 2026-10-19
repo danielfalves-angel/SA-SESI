@@ -126,6 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         </div>
     </main>
-    <header><?php include '../../scripts/navbar.php'; ?></header>
+    <header><?php include '../../scripts/navbar2.php'; ?></header>
+
 </body>
 </html>

@@ -127,12 +127,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br><br>
             
                 <button type="submit">Editar Sensor</button>
+                <button type="button" onclick="window.location.href='sensores.php'">Voltar</button> 
     </form>
 
 </div>
 </div>
 
-    <header><?php include '../../scripts/navbar.php'; ?></header>
+<header><?php include '../../scripts/navbar2.php'; ?></header>
+
+
 </body>
 
 </html>
