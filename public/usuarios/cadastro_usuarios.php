@@ -30,6 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
+        if ($seguranca !== true) {
+        echo '<script>alert("Senha inválida.");</script>';
+        echo '<script>window.location.href = "usuarios.php";</script>';
+        exit(); 
+    }
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
    
