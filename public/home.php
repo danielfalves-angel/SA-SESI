@@ -39,7 +39,7 @@ if (!isset($_SESSION['usuario'])) {
     </footer>
 
     
-
+<header><?php include '../scripts/navbar.php'; ?></header>
 </body>
 
 </html>
