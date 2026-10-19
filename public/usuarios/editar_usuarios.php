@@ -116,6 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br>
             
                 <button type="submit">Editar Usuário</button>
+                <br><br>
+
+                <button type="button" onclick="window.location.href='usuarios.php'">Voltar</button> 
             </form>
 
         </div>
