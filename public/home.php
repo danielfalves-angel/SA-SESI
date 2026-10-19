@@ -28,15 +28,13 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
-  <main class="text-white py-4 px-5" style="margin-left: 130px; margin-top: 150px; margin-right: 90px">
-    <!-- Importação da fonte com serifa para ficar idêntica ao mockup -->
+  <main class="text-white py-4 px-5" style="margin-left: 130px; margin-top: 100px; margin-right: 90px">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <!-- Seção Superior: Título e Apresentação -->
     <div class="row align-items-center my-4">
-        <!-- Título principal com fonte com serifa -->
         <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
             <h1 class="fw-bold" style="font-family: 'Playfair Display', serif; font-size: 10rem; line-height: 1.05; letter-spacing: 1px;">
                 Orbital<br>Trilhos
@@ -54,10 +52,8 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </div>
 
-    <!-- Seção Inferior: Cards Alinhados -->
     <div class="d-flex flex-wrap justify-content-between align-items-stretch gap-3 mt-5 pt-2">
         
-        <!-- Card 1: Sair -->
         <a href="../scripts/logout.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
@@ -73,8 +69,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </a>
 
-        <!-- Card 2: Relatórios -->
-        <a href="#" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
+        <a href="../public/relatorios.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
                     <i class="bi bi-file-earmark-text fs-2"></i>
@@ -89,8 +84,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </a>
 
-        <!-- Card 3: Mapeamento de sensores -->
-        <a href="#" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
+        <a href="../public/mapa.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
                     <i class="bi bi-train-front fs-2"></i>
@@ -105,8 +99,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </a>
 
-        <!-- Card 4: Registro de sensores -->
-        <a href="#" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
+        <a href="../public/sensores/sensores.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
                     <i class="bi bi-broadcast fs-2"></i>
@@ -121,8 +114,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </a>
 
-        <!-- Card 5: Registro de usuário -->
-        <a href="#" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
+        <a href="../public/usuarios/usuarios.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
                     <i class="bi bi-person fs-2"></i>
