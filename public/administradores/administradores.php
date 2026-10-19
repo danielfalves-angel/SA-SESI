@@ -45,9 +45,11 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
             <br>
            <h1>Gerenciador de Administradores</h1>
              <br>
-        <a href="../usuarios/cadastro_usuarios.php"><button>Cadastrar Usuários</button></a>
+        
         <br>
         </form>
+        <a href="../usuarios/cadastro_usuarios.php"><button>Cadastrar Administrador</button></a>
+        <br><br>
         <div class="table_usuarios">
             <div class="table_usuarios_centro">
         <table>

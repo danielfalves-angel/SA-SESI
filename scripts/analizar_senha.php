@@ -23,7 +23,7 @@ if($tamanho>=8){$forca += 2;}
 if($forca >= 10){
     $seguranca = true;
 }else{
-    echo '<script>alert("Senha inválida.");</script>';
+    echo '<script>alert("Senha deve conter: 1 MAIUSCULO, 4 MINUSCULAS, 2 NUMEROS, 1 CARACTER ESPECIAL, 8 CARACTERES");</script>';
     echo '<script>window.location.href = "../usuarios/cadastro_usuarios.php";</script>';
 }
 
