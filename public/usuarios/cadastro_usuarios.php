@@ -28,12 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
     $id = $_SESSION['id'] ?? null;
 
-    include '../../scripts/analizar_senha.php';
+include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
-        if ($seguranca !== true) {
-        echo '<script>alert("Senha inválida.");</script>';
+
+    if ($seguranca !== true) {
+        echo '<script>alert("A senha não atende aos requisitos mínimos: 1 Maiúscula, 4 Minúsculas, 2 Números, 1 Caractere Especial e 8 Caracteres.");</script>';
         echo '<script>window.location.href = "usuarios.php";</script>';
-        exit(); 
+        exit();
     }
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
