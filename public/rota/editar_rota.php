@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <button type="button" onclick="window.location.href='rota.php'">Voltar</button>
 </div>
-<header><?php include '../../scripts/navbar.php'; ?></header>
+<header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
 
 </html>

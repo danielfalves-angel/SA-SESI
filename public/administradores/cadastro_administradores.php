@@ -130,6 +130,7 @@ include '../../scripts/analizar_senha.php';
             
         </div>
     </main>
-    <header><?php include '../../scripts/navbar.php'; ?></header>
+    <header><?php include '../../scripts/navbar2.php'; ?></header>
+
 </body>
 </html>

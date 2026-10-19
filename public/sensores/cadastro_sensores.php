@@ -146,7 +146,8 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
         <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
     </div>
 
-    <header><?php include '../../scripts/navbar.php'; ?></header>
+<header><?php include '../../scripts/navbar2.php'; ?></header>
+
 </body>
 
 </html>
