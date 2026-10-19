@@ -10,10 +10,10 @@
   --cor-navbar2: #051622; 
   --cor-caixa_sensores: #c7c7c7;
 }
-{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 97%;
-}
+
+
+
+
 #bodyLogin.bg-light {
   background-color: var(--cor-fundo);
 }
@@ -148,7 +148,7 @@ body {
   box-sizing: border-box;
 }
 .menu-lateral {
-  width: 48px;
+  width: 55px;
   height: 100%;
   /* Gradiente acompanhando a mesma direção e cores */
   background: linear-gradient(to bottom, var(--cor-navbar1), var(--cor-navbar2));
@@ -359,7 +359,8 @@ td:hover {
   justify-content: center;
   text-align: center;
 }
-/CADASTRO DE SENSORES/
+
+/* CADASTRO DE SENSORES */
 .campo {
   width: 80%;
   height: 100%;
