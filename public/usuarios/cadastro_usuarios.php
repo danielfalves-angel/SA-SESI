@@ -92,13 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
 
                     <label for="senha">Senha:</label>
-                    <p>
-                    1 MAIUSCULO
-                    4 MINUSCULAS
-                    2 NUMEROS
-                    1 CARACTER ESPECIAL
-                    8 CARACTERES
-                    </p>
                     <input type="password" name="senha">
                     <br>
 
@@ -121,9 +114,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
 
                     <button type="submit">Cadastrar</button>
+                    <br><br>
+
+                    <button type="button" onclick="window.location.href='usuarios.php'">Voltar</button> 
+                    
+                    
                 </form>
             </div>
-            <button type="button" onclick="window.location.href='usuarios.php'">Voltar</button>
+            
         </div>
     </main>
     <header><?php include '../../scripts/navbar.php'; ?></header>

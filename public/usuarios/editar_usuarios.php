@@ -93,13 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
 
                     <label for="senha">Senha:</label>
-                    <p>
-                    1 MAIUSCULO
-                    4 MINUSCULAS
-                    2 NUMEROS
-                    1 CARACTER ESPECIAL
-                    8 CARACTERES
-                    </p>
                     <input type="password" name="senha">
                     <br>
 
