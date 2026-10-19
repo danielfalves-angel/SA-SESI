@@ -346,13 +346,14 @@ td {
   height: 40px;
   text-align: center;
   border: 1px solid #252222;
+  background:#e9e9e9;
 }
 th {
   background: #556f8d;
   color: white;
 }
 td:hover {
-  background: #e3f2fd;
+  background: #cdcdce;
   cursor: pointer;
 }
 .corpo{
