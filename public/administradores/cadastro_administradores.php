@@ -33,8 +33,21 @@ include '../../scripts/analizar_senha.php';
 
     if ($seguranca !== true) {
         echo '<script>alert("A senha não atende aos requisitos mínimos: 1 Maiúscula, 4 Minúsculas, 2 Números, 1 Caractere Especial e 8 Caracteres.");</script>';
-        echo '<script>window.location.href = "usuarios.php";</script>';
+        echo '<script>window.location.href = "administradores.php";</script>';
         exit();
+    }
+
+    while ($usuario = mysqli_fetch_assoc($usuarios)) {
+        if ($email === $usuario['email']) {
+            echo '<script>alert("O email já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "administradores.php";</script>';
+            exit();
+        }
+            if ($telefone === $usuario['telefone']) {
+            echo '<script>alert("O telefone já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "administradores.php";</script>';
+            exit();
+        }
     }
 
 
@@ -52,7 +65,7 @@ include '../../scripts/analizar_senha.php';
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Usuário cadastrado com sucesso.");</script>';
-        echo '<script>window.location.href = "usuarios.php";</script>';
+        echo '<script>window.location.href = "administradores.php";</script>';
         exit();
     } else {
         echo "Erro ao cadastrar usuário: " . mysqli_error($conn);
