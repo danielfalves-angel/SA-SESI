@@ -98,23 +98,21 @@ $id = $_SESSION['id'] ?? null;
         <input type="text" name="nome" id="nome" required>
         <br> 
             
-         <label for="velocidade">Velocidade: </label>
-         <input type="text" name="velocidade" id="velocidade" required>
-
-                <div class="form-group">
                     <label for="rota">Rota:</label>
                     <input type="text" name="rota" id="rota" required>
-                </div>
 
-                <label for="peso">Peso:</label>
+         <label for="velocidade">Velocidade (km/h): </label>
+         <input type="number" name="velocidade" id="velocidade" required>
+
+                <label for="peso">Peso (kg):</label>
                 <input type="number" name="peso" id="peso" required>
                 <br>
 
-                <label for="temperatura">Temperatura:</label>
+                <label for="temperatura">Temperatura (°C):</label>
                 <input type="number" name="temperatura" id="temperatura" required>
                 <br>
 
-                <label for="tempo">Tempo:</label>
+                <label for="tempo">Tempo (min):</label>
                 <input type="number" name="tempo" id="tempo" required>
                 <br>
 

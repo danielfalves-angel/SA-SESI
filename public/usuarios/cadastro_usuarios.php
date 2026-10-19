@@ -26,8 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefone = $_POST['telefone'];
     $cargo = $_POST['cargo'];
     $status = $_POST['status'];
-
-$id = $_SESSION['id'] ?? null;
+    $id = $_SESSION['id'] ?? null;
 
     include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);

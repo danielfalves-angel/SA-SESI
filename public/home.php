@@ -23,144 +23,14 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 
 
-<body class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
+<body >
 
 
 
 
     <main>
-        <div class="flex">
-
-            <div class="caixa">
-
-                <div>
-
-                    <div class="caixinha1">
-
-                        <div class="calendario">
-                            <div class="mes">Maio 2026</div>
-
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Dom</th>
-                                        <th>Seg</th>
-                                        <th>Ter</th>
-                                        <th>Qua</th>
-                                        <th>Qui</th>
-                                        <th>Sex</th>
-                                        <th>Sáb</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                        <td>9</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>10</td>
-                                        <td>11</td>
-                                        <td>12</td>
-                                        <td>13</td>
-                                        <td>14</td>
-                                        <td class="hoje">15</td>
-                                        <td>16</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>17</td>
-                                        <td>18</td>
-                                        <td>19</td>
-                                        <td>20</td>
-                                        <td>21</td>
-                                        <td>22</td>
-                                        <td>23</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>24</td>
-                                        <td>25</td>
-                                        <td>26</td>
-                                        <td>27</td>
-                                        <td>28</td>
-                                        <td>29</td>
-                                        <td>30</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>31</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-               
-                        </div>
-
-                    </div>
-
-
-                    <div class="caixinha1">
-                        <div class="grafico_barra">
-                            <canvas id="barra"></canvas>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="caixa">
-
-                <div>
-                
-
-                    <div>
-                        <div class="caixinha2">
-                            <h1 class="text-cadastro">Tabela de Usuarios cadastros</h1>
-                            <div class="botao_tabela"><a href="usuarios_cadastrados.php"><button onclick="telaTabela()" class="ponteiro">></button></a></div>
-                        </div>
-
-                    </div>
-
-
-
-
-                    <div class="caixinha3">
-                        <div class="grafico_circulo">
-                            <canvas id="circulo"></canvas>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
+        <h1 class="titulo_home">Bem-vindo, <?php echo $_SESSION['usuario']; ?>! <br> ao   <br > <span class="titulo_home2"> Orbital Trens</span> </h1>
+        <p>Tipo de usuário: <?php echo $_SESSION['tipo']; ?></p>
 
     </main>
 
@@ -168,12 +38,7 @@ if (!isset($_SESSION['usuario'])) {
     <footer>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
-    <script src="../scripts/home.php"></script>
-    <script src="../scripts/grafico_barra.js"></script>
-    <script src="../scripts/grafico_circulo.js"></script>
-    <header><?php include '../scripts/navbar.php';
-            exit(); ?></header>
+    
 
 </body>
 

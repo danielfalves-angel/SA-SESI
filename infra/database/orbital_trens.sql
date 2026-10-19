@@ -48,7 +48,7 @@ create table trem (
 );
 
 insert into usuarios (nome, email, telefone, senha, cargo, status) values
-('Arthur', 'arthur@email.com', '1234567890', '123456', 'administrador', 'ativo'),
-('Rafael', 'rafael@email.com', '0987654321', '654321', 'administrador', 'ativo'),
-('Daniel', 'daniel@email.com', '1111111111', '654321', 'administrador', 'ativo'),
-('Ignacio', 'ignacio@email.com', '2222222222', '987654', 'usuario', 'ativo');
+('Arthur', 'arthur@email.com', '1234567890', '$2y$10$XarJthdWKNeMXTAP6uo26uQzJpdrXlkh6Y4Zq3/BXKFkvDR.XqC9O', 'administrador', 'ativo'),
+('Rafael', 'rafael@email.com', '0987654321', '$2y$10$tVrF4VbArS0y8sRryiagNO1aJ26INmTXt8MSX7mBgYATZlHQ6hqkC', 'administrador', 'ativo'),
+('Daniel', 'daniel@email.com', '1111111111', '$2y$10$iMMDvw1KmR8hHuuMgLpOTeu9HLQ0VHBWun6rftnYv7lc0VghqYDIO', 'administrador', 'ativo'),
+('Ignacio', 'ignacio@email.com', '2222222222', '$2y$10$AYapbRkm8itkNxJUWmCMcezVSPVuIm.gSKohP6dPm6RX/qAwhc1G2', 'usuario', 'ativo');

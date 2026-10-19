@@ -6,14 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
+   
 
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-
-    $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senhaHash'";  
+    $query = "SELECT * FROM usuarios WHERE email = '$email'";
     $result = $conn->query($query);
-
-    if ($result->num_rows > 0) {
-        $usuario = $result->fetch_assoc();
+    $usuario = $result->fetch_assoc();
+    if(password_verify($senha, $usuario['senha'])){
         $_SESSION['usuario'] = $usuario['email'];
         $_SESSION['tipo'] = $usuario['cargo'];
 

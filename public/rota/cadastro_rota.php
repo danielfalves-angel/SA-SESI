@@ -40,7 +40,7 @@ $id = $_SESSION['id'] ?? null;
         die('Erro ao preparar a inserção do rota: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, 'sssssi', $nome, $destino, $partida, $descricao, $id);
+     mysqli_stmt_bind_param ($stmt, "ssssi", $nome, $destino, $partida, $descricao, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("rota cadastrado com sucesso.");</script>';
@@ -89,12 +89,12 @@ $id = $_SESSION['id'] ?? null;
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" required>
         <br> 
+
+        <label for="partida">Partida: </label>
+         <input type="text" name="partida" id="partida" required>
             
          <label for="destino">Destino: </label>
          <input type="text" name="destino" id="destino" required>
-
-         <label for="partida">Partida: </label>
-         <input type="text" name="partida" id="partida" required>
 
          <label for="descricao">Descrição: </label>
          <input type="text" name="descricao" id="descricao" required>
