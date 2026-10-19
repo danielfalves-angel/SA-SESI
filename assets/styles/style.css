@@ -6,21 +6,17 @@
   --cor-erro: #ff0000;
   --cor-sucesso: #00ff4c;
   
-
   --cor-navbar1: #104744; 
   --cor-navbar2: #051622; 
   --cor-caixa_sensores: #c7c7c7;
 }
-
-* {
+{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 97%;
 }
-
 #bodyLogin.bg-light {
   background-color: var(--cor-fundo);
 }
-
 #bodyLogin {
   display: flex;
   justify-content: center;
@@ -29,18 +25,14 @@
   color: var(--cor-texto);
   background-color: var(--cor-fundo);
 }
-
 body {
   background-color: var(--cor-fundo);
 }
-
 .mainm {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-
 }
-
 .caixa-p {
   margin-top: 6%;
   display: flex;
@@ -50,7 +42,6 @@ body {
   gap: 1%;
   background-color: var(--cor-fundo-2);
 }
-
 #mainLogin {
   padding: 3%;
   gap: 1%;
@@ -58,66 +49,53 @@ body {
   box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
   background-color: var(--cor-fundo-2);
 }
-
 #formLogin {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 5px;
 }
-
 #formLogin input {
   padding: 5px;
   border: solid var(--cor-texto);
 }
-
 #formLogin button {
   border: solid var(--cor-texto);
 }
-
 #formLogin button:hover {
   background-color: var(--cor-texto);
 }
-
 .toggle {
   text-align: center;
   margin-top: 10px;
   cursor: pointer;
   color: var(--cor-texto);
 }
-
 .erro {
   color: var(--cor-erro);
   font-size: 12px;
   text-align: center;
 }
-
 .sucesso {
   color: var(--cor-sucesso);
   font-size: 12px;
   text-align: center;
 }
-
 #bodySensor {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
-
 }
-
 .botaoTexto {
   text-align: center;
 }
-
 .table {
   width: 400px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 5px 5px 10px #888888;
 }
-
 #formCadastro {
   display: flex;
   flex-direction: column;
@@ -130,10 +108,6 @@ body {
   border: 1px black;
   box-shadow: 0 4px 10px var(--cor-texto);
 }
-
-
-
-
 /* daniel */
 #SenhaSensor {
   padding: 3%;
@@ -142,7 +116,6 @@ body {
   box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
   background-color: var(--cor-fundo-2);
 }
-
 #navSensor {
   padding: 3%;
   gap: 1%;
@@ -150,51 +123,17 @@ body {
   box-shadow: 10px 10px 15px rgba(19, 20, 55, 0.3);
   background-color: var(--cor-fundo-2);
 }
-
 .navSens {
   display: flex;
 }
-
-
 .label{
   background-color: var(--cor-fundo);
   color: black;
-
-
 }
-
 .CadastrarSensor1_campos{
   height:80%
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*   Arthur    */
-
 .navbar-principal {
   display: flex;
   align-items: center;      
@@ -208,7 +147,6 @@ body {
   z-index: 11;
   box-sizing: border-box;
 }
-
 .menu-lateral {
   width: 48px;
   height: 100%;
@@ -224,14 +162,12 @@ body {
   flex-direction: column;
   border-right: solid 1px rgba(255, 255, 255, 0.4);
 }
-
 .menu-lateral:hover {
   width: 240px;
   transition: .2s;
   z-index: 10;
   border-right: solid 1px rgba(255, 255, 255, 0.4);
 }
-
 .logo-container {
  background: linear-gradient(to top, #104744, #030d14 );
   border-right: 2px solid #fff;
@@ -239,17 +175,12 @@ body {
   height: 15vh;
   width: 281px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-
 }
-
 .logo {
   height: 100%;
   padding: 2%;
    padding-top: 15%;
 }
-
-
-
 .text-icon {
   align-items: center;
   color: white;
@@ -258,9 +189,7 @@ body {
   display: flex;
   transition: .2S;
   cursor: pointer;
-
 }
-
 .text-icon:hover {
   margin-left: 1.6%;
   margin: 3.2% 0.8%;
@@ -268,7 +197,6 @@ body {
   transition: .2S;
   cursor: pointer;
 }
-
 .text-icon:active {
   margin-left: 1.6%;
   margin: 3.2% 0.8%;
@@ -276,16 +204,13 @@ body {
   transition: .2S;
   cursor: pointer;
 }
-
 .icon {
   margin-left: -2.4%;
   padding-right: 4%;
 }
-
 .text {
   padding: 6.4%;
 }
-
 .botao {
   text-decoration: none;
   background-color: transparent;
@@ -294,24 +219,18 @@ body {
   align-items: center;
   color: white;
 }
-
-
-
 .flexbox {
-
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
-
 .caixa {
   padding: 3% 2%;
   width: 50%;
   height: 100%;
  
 }
-
 .caixa_tabela {
   position: fixed;
   left: 35%;
@@ -320,7 +239,6 @@ body {
   height: 100vh;
   background-color: var(--cor-fundo);
 }
-
 .caixinha1 {
   background-color: var(--cor-fundo-2);
   height: 45%;
@@ -330,7 +248,6 @@ body {
   border: solid rgb(32, 32, 32);
   overflow: hidden;
 }
-
 .caixinha2 {
   padding: 1% 0 0 2%;
   background-color: var(--cor-fundo-2);
@@ -341,11 +258,9 @@ body {
   border: solid rgb(32, 32, 32);
   overflow: hidden;
 }
-
 .text-cadastro {
   margin-top: 7%;
 }
-
 .caixinha3 {
   background-color: var(--cor-fundo-2);
   height: 72%;
@@ -355,7 +270,6 @@ body {
   border: solid rgb(32, 32, 32);
   overflow: hidden;
 }
-
 .botao_tabela {
   position: absolute;
   top: 16%;
@@ -368,7 +282,6 @@ body {
   text-decoration: none;
   border: none;
 }
-
 .botao_tabela:hover {
   position: absolute;
   top: 16%;
@@ -382,7 +295,6 @@ body {
   border: none;
   transition: .3s;
 }
-
 .ponteiro {
   position: absolute;
   top: -1%;
@@ -394,16 +306,11 @@ body {
   background-color: transparent;
   font-size: 35px;
 }
-
-
-
-
 .grafico_barra {
   width: 90%;
   height: 90%;
   margin: 3%;
 }
-
 .grafico_circulo {
   position: fixed;
   top: 19%;
@@ -411,22 +318,15 @@ body {
   height: 75%;
   max-height: 75%;
   margin: 3%;
-
 }
-
-
-
-
 .flex {
   display: flex;
   height: 100%;
   width: 100%;
 }
-
 .text-home {
   font-size: large;
 }
-
 .calendario {
   height: 100%;
   background: var(--cor-fundo);
@@ -434,14 +334,12 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 10px var(--cor-texto);
 }
-
 .mes {
   text-align: left;
   font-size: 24px;
   margin: -2% 0 0 0;
   font-weight: bold;
 }
-
 th,
 td {
   width: 90px;
@@ -449,45 +347,33 @@ td {
   text-align: center;
   border: 1px solid #252222;
 }
-
 th {
   background: #556f8d;
   color: white;
 }
-
 td:hover {
   background: #e3f2fd;
   cursor: pointer;
 }
-
 .corpo{
   justify-content: center;
   text-align: center;
 }
-
-
-
-
-/*CADASTRO DE SENSORES*/
-
+/CADASTRO DE SENSORES/
 .campo {
   width: 80%;
   height: 100%;
   margin: 0 10%;
-
 }
-
 .campo1 {
   background-color: var(--cor-caixa_sensores);
   width: 100%;
-
   height: 280px;
   margin: 10% 0 1% 0;
   border-radius: 15px;
   box-shadow: 10px 5px 10px 0 var(--cor-fundo-2);
   
 }
-
 .campo2 {
   background-color: var(--cor-caixa_sensores);
   width: 100%;
@@ -496,7 +382,6 @@ td:hover {
   border-radius: 15px;
   box-shadow: 10px 5px 20px 0 var(--cor-fundo-2);
 }
-
 .campo3 {
   background-color: var(--cor-caixa_sensores);
   width: 100%;
@@ -505,113 +390,36 @@ td:hover {
   border-radius: 15px;
   box-shadow: 10px 5px 20px 0 var(--cor-fundo-2);
 }
-
 .alarme{
   width: 80%;
   height: 80%;
   background-color: var(--cor-caixa_sensores);
   
 }
-
 .icone-texto {
   padding: 20px;
   display: flex;
   justify-content: left;
   font-size: 25px;
-
 }
-
 .icone {
   padding: 2px 5px 0 0;
   font-size: 30px;
 }
-
-
 .table_sensores{
 display: flex;
 justify-content: center; 
 }
-
 .table_sensores_centro{
   text-align: center;
 }
-
-
 .table_usuarios{
 display: flex;
 justify-content: center; 
 }
-
 .table_usuarios_centro{
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .corpo2 {
   display: flex;
   flex-direction: column;
@@ -627,15 +435,12 @@ justify-content: center;
   text-align: left;
   box-sizing: border-box;
 }
-
-
 .body3 {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 .titulo-sensor {
   display: flex;
   align-items: center;
@@ -645,71 +450,41 @@ justify-content: center;
   color: #000;
   margin-bottom: 25px;
 }
-
 .titulo-sensor i {
   font-size: 20px;
 }
-
-
 .corpo2 {
     text-align: left;
     align-items: flex-start;
 }
-
 .corpo2 label {
     display: block;
     text-align: left;
     margin-bottom: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .body1 {
   margin: 0;
   background-color: #f9f4f4;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-
 .mapa {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-
-
 a {
   text-decoration: none;
 }
-
-
 #body12 {
   background: #e9e9e9;
 }
-
 .box-users {
   width: 600px;
   background: #4b4545;
   border-radius: 15px;
   padding: 15px;
 }
-
 /* Título */
 .titulo {
   color: white;
@@ -717,7 +492,6 @@ a {
   font-weight: bold;
   margin: 0;
 }
-
 /* Input */
 .input-id {
   height: 40px;
@@ -726,7 +500,6 @@ a {
   font-weight: bold;
   border-radius: 8px;
 }
-
 /* Botão lupa */
 .btn-search {
   width: 45px;
@@ -735,31 +508,25 @@ a {
   border-radius: 8px;
   border: none;
 }
-
 .btn-search i {
   color: white;
   font-size: 20px;
 }
-
 /* Tabela */
 .tabela-users {
   background: #ddd;
   overflow: hidden;
   border-radius: 10px;
 }
-
 .tabela-users th,
 .tabela-users td {
   border: 3px solid #4b4545 !important;
   height: 42px;
   font-size: 20px;
 }
-
 .tabela-users thead {
   background: #cfcfcf;
 }
-
-
 .titulo3 {
   position: absolute;
   top: 100px;
@@ -771,11 +538,9 @@ a {
   font-size: 24px;
   font-weight: bold;
 }
-
 .titulo3 i {
   font-size: 28px;
 }
-
 .form-group {
   display: flex;
   flex-direction: row;        
@@ -784,7 +549,6 @@ a {
   width: 100%;
   gap: 12px;             
 }
-
 .form-group label {
   font-size: 15px;
   color: #1a1a1a;
@@ -793,7 +557,6 @@ a {
   text-align: left;          
   flex-shrink: 0;             
 }
-
 .form-group input,
 .form-group select {
   flex: 1;                    
@@ -807,23 +570,17 @@ a {
   box-sizing: border-box;
   transition: border-color 0.2s, background-color 0.2s;
 }
-
-
 .form-group input:focus,
 .form-group select:focus {
   border-color: #4a6fa5;
   background-color: #ffffff;
 }
-
-
 .botoes-container {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
   margin-top: 25px;
 }
-
-
 .btn-voltar {
   background-color: #e0cece;
   color: #2c2c2c;
@@ -836,12 +593,9 @@ a {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
   transition: background-color 0.2s;
 }
-
 .btn-voltar:hover {
   background-color: #cfbaba;
 }
-
-
 .btn-cadastrar {
   background-color: #5b7398;
   color: #ffffff;
@@ -854,16 +608,10 @@ a {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
   transition: background-color 0.2s;
 }
-
 .btn-cadastrar:hover {
   background-color: #485c7c;
 }
-
-
-
 .titulo_home{
-
-
   position: absolute;
   top: 100px;
   left: 80px;
@@ -874,10 +622,7 @@ a {
   font-size: 50px;
   font-weight: bold;
 }
-
 .titulo_home2{
-
-
   
   color: #ffffff;
   font-size: 50px;
