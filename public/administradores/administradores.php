@@ -23,7 +23,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 
-    <title>Usuários Cadastrados</title>
+    <title>Administradores Cadastrados</title>
 </head>
    
 
@@ -48,7 +48,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
         
         <br>
         </form>
-        <a href="../usuarios/cadastro_usuarios.php"><button>Cadastrar Administrador</button></a>
+        <a href="cadastro_administradores.php"><button>Cadastrar Administrador</button></a>
         <br><br>
         <div class="table_usuarios">
             <div class="table_usuarios_centro">
@@ -80,8 +80,8 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                         echo "<td>{$usuario['cargo']}</td>";
                         echo "<td>{$usuario['status']}</td>";
                         echo "<td>
-                                <a href='../usuarios/editar_usuarios.php?id={$usuario['id']}'>Editar</a> |
-                                <a href='excluir_administradores.php?id={$usuario['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
+                                <a href='editar_administradores.php?id={$usuario['id']}'>Editar</a> |
+                                <a href='excluir_administradores.php?id={$usuario['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este administrador?');\">Excluir</a>
                               </td>";
                         echo "</tr>";
                     }
