@@ -4,6 +4,11 @@ if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
+$resultado2 = mysqli_query($conn, "SELECT * FROM rota");  
+if (!isset($conn) || $conn === null) {
+    die('Erro ao conectar com o banco de dados.');
+}
+
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 $sql = "SELECT * FROM trem WHERE id = ?";
@@ -32,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $temperatura = trim($_POST['temperatura']);
     $tempo = trim($_POST['tempo']);
     $status = trim($_POST['status']);
-    $id = (int) $_POST['id'];
+   
 
     $sql = "UPDATE trem SET nome = ?, rota = ?, velocidade = ?, peso = ?, temperatura = ?, tempo = ?, status = ?, id = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
@@ -70,13 +75,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST">
 
-        <label for="id">Id do Trem:</label>
-        <input type="number" name="id" id="id" value="<?php echo htmlspecialchars($trem['id']); ?>" required>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
         <br>
         <label for="rota">Rota:</label>
-        <input type="text" name="rota" id="rota" value="<?php echo htmlspecialchars($trem['rota']); ?>" required>
+        <select name="rota" id="rota" required>
+            <option value=""> Selecione</option>
+            <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
+                <option value="<?php echo $rota['id']; ?>"><?php echo $rota['nome']; ?></option>
+            <?php } ?>
+        </select>
         <br>
         <label for="velocidade">Velocidade:</label>
         <input type="text" name="velocidade" id="velocidade" value="<?php echo htmlspecialchars($trem['velocidade']); ?>" required>
@@ -109,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
 </div>
-<header><?php include '../../scripts/navbar.php'; ?></header>
-</body>
 
+</body>
+<header><?php include '../../scripts/navbar.php'; ?></header>
 </html>
