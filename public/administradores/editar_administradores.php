@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
 
                     <label for="senha">Senha:</label>
-                    <input type="password" name="senha" value="<?php echo htmlspecialchars($usuario['senha']); ?>">
+                    <input type="password" name="senha">
                     <br>
 
                     <label for="telefone">Telefone:</label>
@@ -117,8 +117,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
             
                 <button type="submit">Editar administrador</button>
-                <button type="button" onclick="window.location.href='administradores.php'">Voltar</button>
+                <br><br>
 
+                <button type="button" onclick="window.location.href='administradores.php'">Voltar</button> 
     </form>
 
 </div>

@@ -30,6 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
+    if ($seguranca !== true) {
+        echo '<script>alert("Senha inválida.");</script>';
+        echo '<script>window.location.href = "administrador.php";</script>';
+        exit(); 
+    }
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
    
@@ -116,10 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button type="submit">Cadastrar</button>
                     <br><br>
 
-                     <button type="button" onclick="window.location.href='administradores.php'">Voltar</button> <?php  
-                        
-                    
-                    ?>
+                     <button type="button" onclick="window.location.href='administradores.php'">Voltar</button>
                     
                 </form>
             </div>
