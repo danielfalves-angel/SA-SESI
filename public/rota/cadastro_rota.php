@@ -31,6 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
 
 $id = $_SESSION['id'] ?? null;
+
+    while ($rota = mysqli_fetch_assoc($resultado)) {
+        if ($nome === $rota['nome']) {
+            echo '<script>alert("O nome da rota já está em uso. Por favor, escolha outra.");</script>';
+            echo '<script>window.location.href = "rota.php";</script>';
+            exit();
+        }
+    }
    
 
     $sql = "INSERT INTO rota (nome, destino, partida, descricao, id) VALUES (?, ?, ?, ?, ?)";
