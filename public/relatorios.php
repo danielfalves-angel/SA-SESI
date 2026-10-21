@@ -24,52 +24,14 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 
 <body>
->
- 
+    >
+
 
     <main class="mainm">
         <div class="gap"></div>
         <div class="caixa-p">
             <div>
-                <h1>Escrever Relatório</h1>
-
-    <?php if (!empty($erro)): ?>
-        <div class="erro"><?= $erro; ?></div>
-    <?php endif; ?>
-
-    <!-- Formulário para envio -->
-    <form method="POST" action="">
-        <div>
-            <label for="nome">Seu Nome:</label>
-            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome...">
-        </div>
-        <div>
-            <label for="texto">Relatório / Comentário:</label>
-            <textarea id="texto" name="texto" required placeholder="Escreva seu relatório aqui..."></textarea>
-        </div>
-        <button type="submit">Enviar Relatório</button>
-    </form>
-
-    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-
-    <h2>Relatórios Salvos</h2>
-
-    <!-- Lista de Relatórios -->
-                <div class="lista-comentarios">
-                    <?php if (empty($relatorios)): ?>
-                        <p class="sem-relatorios">Nenhum relatório cadastrado ainda. Seja o primeiro a escrever!</p>
-                    <?php else: ?>
-                        <?php foreach ($relatorios as $r): ?>
-                            <div class="comentario">
-                                <div class="comentario-header">
-                                    <strong><?= $r['nome']; ?></strong>
-                                    <span><?= $r['data']; ?></span>
-                                </div>
-                                <div class="comentario-texto"><?= $r['texto']; ?></div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
+                <h1>Em Desenvolvimento</h1>
             </div>
         </div>
     </main>
@@ -77,7 +39,8 @@ if (!isset($_SESSION['usuario'])) {
     <footer>
 
     </footer>
-    
+
 </body>
-   <header><?php include '../scripts/navbar.php'; ?></header>
+<header><?php include '../scripts/navbar.php'; ?></header>
+
 </html>
