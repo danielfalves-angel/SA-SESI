@@ -19,6 +19,11 @@ if ($resultado === false) {
     die('Erro ao consultar Rota: ' . mysqli_error($conn));
 }
 
+$resultado2 = mysqli_query($conn, "SELECT * FROM trem");  
+if (!isset($conn) || $conn === null) {
+    die('Erro ao conectar com o banco de dados.');
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $destino = $_POST['destino'];
@@ -93,6 +98,15 @@ $id = $_SESSION['id'] ?? null;
         <input type="text" name="nome" id="nome" required>
         <br> 
 
+  <label for="trem">Trem:</label>
+        <select name="trem" id="trem" required>
+            <option value=""> Selecione</option>
+            <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
+                <option value="<?php echo $trem['nome']; ?>"><?php echo $trem['nome']; ?></option>
+            <?php } ?>
+        </select>
+        <br>
+        
         <label for="partida">Partida: </label>
          <input type="text" name="partida" id="partida" required>
             
