@@ -633,3 +633,118 @@ a {
 .campo_oculto{
   display: none;
 }
+
+
+
+/* 
+   ESTILO PADRAO PRA CADASTRO DE COISAS
+    */
+
+
+.corpo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+
+.campo1 {
+  background-color: #0c424f;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  margin: 0 auto;
+  padding: 18px 22px 22px 22px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.titulo3 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.corpo2 {
+  background-color: #dbe3e8;
+  padding: 22px 25px;
+  border-radius: 6px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.titulo-sensor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #000000;
+  margin-bottom: 18px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  width: 100%;
+  gap: 12px;
+}
+
+.form-group label {
+  width: 150px;
+  font-size: 14px;
+  color: #000000;
+  text-align: left;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.form-group input,
+.form-group select {
+  flex: 1;
+  padding: 7px 12px;
+  border: 1px solid #777777;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+.botoes-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn-voltar {
+  background-color: #cfb8b8;
+  color: #000000;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-cadastrar {
+  background-color: #516a8d;
+  color: #ffffff;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}

@@ -6,14 +6,14 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: ../../index.php');
     exit();
 }
-                
-
 
 include '../../infra/connect.php';
-$resultado2 = mysqli_query($conn, "SELECT * FROM rota");  
+
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
+
+$resultado2 = mysqli_query($conn, "SELECT * FROM rota");  
 
 $sql = "SELECT * FROM sensor";
 $resultado = mysqli_query($conn, $sql);
@@ -22,7 +22,6 @@ if ($resultado === false) {
     die('Erro ao consultar sensor: ' . mysqli_error($conn));
 }
                     
-  
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $unidade = $_POST['unidade_de_medida'];
@@ -48,8 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
     }
 
-    
-
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Sensor cadastrado com sucesso.");</script>';
         echo '<script>window.location.href = "sensores.php";</script>';
@@ -64,86 +61,97 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administrador'");
 
 ?>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Sensores</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
-   
-
-
-<body>
-    <div class="corpo">
-
-    <main>
 
 <body class="body3">
+    <div class="corpo">
+        <main>
+            <!-- Card Externo -->
+            <div class="campo1">
+                <div class="titulo3">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Cadastrar Sensor</span>
+                </div>
 
-  <h1 class="titulo_home2">Cadastro de Sensor</h1>
+                <!-- Card Interno -->
+                <div class="corpo2">
+                    <div class="titulo-sensor">
+                        <i class="bi bi-broadcast-pin"></i>
+                        <span>Informações do Sensor</span>
+                    </div>
 
-    <div class="container-central">
-        <div class="corpo2">
-            <div class="titulo-sensor">
-                <i class="bi bi-broadcast-pin"></i>
-                <span>Informações do Sensor</span>
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="nome">Nome do sensor:</label>
+                            <input type="text" name="nome" id="nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="localizacao">Localização:</label>
+                            <input type="text" name="localizacao" id="localizacao" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unidade_de_medida">Unidade de medida:</label>
+                            <select name="unidade_de_medida" id="unidade_de_medida" required>
+                                <option value="">selecione</option>
+                                <option value="celcius">celcius</option>
+                                <option value="km/h">km/h</option>
+                                <option value="kg">kg</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valor">Valor:</label>
+                            <input type="number" name="valor" id="valor" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select name="status" id="status" required>
+                                <option value="">selecione</option>
+                                <option value="funcionando">funcionando</option>
+                                <option value="defeituoso">defeituoso</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group campo_oculto">
+                            <label for="rota">Rota:</label>
+                            <select name="rota" id="rota">
+                                <option value="">selecione</option>
+                                <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
+                                    <option value="<?php echo $rota['nome']; ?>"><?php echo $rota['nome']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" name="descricao" id="descricao" required>
+                        </div>
+
+                        <div class="botoes-container">
+                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Voltar</button>
+                            <button type="submit" class="btn-cadastrar">Cadastrar Sensor</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-   
-    <form method="POST">
-        <label for="nome">nome:</label>
-        <input type="text" name="nome" id="nome" required>
-        <br> 
-
-        <label for="unidade_de_medida">Unidade de medida: </label>
-        <select name="unidade_de_medida" id="unidade_de_medida" required>
-            <option value=""> Selecione</option>
-            <option value="celcius">celcius</option>
-            <option value="km/h">km/h</option>
-            <option value="kg">kg</option>
-        </select>
-
-        <label for="valor">Valor:</label>
-        <input type="number" name="valor" id="valor" required>
-        <br>
-
-        <label for="localizacao">Localização:</label>
-        <input type="text" name="localizacao" id="localizacao" required>
-        <br>
-
-        <label for="rota">Rota:</label>
-        <select name="rota" id="rota" required>
-            <option value=""> Selecione</option>
-            <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
-                <option value="<?php echo $rota['nome']; ?>"><?php echo $rota['nome']; ?></option>
-            <?php } ?>
-        </select>
-        <br>
-
-        <label for="descricao">Descrição:</label>
-        <input type="text" name="descricao" id="descricao" required>
-        <br>
-            
-        <label for="status">Status: </label>
-            <select name="status" id="status">
-                <option value="funcionando">funcionando</option>
-                <option value="defeituoso">defeituoso</option>
-            </select>
-        <br>
-            
-                <button type="submit">Cadastrar Sensor</button>
-    </form>
-        </div>
-        <button type="button" onclick="window.location.href='sensores.php'">Voltar</button>
+        </main>
     </div>
 
-<header><?php include '../../scripts/navbar2.php'; ?></header>
-
+    <!-- Mantido no final do body -->
+    <header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
 
 </html>
