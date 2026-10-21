@@ -31,7 +31,7 @@ if (!isset($_SESSION['usuario'])) {
         <div class="gap"></div>
         <div class="caixa-p">
             <div>
-                <h1>Em Desenvolvimento</h1>
+                <h1>Em Desenvolvimento :)</h1>
             </div>
         </div>
     </main>
