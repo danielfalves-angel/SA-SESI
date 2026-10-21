@@ -169,7 +169,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="text-icon">
-                <a href="<?= $base_url ?>logout.php">
+                <a href="<?= $base_url ?>../scripts/logout.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="text">Sair</span>
