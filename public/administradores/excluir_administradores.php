@@ -2,7 +2,8 @@
 
 session_start();
 
-if (!isset($_SESSION['usuario'])) {
+
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] !== 'administrador') {
     header('Location: ../../index.php');
     exit();
 }
