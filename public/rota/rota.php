@@ -71,7 +71,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
                         echo "<td>{$rota['destino']}</td>";
                         echo "<td>{$rota['descricao']}</td>";
                         echo "<td>
-                                <a href='editar_rota.php?id={$rota['id']}'>Editar</a> |
+                                <a href='editar_rota.php?id={$rota['id']}'>Editar</a> 
                                 <a href='excluir_rota.php?id={$rota['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
                               </td>";
                         echo "</tr>";

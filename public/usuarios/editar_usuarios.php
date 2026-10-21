@@ -22,6 +22,9 @@ mysqli_stmt_execute($stmt);
 $resultadoUsuario = mysqli_stmt_get_result($stmt);
 $usuario = mysqli_fetch_assoc($resultadoUsuario);
 
+$sql = "SELECT * FROM usuarios";
+$resultado2 = mysqli_query($conn, $sql);
+
 if (!$usuario) {
     die('Usuário não encontrado.');
 }
@@ -50,9 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-        while ($usuario1 = mysqli_fetch_assoc($resultadoUsuario)) {
-        if ($id_GET !== $usuario1['id'] && $nome === $usuario1['nome']) {
-            echo '<script>alert("O nome do usuário já está em uso. Por favor, escolha outro.");</script>';
+        while ($usuario1 = mysqli_fetch_assoc($resultado2)) {
+        if ($id_GET !== $usuario1['id'] && $email === $usuario1['email']) {
+            echo '<script>alert("O email já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "usuarios.php";</script>';
+            exit();
+        }
+        if ($id_GET !== $usuario1['id'] && $telefone === $usuario1['telefone']) {
+            echo '<script>alert("O telefone já está em uso. Por favor, escolha outro.");</script>';
             echo '<script>window.location.href = "usuarios.php";</script>';
             exit();
         }
