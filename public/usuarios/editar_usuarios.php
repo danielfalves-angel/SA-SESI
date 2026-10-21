@@ -26,7 +26,14 @@ if (!$usuario) {
     die('Usuário não encontrado.');
 }
 
+if(isset($_GET['id'])) {
+    $id_GET = $_GET['id'];
+} else {
+    die('ID do usuário não encontrado.');
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id       = $_POST['id'];
     $nome     = $_POST['nome'];
     $senha    = $_POST['senha'];
     $email    = $_POST['email'];
@@ -41,6 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo '<script>alert("A senha não atende aos requisitos mínimos: 1 Maiúscula, 4 Minúsculas, 2 Números, 1 Caractere Especial e 8 Caracteres.");</script>';
         echo '<script>window.location.href = "usuarios.php";</script>';
         exit();
+    }
+
+        while ($usuario1 = mysqli_fetch_assoc($resultadoUsuario)) {
+        if ($id_GET !== $usuario1['id'] && $nome === $usuario1['nome']) {
+            echo '<script>alert("O nome do usuário já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "usuarios.php";</script>';
+            exit();
+        }
     }
 
 
@@ -92,6 +107,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <form method="POST">
+                
+            <div class="campo_oculto">
+                <label for="id"></label>
+                <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($usuario['id']); ?>">
+            </div>
+
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" value="<?= htmlspecialchars($usuario['nome'] ?? '') ?>" required>
                 <br>

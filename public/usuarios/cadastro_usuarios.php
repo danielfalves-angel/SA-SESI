@@ -20,6 +20,7 @@ if ($usuarios === false) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
@@ -104,6 +105,8 @@ include '../../scripts/analizar_senha.php';
                 </div>
 
                 <form method="POST">
+
+
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome">
                     <br>
