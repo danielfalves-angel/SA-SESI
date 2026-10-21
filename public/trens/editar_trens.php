@@ -91,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <body >
+    
 <div class="corpo2">
 
 
@@ -140,7 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
 </div>
-<header><?php include '../../scripts/navbar2.php'; ?></header>
+
+
+<header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 

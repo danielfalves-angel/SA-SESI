@@ -82,16 +82,10 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
     <div class="corpo">
 
     <main>
-        <h1>Gerenciador de Sensores</h1>
-
-
 
 <body class="body3">
 
-    <div class="titulo3">
-        <i class="bi bi-broadcast"></i>
-        <span>Cadastro de Sensor</span>
-    </div>
+  <h1 class="titulo_home2">Cadastro de Sensor</h1>
 
     <div class="container-central">
         <div class="corpo2">
