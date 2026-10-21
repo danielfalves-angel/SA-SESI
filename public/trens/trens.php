@@ -72,7 +72,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM trem");
                         echo "<tr>";
                         echo "<td>{$trem['id']}</td>";
                         echo "<td>{$trem['nome']}</td>";
-                        echo "<td>{$trem['rota']}</td>";
+                        echo "<td></td>";
                         echo "<td>{$trem['velocidade']}</td>";
                         echo "<td>{$trem['peso']}</td>";
                         echo "<td>{$trem['temperatura']}</td>";
