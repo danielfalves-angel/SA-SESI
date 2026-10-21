@@ -22,6 +22,9 @@ mysqli_stmt_execute($stmt);
 $resultadoSensor = mysqli_stmt_get_result($stmt);
 $sensor = mysqli_fetch_assoc($resultadoSensor);
 
+$sql = "SELECT * FROM sensor";
+$resultado2 = mysqli_query($conn, $sql);
+
 $sql = "SELECT * FROM rota";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_execute($stmt);
@@ -32,8 +35,14 @@ if (!$sensor) {
     die('Sensor não encontrado.');
 }
 
+if(isset($_GET['id'])) {
+    $id_GET = $_GET['id'];
+} else {
+    die('ID do sensor não encontrado.');
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $unidade = $_POST['unidade_de_medida'];
     $valor = $_POST['valor'];
@@ -41,6 +50,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rota = $_POST['rota'];
     $descricao = $_POST['descricao'];
     $status = $_POST['status'];
+
+    while ($sensor1 = mysqli_fetch_assoc($resultado2)) {
+        if ($id_GET !== $sensor1['id'] && $nome === $sensor1['nome']) {
+            echo '<script>alert("O nome do sensor já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "sensores.php";</script>';
+            exit();
+        }
+    }
 
 
     $sql = "UPDATE sensor SET nome = ?, descricao = ?, unidade_de_medida = ?, valor = ?, localizacao = ?, rota = ?, status = ? WHERE id = ?";
@@ -84,6 +101,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
     <form method="POST">
+
+        <div class="campo_oculto">
+            <label for="id"></label>
+            <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($sensor['id']); ?>">
+        </div>
+
         <label for="nome">nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
         <br> 

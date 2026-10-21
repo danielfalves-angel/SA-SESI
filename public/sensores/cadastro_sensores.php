@@ -22,9 +22,6 @@ if ($resultado === false) {
     die('Erro ao consultar sensor: ' . mysqli_error($conn));
 }
                     
-                   
-                
-
   
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
@@ -35,7 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
     $status = $_POST['status'];
 
-   
+    while ($sensor = mysqli_fetch_assoc($resultado)) {
+        if ($nome === $sensor['nome']) {
+            echo '<script>alert("O nome do sensor já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "sensores.php";</script>';
+            exit();
+        }
+    }
 
     $sql = "INSERT INTO sensor (nome, descricao, unidade_de_medida, valor, localizacao, rota, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
