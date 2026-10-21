@@ -29,15 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $destino = trim($_POST['destino']);
     $partida = trim($_POST['partida']);
     $descricao = trim($_POST['descricao']);
-    $id = (int) $_POST['id'];
 
     $sql = "UPDATE rota SET nome = ?, destino = ?, partida = ?, descricao = ?, id = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param ($stmt, "ssssii", $nome, $destino, $partida, $descricao, $id, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Rota atualizada com sucesso!";
-        echo "<br><a href='rota.php'>Voltar</a>";
+    echo '<script>alert("Rota atualizada com sucesso.");</script>';
+    echo '<script>window.location.href = "rota.php";</script>';
         exit();
     } else {
         echo "Erro ao atualizar rota: " . mysqli_error($conn);
@@ -67,8 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST">
 
-        <label for="id">Id da Rota:</label>
-        <input type="number" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>" required>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
         <br>

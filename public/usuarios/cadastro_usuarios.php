@@ -28,13 +28,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
     $id = $_SESSION['id'] ?? null;
 
-    include '../../scripts/analizar_senha.php';
+include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
-        if ($seguranca !== true) {
-        echo '<script>alert("Senha inválida.");</script>';
+
+    if ($seguranca !== true) {
+        echo '<script>alert("A senha não atende aos requisitos mínimos: 1 Maiúscula, 4 Minúsculas, 2 Números, 1 Caractere Especial e 8 Caracteres.");</script>';
         echo '<script>window.location.href = "usuarios.php";</script>';
-        exit(); 
+        exit();
     }
+
+    while ($usuario = mysqli_fetch_assoc($usuarios)) {
+        if ($email === $usuario['email']) {
+            echo '<script>alert("O email já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "usuarios.php";</script>';
+            exit();
+        }
+        if ($telefone === $usuario['telefone']) {
+            echo '<script>alert("O telefone já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "usuarios.php";</script>';
+            exit();
+        }
+    }
+
+
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
    

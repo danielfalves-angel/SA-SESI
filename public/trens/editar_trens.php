@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_bind_param($stmt, 'ssddddsii', $nome, $rota, $velocidade, $peso, $temperatura, $tempo, $status, $id, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Trem atualizado com sucesso!";
-        echo "<br><a href='trens.php'>Voltar</a>";
+    echo '<script>alert("Trem atualizado com sucesso.");</script>';
+    echo '<script>window.location.href = "trens.php";</script>';
         exit();
     } else {
         echo "Erro ao atualizar trem: " . mysqli_error($conn);
@@ -117,9 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
 </div>
-
 <header><?php include '../../scripts/navbar2.php'; ?></header>
-
 </body>
 
 
