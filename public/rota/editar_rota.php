@@ -94,6 +94,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
         <br>
+          <label for="trem">Trem:</label>
+        <select name="trem" id="trem" required>
+            <option value=""> Selecione</option>
+            <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
+                <option value="<?php echo $trem['nome']; ?>"><?php echo $trem['nome']; ?></option>
+            <?php } ?>
+        </select>
         <label for="partida">Partida:</label>
         <input type="text" name="partida" id="partida" value="<?php echo htmlspecialchars($rota['partida']); ?>" required>
         <br>
