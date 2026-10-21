@@ -54,7 +54,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                     <th>unidade</th>
                     <th>Valor</th>
                     <th>Localização</th>
-                    <th>Id da Rota</th>
+                    <th>Rota</th>
                     <th>Descrição</th>
                     <th>Status</th>
                     <th>Ações</th>
