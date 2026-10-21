@@ -25,7 +25,7 @@ if ($resultado === false) {
 }
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id_GET = $_GET['id'];
 } else {
     die('ID da rota não fornecido.');
 }
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = trim($_POST['descricao']);
 
         while ($rota = mysqli_fetch_assoc($resultado)) {
-        if ($id !== $rota['id'] && $nome === $rota['nome']) {
+        if ($id_GET !== $rota['id'] && $nome === $rota['nome']) {
             echo '<script>alert("O nome da rota já está em uso. Por favor, escolha outra.");</script>';
             echo '<script>window.location.href = "rota.php";</script>';
             exit();
