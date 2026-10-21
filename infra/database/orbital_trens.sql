@@ -44,7 +44,9 @@ create table trem (
     descricao varchar(100) not null,
     status enum('funcionando', 'defeituoso') not null,
     id_usuario int,
-    foreign key (id_usuario) references usuarios(id)
+    id_rota int,
+    foreign key (id_usuario) references usuarios(id),
+    foreign key (id_rota) references rota(id)
 );
 
 insert into usuarios (nome, email, telefone, senha, cargo, status) values
