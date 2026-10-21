@@ -11,7 +11,6 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-
 include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
@@ -40,6 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $id = $_SESSION['id'] ?? null;
    
+
+    while ($trem = mysqli_fetch_assoc($resultado)) {
+        if ($nome === $trem['nome']) {
+            echo '<script>alert("O nome do trem já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "trens.php";</script>';
+            exit();
+        }
+    }
 
     $sql = "INSERT INTO trem (nome, rota, velocidade, peso, temperatura, tempo, status, id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);

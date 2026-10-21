@@ -22,11 +22,11 @@ if (!$trem) {
     die('trem não encontrado.');
 }
 
-$sql = "SELECT * FROM usuarios";
+$sql = "SELECT * FROM trem";
 $resultado = mysqli_query($conn, $sql);
 
 if ($resultado === false) {
-    die('Erro ao consultar usuários: ' . mysqli_error($conn));
+    die('Erro ao consultar trens: ' . mysqli_error($conn));
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -38,6 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tempo = trim($_POST['tempo']);
     $status = trim($_POST['status']);
    
+
+    while ($trem = mysqli_fetch_assoc($resultado)) {
+        if ($nome === $trem['nome']) {
+            echo '<script>alert("O nome do trem já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "trens.php";</script>';
+            exit();
+        }
+    }
 
     $sql = "UPDATE trem SET nome = ?, rota = ?, velocidade = ?, peso = ?, temperatura = ?, tempo = ?, status = ?, id = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
