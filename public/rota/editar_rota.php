@@ -17,7 +17,7 @@ if (!$rota) {
     die('Rota não encontrada.');
 }
 
-$sql = "SELECT * FROM usuarios";
+$sql = "SELECT * FROM rota";
 $resultado = mysqli_query($conn, $sql);
 
 if ($resultado === false) {
@@ -29,6 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $destino = trim($_POST['destino']);
     $partida = trim($_POST['partida']);
     $descricao = trim($_POST['descricao']);
+
+        while ($rota = mysqli_fetch_assoc($resultado)) {
+        if ($nome === $rota['nome']) {
+            echo '<script>alert("O nome da rota já está em uso. Por favor, escolha outra.");</script>';
+            echo '<script>window.location.href = "rota.php";</script>';
+            exit();
+        }
+    }
 
     $sql = "UPDATE rota SET nome = ?, destino = ?, partida = ?, descricao = ?, id = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
