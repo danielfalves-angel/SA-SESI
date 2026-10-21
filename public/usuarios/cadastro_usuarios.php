@@ -125,8 +125,8 @@ include '../../scripts/analizar_senha.php';
 
                     <label for="cargo">Cargo:</label>
                     <select name="cargo">
-                        <option value="administrador">Administrador</option>
                         <option value="usuario">Usuário</option>
+                        <option value="administrador">Administrador</option>
                     </select>
                     <br>
 

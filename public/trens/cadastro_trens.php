@@ -136,7 +136,6 @@ $id = $_SESSION['id'] ?? null;
 
                 <label for="status">Status: </label>
                 <select name="status" id="status">
-                    <option value=""> Selecione</option>
                     <option value="funcionando">funcionando</option>
                     <option value="defeituoso">defeituoso</option>
                 </select>

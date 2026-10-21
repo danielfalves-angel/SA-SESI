@@ -137,7 +137,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
             
         <label for="status">Status: </label>
             <select name="status" id="status">
-                <option value=""> Selecione</option>
                 <option value="funcionando">funcionando</option>
                 <option value="defeituoso">defeituoso</option>
             </select>
