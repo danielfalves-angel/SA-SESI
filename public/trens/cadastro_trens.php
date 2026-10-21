@@ -114,7 +114,7 @@ $id = $_SESSION['id'] ?? null;
         <select name="rota" id="rota" required>
             <option value=""> Selecione</option>
             <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
-                <option value="<?php echo $rota['id']; ?>"><?php echo $rota['nome']; ?></option>
+                <option value="<?php echo $rota['nome']; ?>"><?php echo $rota['nome']; ?></option>
             <?php } ?>
         </select>
         <br>
