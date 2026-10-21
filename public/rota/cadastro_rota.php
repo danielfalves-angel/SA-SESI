@@ -26,6 +26,7 @@ if (!isset($conn) || $conn === null) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
+    $trem = $_POST['trem'];
     $destino = $_POST['destino'];
     $partida = $_POST['partida'];
     $descricao = $_POST['descricao'];

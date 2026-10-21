@@ -50,6 +50,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
+                    <th>Trem</th>
                     <th>Partida</th>
                     <th>Destino</th>
                     <th>Descrição</th>
@@ -67,6 +68,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
                         echo "<tr>";
                         echo "<td>{$rota['id']}</td>";
                         echo "<td>{$rota['nome']}</td>";
+                        echo "<td>{$rota['trem']}</td>";
                         echo "<td>{$rota['partida']}</td>";
                         echo "<td>{$rota['destino']}</td>";
                         echo "<td>{$rota['descricao']}</td>";

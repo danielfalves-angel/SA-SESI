@@ -12,11 +12,6 @@ if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
-$resultado2 = mysqli_query($conn, "SELECT * FROM rota");  
-if (!isset($conn) || $conn === null) {
-    die('Erro ao conectar com o banco de dados.');
-}
-
 $sql = "SELECT * FROM trem";
 $resultado = mysqli_query($conn, $sql);
 
@@ -105,6 +100,7 @@ $id = $_SESSION['id'] ?? null;
         <label for="nome">nome:</label>
         <input type="text" name="nome" id="nome" required>
         <br> 
+            
 
          <label for="velocidade">Velocidade (km/h): </label>
          <input type="number" name="velocidade" id="velocidade" required>
