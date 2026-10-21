@@ -1,4 +1,10 @@
 <?php
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../../index.php');
+    exit();
+}
+
 include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
@@ -85,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <body >
+    
 <div class="corpo2">
 
 
@@ -134,7 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
 </div>
-<header><?php include '../../scripts/navbar2.php'; ?></header>
+
+
+<header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 
