@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!isset($_SESSION['tipos'])) {
+if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     exit();
 }
