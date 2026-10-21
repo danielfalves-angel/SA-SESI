@@ -53,19 +53,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-        while ($usuario1 = mysqli_fetch_assoc($resultado2)) {
-        if ($id_GET !== $usuario1['id'] && $email === $usuario1['email']) {
+    while ($usuario1 = mysqli_fetch_assoc($resultado2)) {
+        if ($id_GET != $usuario1['id'] && $email === $usuario1['email']) {
             echo '<script>alert("O email já está em uso. Por favor, escolha outro.");</script>';
             echo '<script>window.location.href = "usuarios.php";</script>';
             exit();
         }
-        if ($id_GET !== $usuario1['id'] && $telefone === $usuario1['telefone']) {
+        if ($id_GET != $usuario1['id'] && $telefone === $usuario1['telefone']) {
             echo '<script>alert("O telefone já está em uso. Por favor, escolha outro.");</script>';
             echo '<script>window.location.href = "usuarios.php";</script>';
             exit();
         }
     }
-
 
     // Criptografa a senha com hash
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
@@ -74,11 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "UPDATE usuarios SET nome = ?, senha = ?, email = ?, telefone = ?, cargo = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     
-    // Passado $senhaHash no lugar de $senha e garantido que $id refira ao registro correto
     mysqli_stmt_bind_param($stmt, 'ssssssi', $nome, $senhaHash, $email, $telefone, $cargo, $status, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        // Verifica se alguma linha foi realmente alterada no banco
         if (mysqli_stmt_affected_rows($stmt) >= 0) {
             echo '<script>alert("Usuário atualizado com sucesso.");</script>';
             echo '<script>window.location.href = "usuarios.php";</script>';
@@ -98,66 +95,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuário</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 </head>
 
 <body class="body3">
+    <div class="corpo">
+        <main>
+            <div class="campo1">
+                <div class="titulo3">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Editar Usuário</span>
+                </div>
 
-    <div class="container-central">
-        <div class="corpo2">
-            <div class="titulo-sensor">
-                <i class="bi bi-broadcast-pin"></i>
-                <span>Informações do Usuário</span>
+                <div class="corpo2">
+                    <div class="titulo-sensor">
+                        <i class="bi bi-broadcast-pin"></i>
+                        <span>Informações do Usuário</span>
+                    </div>
+
+                    <form method="POST">
+                        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($usuario['id']); ?>">
+
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($usuario['nome'] ?? '') ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="senha" id="senha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($usuario['telefone'] ?? '') ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cargo">Cargo:</label>
+                            <select name="cargo" id="cargo">
+                                <option value="usuario" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'usuario') ? 'selected' : '' ?>>Usuário</option>
+                                <option value="administrador" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'administrador') ? 'selected' : '' ?>>Administrador</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select name="status" id="status">
+                                <option value="ativo" <?= (isset($usuario['status']) && $usuario['status'] === 'ativo') ? 'selected' : '' ?>>Ativo</option>
+                                <option value="inativo" <?= (isset($usuario['status']) && $usuario['status'] === 'inativo') ? 'selected' : '' ?>>Inativo</option>
+                            </select>
+                        </div>
+
+                        <div class="botoes-container">
+                            <button type="button" class="btn-voltar" onclick="window.location.href='usuarios.php'">Voltar</button>
+                            <button type="submit" class="btn-cadastrar">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <form method="POST">
-                
-            <div class="campo_oculto">
-                <label for="id"></label>
-                <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($usuario['id']); ?>">
-            </div>
-
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" value="<?= htmlspecialchars($usuario['nome'] ?? '') ?>" required>
-                <br>
-
-                <label for="email">Email:</label>
-                <input type="email" name="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>" required>
-                <br>
-
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" required>
-                <br>
-
-                <label for="telefone">Telefone:</label>
-                <input type="text" name="telefone" value="<?= htmlspecialchars($usuario['telefone'] ?? '') ?>">
-                <br>
-
-                <label for="cargo">Cargo:</label>
-                <select name="cargo">
-                    <option value="usuario" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'usuario') ? 'selected' : '' ?>>Usuário</option>
-                    <option value="administrador" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'administrador') ? 'selected' : '' ?>>Administrador</option>
-                </select>
-                <br>
-
-                <label for="status">Status:</label>
-                <select name="status">
-                    <option value="ativo" <?= (isset($usuario['status']) && $usuario['status'] === 'ativo') ? 'selected' : '' ?>>Ativo</option>
-                    <option value="inativo" <?= (isset($usuario['status']) && $usuario['status'] === 'inativo') ? 'selected' : '' ?>>Inativo</option>
-                </select>
-                <br>
-            
-                <button type="submit">Editar Usuário</button>
-                <br><br>
-
-                <button type="button" onclick="window.location.href='usuarios.php'">Voltar</button> 
-            </form>
-
-        </div>
+        </main>
     </div>
 
     <header><?php include '../../scripts/navbar.php'; ?></header>

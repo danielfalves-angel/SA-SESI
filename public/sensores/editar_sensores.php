@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -26,10 +25,7 @@ $sql = "SELECT * FROM sensor";
 $resultado2 = mysqli_query($conn, $sql);
 
 $sql = "SELECT * FROM rota";
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_execute($stmt);
-$resultadoRota = mysqli_stmt_get_result($stmt);
-$rota = mysqli_fetch_assoc($resultadoRota);
+$resultadoRota = mysqli_query($conn, $sql);
 
 if (!$sensor) {
     die('Sensor não encontrado.');
@@ -52,13 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
 
     while ($sensor1 = mysqli_fetch_assoc($resultado2)) {
-        if ($id_GET !== $sensor1['id'] && $nome === $sensor1['nome']) {
+        if ($id_GET != $sensor1['id'] && $nome === $sensor1['nome']) {
             echo '<script>alert("O nome do sensor já está em uso. Por favor, escolha outro.");</script>';
             echo '<script>window.location.href = "sensores.php";</script>';
             exit();
         }
     }
-
 
     $sql = "UPDATE sensor SET nome = ?, descricao = ?, unidade_de_medida = ?, valor = ?, localizacao = ?, rota = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
@@ -76,89 +71,103 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Sensor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 
-
-
 <body class="body3">
+    <div class="corpo">
+        <main>
+            <div class="campo1">
+                <div class="titulo3">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Editar Sensor</span>
+                </div>
 
+                <div class="corpo2">
+                    <div class="titulo-sensor">
+                        <i class="bi bi-broadcast-pin"></i>
+                        <span>Informações do Sensor</span>
+                    </div>
 
-    <div class="container-central">
-        <div class="corpo2">
-            <div class="titulo-sensor">
-                <i class="bi bi-broadcast-pin"></i>
-                <span>Informações do Sensor</span>
+                    <form method="POST">
+                        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($sensor['id']); ?>">
+
+                        <div class="form-group">
+                            <label for="nome">Nome do sensor:</label>
+                            <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="localizacao">Localização:</label>
+                            <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unidade_de_medida">Unidade de medida:</label>
+                            <select name="unidade_de_medida" id="unidade_de_medida" required>
+                                <option value="<?php echo htmlspecialchars($sensor['unidade_de_medida']); ?>" selected>
+                                    <?php echo htmlspecialchars($sensor['unidade_de_medida']); ?>
+                                </option>
+                                <option value="celcius">celcius</option>
+                                <option value="km/h">km/h</option>
+                                <option value="kg">kg</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valor">Valor:</label>
+                            <input type="number" name="valor" id="valor" value="<?php echo htmlspecialchars($sensor['valor']); ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select name="status" id="status" required>
+                                <option value="<?php echo htmlspecialchars($sensor['status']); ?>" selected>
+                                    <?php echo htmlspecialchars($sensor['status']); ?>
+                                </option>
+                                <option value="funcionando">funcionando</option>
+                                <option value="defeituoso">defeituoso</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group campo_oculto">
+                            <label for="rota">Rota:</label>
+                            <select name="rota" id="rota">
+                                <option value="<?php echo htmlspecialchars($sensor['rota']); ?>" selected>
+                                    <?php echo htmlspecialchars($sensor['rota']); ?>
+                                </option>
+                                <?php while ($rowRota = mysqli_fetch_assoc($resultadoRota)) { ?>
+                                    <option value="<?php echo htmlspecialchars($rowRota['nome']); ?>">
+                                        <?php echo htmlspecialchars($rowRota['nome']); ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($sensor['descricao']); ?>" required>
+                        </div>
+
+                        <div class="botoes-container">
+                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Voltar</button>
+                            <button type="submit" class="btn-cadastrar">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </main>
+    </div>
 
-    <form method="POST">
-
-        <div class="campo_oculto">
-            <label for="id"></label>
-            <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($sensor['id']); ?>">
-        </div>
-
-        <label for="nome">nome:</label>
-        <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
-        <br> 
-
-        <label for="unidade_de_medida">Unidade de medida: </label>
-        <select name="unidade_de_medida" id="unidade_de_medida" required>
-            <option value="<?php echo htmlspecialchars($sensor['unidade_de_medida']); ?>"> <?php echo htmlspecialchars($sensor['unidade_de_medida']); ?></option>
-            <option value="celcius">celcius</option>
-            <option value="km/h">km/h</option>
-            <option value="kg">kg</option>
-        </select>
-
-        <label for="valor">Valor:</label>
-        <input type="number" name="valor" id="valor" value="<?php echo htmlspecialchars($sensor['valor']); ?>" required>
-        <br>
-
-        <label for="localizacao">Localização:</label>
-        <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
-        <br>
-
-        <label for="rota">Rota:</label>
-   
-        <select name="rota" id="rota" required>
-            <option value="<?php echo htmlspecialchars($rota['nome']); ?>"> <?php echo htmlspecialchars($rota['nome']); ?></option>
-            <?php while ($rota = mysqli_fetch_assoc($resultadoRota)) { ?>
-                <option value="<?php echo $rota['id']; ?>"><?php echo $rota['nome']; ?></option>
-            <?php } ?>
-        </select>
-        <br>
-
-            <label for="descricao">Descrição:</label>
-        <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($sensor['descricao']); ?>" required>
-        <br>
-            
-        <label for="status">Status: </label>
-            <select name="status" id="status">
-                <option value="<?php echo htmlspecialchars($sensor['status']); ?>"> <?php echo htmlspecialchars($sensor['status']); ?></option>
-                <option value="funcionando">funcionando</option>
-                <option value="defeituoso">defeituoso</option>
-            </select>
-        <br><br>
-            
-                <button type="submit">Editar Sensor</button>
-                <button type="button" onclick="window.location.href='sensores.php'">Voltar</button> 
-    </form>
-
-</div>
-</div>
-
-<header><?php include '../../scripts/navbar2.php'; ?></header>
-
-
+    <header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
 
 </html>

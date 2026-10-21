@@ -12,7 +12,6 @@ if (!isset($_SESSION['tipo'])) {
     exit();
 }
 
-
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 $sql = "SELECT * FROM rota WHERE id = ?";
@@ -30,8 +29,10 @@ $sql = "SELECT * FROM rota";
 $resultado = mysqli_query($conn, $sql);
 
 if ($resultado === false) {
-    die('Erro ao consultar usuários: ' . mysqli_error($conn));
+    die('Erro ao consultar rotas: ' . mysqli_error($conn));
 }
+
+$resultado2 = mysqli_query($conn, "SELECT * FROM trem");
 
 if (isset($_GET['id'])) {
     $id_GET = $_GET['id'];
@@ -46,21 +47,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $partida = trim($_POST['partida']);
     $descricao = trim($_POST['descricao']);
 
-        while ($rota = mysqli_fetch_assoc($resultado)) {
-        if ($id_GET !== $rota['id'] && $nome === $rota['nome']) {
+    while ($rotaCheck = mysqli_fetch_assoc($resultado)) {
+        if ($id_GET != $rotaCheck['id'] && $nome === $rotaCheck['nome']) {
             echo '<script>alert("O nome da rota já está em uso. Por favor, escolha outra.");</script>';
             echo '<script>window.location.href = "rota.php";</script>';
             exit();
         }
     }
 
-    $sql = "UPDATE rota SET nome = ?, destino = ?, partida = ?, descricao = ?, id = ? WHERE id = ?";
+    $sql = "UPDATE rota SET nome = ?, destino = ?, partida = ?, descricao = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param ($stmt, "ssssii", $nome, $destino, $partida, $descricao, $id, $id);
+    mysqli_stmt_bind_param($stmt, "ssssi", $nome, $destino, $partida, $descricao, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-    echo '<script>alert("Rota atualizada com sucesso.");</script>';
-    echo '<script>window.location.href = "rota.php";</script>';
+        echo '<script>alert("Rota atualizada com sucesso.");</script>';
+        echo '<script>window.location.href = "rota.php";</script>';
         exit();
     } else {
         echo "Erro ao atualizar rota: " . mysqli_error($conn);
@@ -70,63 +71,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar trem</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Editar Rota</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 
+<body class="body3">
+    <div class="corpo">
+        <main>
+            <div class="campo1">
+                <div class="titulo3">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Editar Rota</span>
+                </div>
 
+                <!-- Card Interno -->
+                <div class="corpo2">
+                    <div class="titulo-sensor">
+                        <i class="bi bi-broadcast-pin"></i>
+                        <span>Informações da Rota</span>
+                    </div>
 
-<body>
-    
-<div class="corpo2">
+                    <form method="POST">
+                        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>">
 
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
+                        </div>
 
-    <form method="POST">
-        <div class="campo_oculto">
-        <label for="id"></label>
-        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>">
-        </div>
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
-        <br>
-          <label for="trem">Trem:</label>
-        <select name="trem" id="trem" required>
-            <option value=""> Selecione</option>
-            <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
-                <option value="<?php echo $trem['nome']; ?>"><?php echo $trem['nome']; ?></option>
-            <?php } ?>
-        </select>
-        <label for="partida">Partida:</label>
-        <input type="text" name="partida" id="partida" value="<?php echo htmlspecialchars($rota['partida']); ?>" required>
-        <br>
-        <label for="destino">Destino:</label>
-        <input type="text" name="destino" id="destino" value="<?php echo htmlspecialchars($rota['destino']); ?>" required>
-        <br>
-        <label for="descricao">Descrição:</label>
-        <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($rota['descricao']); ?>" required>
-        <br>
-                <br>
-        
-            <?php
-            while ($row = mysqli_fetch_assoc($resultadorota)) {
-                $selected = ($row['id'] == $rota['id']) ? 'selected' : '';
-                echo "<option value='{$row['id']}' {$selected}>{$row['nome']}</option>";
-            }
-            ?>
-        </select>
-        <button type="submit">Atualizar Rota</button>
-    </form>
-    <button type="button" onclick="window.location.href='rota.php'">Voltar</button>
-</div>
-<header><?php include '../../scripts/navbar2.php'; ?></header>
+                        <div class="form-group">
+                            <label for="trem">Trem:</label>
+                            <select name="trem" id="trem">
+                                <option value="">Selecione</option>
+                                <?php if ($resultado2) { 
+                                    while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
+                                        <option value="<?php echo htmlspecialchars($trem['nome']); ?>">
+                                            <?php echo htmlspecialchars($trem['nome']); ?>
+                                        </option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partida">Partida:</label>
+                            <input type="text" name="partida" id="partida" value="<?php echo htmlspecialchars($rota['partida']); ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destino">Destino:</label>
+                            <input type="text" name="destino" id="destino" value="<?php echo htmlspecialchars($rota['destino']); ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($rota['descricao']); ?>" required>
+                        </div>
+
+                        <div class="botoes-container">
+                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Voltar</button>
+                            <button type="submit" class="btn-cadastrar">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
 
 </html>

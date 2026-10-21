@@ -19,7 +19,6 @@ if ($usuarios === false) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
@@ -28,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
     $id = $_SESSION['id'] ?? null;
 
-include '../../scripts/analizar_senha.php';
+    include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
 
     if ($seguranca !== true) {
@@ -50,10 +49,7 @@ include '../../scripts/analizar_senha.php';
         }
     }
 
-
-
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-   
 
     $sql = "INSERT INTO usuarios (nome, senha, email, telefone, cargo, status) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
@@ -65,88 +61,91 @@ include '../../scripts/analizar_senha.php';
     mysqli_stmt_bind_param($stmt, 'ssssss', $nome, $senhaHash, $email, $telefone, $cargo, $status);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo '<script>alert("Administrado cadastrado com sucesso.");</script>';
+        echo '<script>alert("Administrador cadastrado com sucesso.");</script>';
         echo '<script>window.location.href = "administradores.php";</script>';
         exit();
     } else {
-        echo "Erro ao cadastrar Administrado: " . mysqli_error($conn);
+        echo "Erro ao cadastrar Administrador: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);
 }
 
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Administrados</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Cadastro de Administradores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 </head>
-<body>
-    <main class="body3">
-        <div class="titulo3">
-            <i class="bi bi-broadcast"></i>
-            <span>Cadastro de Administrado</span>
-        </div>
-        <div class="container-central">
-            <div class="corpo2">
-                <div class="titulo-sensor">
-                    <i class="bi bi-broadcast-pin"></i>
-                    <span>Informações do Administrado</span>
+<body class="body3">
+    <div class="corpo">
+        <main>
+            <div class="campo1">
+                <div class="titulo3">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Cadastrar Administrador</span>
                 </div>
 
-                <form method="POST">
+                <div class="corpo2">
+                    <div class="titulo-sensor">
+                        <i class="bi bi-broadcast-pin"></i>
+                        <span>Informações do Administrador</span>
+                    </div>
 
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="nome" id="nome" required>
+                        </div>
 
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome">
-                    <br>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
 
-                    <label for="email">Email:</label>
-                    <input type="email" name="email">
-                    <br>
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="senha" id="senha" required>
+                        </div>
 
-                    <label for="senha">Senha:</label>
-                    <input type="password" name="senha">
-                    <br>
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" name="telefone" id="telefone" required>
+                        </div>
 
-                    <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone">
-                    <br>
+                        <div class="form-group">
+                            <label for="cargo">Cargo:</label>
+                            <select name="cargo" id="cargo" required>
+                                <option value="administrador">Administrador</option>
+                                <option value="usuario">Usuário</option>
+                            </select>
+                        </div>
 
-                    <label for="cargo">Cargo:</label>
-                    <select name="cargo">
-                        <option value="administrador">Administrador</option>
-                        <option value="usuario">Usuário</option>
-                    </select>
-                    <br>
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select name="status" id="status" required>
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </div>
 
-                    <label for="status">Status:</label>
-                    <select name="status">
-                        <option value="ativo">Ativo</option>
-                        <option value="inativo">Inativo</option>
-                    </select>
-                    <br>
-
-                    <button type="submit">Cadastrar</button>
-                    <br><br>
-
-                    <button type="button" onclick="window.location.href='administradores.php'">Voltar</button> 
-                    
-                    
-                </form>
+                        <div class="botoes-container">
+                            <button type="button" class="btn-voltar" onclick="window.location.href='administradores.php'">Voltar</button>
+                            <button type="submit" class="btn-cadastrar">Cadastrar Administrador</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            
-        </div>
-    </main>
+        </main>
+    </div>
+
     <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 </html>

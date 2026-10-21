@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+session_start();
 
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
@@ -21,15 +21,14 @@ if ($resultado === false) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
-    $rota = $_POST['rota'];
+    $rota = $_POST['rota'] ?? '';
     $velocidade = $_POST['velocidade'];
     $peso = $_POST['peso'];
     $temperatura = $_POST['temperatura'];
     $tempo = $_POST['tempo'];
     $status = $_POST['status'];
 
-$id = $_SESSION['id'] ?? null;
-   
+    $id = $_SESSION['id'] ?? null;
 
     while ($trem = mysqli_fetch_assoc($resultado)) {
         if ($nome === $trem['nome']) {
@@ -59,78 +58,81 @@ $id = $_SESSION['id'] ?? null;
     mysqli_stmt_close($stmt);
 }
 
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Trens</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 
-
-
-
-
 <body class="body3">
+    <div class="corpo">
+        <main>
+            <div class="campo1">
+                <div class="titulo3">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Cadastrar Trem</span>
+                </div>
 
-    <div class="titulo3">
-        <i class="bi bi-broadcast"></i>
-        <span>Cadastro de Trens</span>
-    </div>
+                <div class="corpo2">
+                    <div class="titulo-sensor">
+                        <i class="bi bi-broadcast-pin"></i>
+                        <span>Informações do Trem</span>
+                    </div>
 
-    <div class="container-central">
-        <div class="corpo2">
-            <div class="titulo-sensor">
-                <i class="bi bi-broadcast-pin"></i>
-                <span>Informações do trens</span>
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="nome">Nome do trem:</label>
+                            <input type="text" name="nome" id="nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="velocidade">Velocidade (km/h):</label>
+                            <input type="number" step="any" name="velocidade" id="velocidade" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="peso">Peso (kg):</label>
+                            <input type="number" step="any" name="peso" id="peso" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="temperatura">Temperatura (°C):</label>
+                            <input type="number" step="any" name="temperatura" id="temperatura" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tempo">Tempo (min):</label>
+                            <input type="number" step="any" name="tempo" id="tempo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select name="status" id="status" required>
+                                <option value="">selecione</option>
+                                <option value="funcionando">funcionando</option>
+                                <option value="defeituoso">defeituoso</option>
+                            </select>
+                        </div>
+
+                        <div class="botoes-container">
+                            <button type="button" class="btn-voltar" onclick="window.location.href='trens.php'">Voltar</button>
+                            <button type="submit" class="btn-cadastrar">Cadastrar Trem</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <form method="POST">
-        <label for="nome">nome:</label>
-        <input type="text" name="nome" id="nome" required>
-        <br> 
-            
-
-         <label for="velocidade">Velocidade (km/h): </label>
-         <input type="number" name="velocidade" id="velocidade" required>
-
-                <label for="peso">Peso (kg):</label>
-                <input type="number" name="peso" id="peso" required>
-                <br>
-
-                <label for="temperatura">Temperatura (°C):</label>
-                <input type="number" name="temperatura" id="temperatura" required>
-                <br>
-
-                <label for="tempo">Tempo (min):</label>
-                <input type="number" name="tempo" id="tempo" required>
-                <br>
-
-                <label for="status">Status: </label>
-                <select name="status" id="status">
-                    <option value="funcionando">funcionando</option>
-                    <option value="defeituoso">defeituoso</option>
-                </select>
-                <br>
-            
-                <button type="submit">Cadastrar trens</button>
-                  <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
-            </form>
-        </div>
-      
+        </main>
     </div>
 
     <header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
+
 </html>
