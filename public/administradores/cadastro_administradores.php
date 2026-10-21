@@ -20,6 +20,7 @@ if ($usuarios === false) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
@@ -43,12 +44,13 @@ include '../../scripts/analizar_senha.php';
             echo '<script>window.location.href = "administradores.php";</script>';
             exit();
         }
-            if ($telefone === $usuario['telefone']) {
+        if ($telefone === $usuario['telefone']) {
             echo '<script>alert("O telefone já está em uso. Por favor, escolha outro.");</script>';
             echo '<script>window.location.href = "administradores.php";</script>';
             exit();
         }
     }
+
 
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
@@ -64,11 +66,11 @@ include '../../scripts/analizar_senha.php';
     mysqli_stmt_bind_param($stmt, 'ssssss', $nome, $senhaHash, $email, $telefone, $cargo, $status);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo '<script>alert("Usuário cadastrado com sucesso.");</script>';
+        echo '<script>alert("Administrado cadastrado com sucesso.");</script>';
         echo '<script>window.location.href = "administradores.php";</script>';
         exit();
     } else {
-        echo "Erro ao cadastrar usuário: " . mysqli_error($conn);
+        echo "Erro ao cadastrar Administrado: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);
@@ -82,7 +84,7 @@ include '../../scripts/analizar_senha.php';
 <head>
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Administradores</title>
+    <title>Cadastro de Administrados</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -93,16 +95,18 @@ include '../../scripts/analizar_senha.php';
     <main class="body3">
         <div class="titulo3">
             <i class="bi bi-broadcast"></i>
-            <span>Cadastro de Administradores</span>
+            <span>Cadastro de Administrado</span>
         </div>
         <div class="container-central">
             <div class="corpo2">
                 <div class="titulo-sensor">
                     <i class="bi bi-broadcast-pin"></i>
-                    <span>Informações do Administrador</span>
+                    <span>Informações do Administrado</span>
                 </div>
 
                 <form method="POST">
+
+
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome">
                     <br>
@@ -136,14 +140,14 @@ include '../../scripts/analizar_senha.php';
                     <button type="submit">Cadastrar</button>
                     <br><br>
 
-                     <button type="button" onclick="window.location.href='administradores.php'">Voltar</button>
+                    <button type="button" onclick="window.location.href='administradores.php'">Voltar</button> 
+                    
                     
                 </form>
             </div>
             
         </div>
     </main>
-    <header><?php include '../../scripts/navbar2.php'; ?></header>
-
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 </html>

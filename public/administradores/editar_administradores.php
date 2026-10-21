@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -13,6 +12,7 @@ if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
+// 1. Obtém o ID do usuário que será editado através da URL
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 $sql = "SELECT * FROM usuarios WHERE id = ?";
@@ -22,19 +22,27 @@ mysqli_stmt_execute($stmt);
 $resultadoUsuario = mysqli_stmt_get_result($stmt);
 $usuario = mysqli_fetch_assoc($resultadoUsuario);
 
+$sql = "SELECT * FROM usuarios";
+$resultado2 = mysqli_query($conn, $sql);
+
 if (!$usuario) {
     die('Usuário não encontrado.');
 }
 
+if(isset($_GET['id'])) {
+    $id_GET = $_GET['id'];
+} else {
+    die('ID do usuário não encontrado.');
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'];
-    $senha = $_POST['senha'];
-    $email = $_POST['email'];
+    $id       = $_POST['id'];
+    $nome     = $_POST['nome'];
+    $senha    = $_POST['senha'];
+    $email    = $_POST['email'];
     $telefone = $_POST['telefone'];
-    $cargo = $_POST['cargo'];
-    $status = $_POST['status'];
-    $id = $_SESSION['id'] ?? null;
+    $cargo    = $_POST['cargo'];
+    $status   = $_POST['status'];
 
     include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
@@ -45,27 +53,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+        while ($usuario1 = mysqli_fetch_assoc($resultado2)) {
+        if ($id_GET !== $usuario1['id'] && $email === $usuario1['email']) {
+            echo '<script>alert("O email já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "administradores.php";</script>';
+            exit();
+        }
+        if ($id_GET !== $usuario1['id'] && $telefone === $usuario1['telefone']) {
+            echo '<script>alert("O telefone já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "administradores.php";</script>';
+            exit();
+        }
+    }
 
+
+    // Criptografa a senha com hash
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-
+    // UPDATE utilizando o $senhaHash correto e o $id vindo do GET
     $sql = "UPDATE usuarios SET nome = ?, senha = ?, email = ?, telefone = ?, cargo = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-     mysqli_stmt_bind_param($stmt, 'ssssssi', $nome, $senha, $email, $telefone, $cargo, $status, $id);
+    
+    // Passado $senhaHash no lugar de $senha e garantido que $id refira ao registro correto
+    mysqli_stmt_bind_param($stmt, 'ssssssi', $nome, $senhaHash, $email, $telefone, $cargo, $status, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo '<script>alert("Administrador atualizado com sucesso.");</script>';
-        echo '<script>window.location.href = "administradores.php";</script>';
-        exit();
+        // Verifica se alguma linha foi realmente alterada no banco
+        if (mysqli_stmt_affected_rows($stmt) >= 0) {
+            echo '<script>alert("Usuário atualizado com sucesso.");</script>';
+            echo '<script>window.location.href = "administradores.php";</script>';
+            exit();
+        }
     } else {
-        echo '<script>alert("Erro ao atualizar administrador.");</script>';
+        echo '<script>alert("Erro ao atualizar usuário.");</script>';
     }
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -78,62 +105,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 </head>
 
-
-
 <body class="body3">
-
 
     <div class="container-central">
         <div class="corpo2">
             <div class="titulo-sensor">
                 <i class="bi bi-broadcast-pin"></i>
-                <span>Informações do Administrador</span>
+                <span>Informações do Usuário</span>
             </div>
 
-     <form method="POST">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>">
-                    <br>
+            <form method="POST">
+                
+            <div class="campo_oculto">
+                <label for="id"></label>
+                <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($usuario['id']); ?>">
+            </div>
 
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>">
-                    <br>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" value="<?= htmlspecialchars($usuario['nome'] ?? '') ?>" required>
+                <br>
 
-                    <label for="senha">Senha:</label>
-                    <input type="password" name="senha">
-                    <br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>" required>
+                <br>
 
-                    <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone" value="<?php echo htmlspecialchars($usuario['telefone']); ?>">
-                    <br>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" required>
+                <br>
 
-                    <label for="cargo">Cargo:</label>
-                    <select name="cargo">
-                        <option value="<?php echo htmlspecialchars($usuario['cargo']); ?>" selected><?php echo htmlspecialchars($usuario['cargo']); ?></option>
-                        <option value="administrador">Administrador</option>
-                        <option value="usuario">Usuário</option>
-                    </select>
-                    <br>
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" value="<?= htmlspecialchars($usuario['telefone'] ?? '') ?>">
+                <br>
 
-                    <label for="status">Status:</label>
-                    <select name="status">
-                        <option value="<?php echo htmlspecialchars($usuario['status']); ?>" selected><?php echo htmlspecialchars($usuario['status']); ?></option>
-                        <option value="ativo">Ativo</option>
-                        <option value="inativo">Inativo</option>
-                    </select>
-                    <br>
+                <label for="cargo">Cargo:</label>
+                <select name="cargo">
+                    <option value="administrador" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'administrador') ? 'selected' : '' ?>>Administrador</option>
+                    <option value="usuario" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'usuario') ? 'selected' : '' ?>>Usuário</option>
+                </select>
+                <br>
+
+                <label for="status">Status:</label>
+                <select name="status">
+                    <option value="ativo" <?= (isset($usuario['status']) && $usuario['status'] === 'ativo') ? 'selected' : '' ?>>Ativo</option>
+                    <option value="inativo" <?= (isset($usuario['status']) && $usuario['status'] === 'inativo') ? 'selected' : '' ?>>Inativo</option>
+                </select>
+                <br>
             
-                <button type="submit">Editar administrador</button>
+                <button type="submit">Editar Usuário</button>
                 <br><br>
 
                 <button type="button" onclick="window.location.href='administradores.php'">Voltar</button> 
-    </form>
+            </form>
 
-</div>
-</div>
+        </div>
+    </div>
 
-<header><?php include '../../scripts/navbar2.php'; ?></header>
-
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>
