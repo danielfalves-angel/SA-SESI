@@ -105,15 +105,6 @@ $id = $_SESSION['id'] ?? null;
         <label for="nome">nome:</label>
         <input type="text" name="nome" id="nome" required>
         <br> 
-            
-        <label for="rota">Rota:</label>
-        <select name="rota" id="rota" required>
-            <option value=""> Selecione</option>
-            <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
-                <option value="<?php echo $rota['nome']; ?>"><?php echo $rota['nome']; ?></option>
-            <?php } ?>
-        </select>
-        <br>
 
          <label for="velocidade">Velocidade (km/h): </label>
          <input type="number" name="velocidade" id="velocidade" required>
