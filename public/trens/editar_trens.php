@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST">
         <div class="campo_oculto">
         <label for="id"></label>
-        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>">
+        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($trem['id']); ?>">
         </div>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <select name="rota" id="rota" required>
             <option value=""> Selecione</option>
             <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
-                <option value="<?php echo $rota['id']; ?>"><?php echo $rota['nome']; ?></option>
+                <option value="<?php echo $rota['nome']; ?>"><?php echo $rota['nome']; ?></option>
             <?php } ?>
         </select>
         <br>
@@ -119,7 +119,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <label for="status">Status: </label>
                 <select name="status" id="status">
-                    <option value=""> Selecione</option>
                     <option value="funcionando">funcionando</option>
                     <option value="defeituoso">defeituoso</option>
                 </select>
