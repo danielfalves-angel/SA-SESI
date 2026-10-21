@@ -117,9 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <button type="button" onclick="window.location.href='trens.php'">Voltar</button>
 </div>
-
 <header><?php include '../../scripts/navbar2.php'; ?></header>
-
 </body>
 
 

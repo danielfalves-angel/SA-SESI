@@ -37,6 +37,21 @@ include '../../scripts/analizar_senha.php';
         exit();
     }
 
+    while ($usuario = mysqli_fetch_assoc($usuarios)) {
+        if ($email === $usuario['email']) {
+            echo '<script>alert("O email já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "usuarios.php";</script>';
+            exit();
+        }
+        if ($telefone === $usuario['telefone']) {
+            echo '<script>alert("O telefone já está em uso. Por favor, escolha outro.");</script>';
+            echo '<script>window.location.href = "usuarios.php";</script>';
+            exit();
+        }
+    }
+
+
+
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
    
 
