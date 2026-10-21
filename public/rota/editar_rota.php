@@ -1,10 +1,13 @@
 <?php
+
+session_start();
+
 include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     exit();
 }
