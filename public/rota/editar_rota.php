@@ -24,14 +24,21 @@ if ($resultado === false) {
     die('Erro ao consultar usuários: ' . mysqli_error($conn));
 }
 
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    die('ID da rota não fornecido.');
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = trim($_POST['id']);
     $nome = trim($_POST['nome']);
     $destino = trim($_POST['destino']);
     $partida = trim($_POST['partida']);
     $descricao = trim($_POST['descricao']);
 
         while ($rota = mysqli_fetch_assoc($resultado)) {
-        if ($nome === $rota['nome']) {
+        if ($id !== $rota['id'] && $nome === $rota['nome']) {
             echo '<script>alert("O nome da rota já está em uso. Por favor, escolha outra.");</script>';
             echo '<script>window.location.href = "rota.php";</script>';
             exit();
@@ -68,12 +75,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-<body class="body3" class="min-vh-100" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../../assets/img/background.png') no-repeat center center fixed; background-size: cover;">
+<body>
+    
 <div class="corpo2">
 
 
     <form method="POST">
-
+        <div class="campo_oculto">
+        <label for="id"></label>
+        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>">
+        </div>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
         <br>

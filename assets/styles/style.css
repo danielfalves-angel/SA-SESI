@@ -630,3 +630,7 @@ a {
   font-size: 50px;
   font-weight: bold;
 }
+
+.campo_oculto{
+  display: none;
+}
