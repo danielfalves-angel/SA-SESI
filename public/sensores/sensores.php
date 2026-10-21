@@ -37,7 +37,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
         <br>
         <br>
         <br>
-        <h1>Gerenciador de Sensores</h1>
+        <h1 class="titulo_home2">Gerenciador de Sensores</h1>
 
 <br>
          <a href="cadastro_sensores.php"><button>Cadastrar Sensores</button></a>

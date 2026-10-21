@@ -35,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_bind_param ($stmt, "ssssii", $nome, $destino, $partida, $descricao, $id, $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "Rota atualizada com sucesso!";
-        echo "<br><a href='rota.php'>Voltar</a>";
+    echo '<script>alert("Rota atualizada com sucesso.");</script>';
+    echo '<script>window.location.href = "rota.php";</script>';
         exit();
     } else {
         echo "Erro ao atualizar rota: " . mysqli_error($conn);
