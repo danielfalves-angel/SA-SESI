@@ -43,7 +43,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
             <br>
             <br>
             <br>
-           <h1>Gerenciador de Administradores</h1>
+           <h1 class="titulo_home2">Gerenciador de Administradores</h1>
              <br>
         
         <br>
