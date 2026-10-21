@@ -29,7 +29,14 @@ if ($resultado === false) {
     die('Erro ao consultar trens: ' . mysqli_error($conn));
 }
 
+if(isset($_GET['id'])) {
+    $id_GET = $_GET['id'];
+} else {
+    die('ID do trem não fornecido.');
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = trim($_POST['id']);
     $nome = trim($_POST['nome']);
     $rota = trim($_POST['rota']);
     $velocidade = trim($_POST['velocidade']);
@@ -40,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
 
     while ($trem = mysqli_fetch_assoc($resultado)) {
-        if ($nome === $trem['nome']) {
+        if ($id_GET !== $trem['id'] && $nome === $trem['nome']) {
             echo '<script>alert("O nome do trem já está em uso. Por favor, escolha outro.");</script>';
             echo '<script>window.location.href = "trens.php";</script>';
             exit();
@@ -82,7 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <form method="POST">
-
+        <div class="campo_oculto">
+        <label for="id"></label>
+        <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>">
+        </div>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
         <br>
