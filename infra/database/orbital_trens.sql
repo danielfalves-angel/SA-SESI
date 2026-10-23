@@ -28,6 +28,7 @@ create table sensor (
 create table rota(
     id int primary key auto_increment,
     nome varchar(100) not null,
+    trem varchar(100) not null,
     destino varchar(100) not null,
     partida varchar(100) not null,
     descricao varchar(100) not null

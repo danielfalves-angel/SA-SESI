@@ -40,14 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $sql = "INSERT INTO rota (nome, destino, partida, descricao, id) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO rota (nome, trem, destino, partida, descricao, id) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
         die('Erro ao preparar a inserção do rota: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, "ssssi", $nome, $destino, $partida, $descricao, $id);
+    mysqli_stmt_bind_param($stmt, "sssssi", $nome, $trem, $destino, $partida, $descricao, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Rota cadastrada com sucesso.");</script>';
@@ -97,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="form-group">
                             <label for="trem">Trem:</label>
-                            <select name="trem" id="trem" required>
-                                <option value="">selecione</option>
+                            <select name="trem" id="trem">
+                                <option value="Ainda não possui trem">Ainda não possui trem</option>
                                 <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
                                     <option value="<?php echo htmlspecialchars($trem['nome']); ?>">
                                         <?php echo htmlspecialchars($trem['nome']); ?>

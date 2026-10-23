@@ -49,6 +49,7 @@ if (!isset($_SESSION['usuario'])) {
             <p class="fs-5 text-light lh-base" style="max-width: 650px; font-weight: 300;">
                 Na <strong class="fw-bold">Orbital Trilhos</strong>, transformamos dados em segurança e eficiência para o setor ferroviário. Somos uma plataforma especialista no monitoramento contínuo e inteligente de sensores para malhas e trilhos de trem.
             </p>
+
         </div>
     </div>
 
@@ -128,6 +129,57 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </a>
+<br>
+
+
+
+<div class="APiClima">
+<?php
+$url = 'https://api.open-meteo.com/v1/forecast?latitude=-26.3044&longitude=-48.8487&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FSao_Paulo';
+
+$contexto = stream_context_create([
+    'http' => [
+        'timeout' => 10,
+        'ignore_errors' => true
+    ]
+]);
+
+$resposta = file_get_contents($url, false, $contexto);
+
+echo '<div class="clima">';
+echo '<h2>Clima atual - Joinville</h2>';
+
+if ($resposta === false) {
+    $erro = error_get_last();
+    echo '<p>Erro de conexão: ' .
+        htmlspecialchars($erro['message'] ?? 'Erro desconhecido') .
+        '</p>';
+} else {
+    $dados = json_decode($resposta, true);
+
+    if (isset($dados['current'])) {
+        echo '<p>🌡️ Temperatura: ' .
+            htmlspecialchars((string)$dados['current']['temperature_2m']) .
+            ' °C</p>';
+
+        echo '<p>💧 Umidade: ' .
+            htmlspecialchars((string)$dados['current']['relative_humidity_2m']) .
+            '%</p>';
+
+        echo '<p>💨 Vento: ' .
+            htmlspecialchars((string)$dados['current']['wind_speed_10m']) .
+            ' km/h</p>';
+    } else {
+        echo '<p>Resposta recebida, mas os dados não foram encontrados.</p>';
+        echo '<pre>' . htmlspecialchars(substr($resposta, 0, 1000)) . '</pre>';
+    }
+}
+
+echo '</div>';
+?>
+</div>
+
+
 
     </div>
 </main>

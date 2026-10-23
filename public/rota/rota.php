@@ -32,10 +32,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
     <div class="corpo">
 
     <main>
-        <br>
-        <br>
-        <br>
-        <br>
+        
         <h1 class="titulo_home2">Gerenciador de Rotas</h1>
 
 <br>
