@@ -40,14 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $sql = "INSERT INTO rota (nome, destino, partida, descricao, id) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO rota (nome, trem, destino, partida, descricao, id) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt === false) {
         die('Erro ao preparar a inserção do rota: ' . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, "ssssi", $nome, $destino, $partida, $descricao, $id);
+    mysqli_stmt_bind_param($stmt, "sssssi", $nome, $trem, $destino, $partida, $descricao, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Rota cadastrada com sucesso.");</script>';
