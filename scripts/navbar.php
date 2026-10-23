@@ -87,14 +87,7 @@ if (isset($_SESSION['usuario'])) {
 
             </div>
 
-            <div class="text-icon">
-                <a href="<?= $base_url ?>relatorios.php">
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
-                        <span class="text">Relatórios</span>
-                    </button>
-                </a>
-            </div>
+         
 
             <div class="text-icon">
                 <a href="<?= $base_url ?>../scripts/logout.php">
@@ -159,14 +152,7 @@ if (isset($_SESSION['usuario'])) {
 
             </div>
 
-            <div class="text-icon">
-                <a href="<?= $base_url ?>relatorios.php">
-                    <button class="botao">
-                        <span class="icon"><i class="bi bi-envelope-paper-fill"></i></span>
-                        <span class="text">Relatórios</span>
-                    </button>
-                </a>
-            </div>
+       
 
             <div class="text-icon">
                 <a href="<?= $base_url ?>../scripts/logout.php">

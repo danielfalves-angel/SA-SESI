@@ -43,6 +43,7 @@ if (isset($_GET['id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = trim($_POST['id']);
     $nome = trim($_POST['nome']);
+    $trem = trim($_POST['trem']);
     $destino = trim($_POST['destino']);
     $partida = trim($_POST['partida']);
     $descricao = trim($_POST['descricao']);
@@ -55,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $sql = "UPDATE rota SET nome = ?, destino = ?, partida = ?, descricao = ? WHERE id = ?";
+    $sql = "UPDATE rota SET nome = ?, trem = ?, destino = ?, partida = ?, descricao = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ssssi", $nome, $destino, $partida, $descricao, $id);
+    mysqli_stmt_bind_param($stmt, "sssssi", $nome, $trem, $destino, $partida, $descricao, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Rota atualizada com sucesso.");</script>';
@@ -109,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group">
                             <label for="trem">Trem:</label>
                             <select name="trem" id="trem">
-                                <option value="">Selecione</option>
+                                <option value="Ainda não possui trem">Ainda não possui trem</option>
                                 <?php if ($resultado2) { 
                                     while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
                                         <option value="<?php echo htmlspecialchars($trem['nome']); ?>">
