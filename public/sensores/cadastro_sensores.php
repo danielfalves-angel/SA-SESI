@@ -76,14 +76,12 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
 <body class="body3">
     <div class="corpo">
         <main>
-            <!-- Card Externo -->
             <div class="campo1">
                 <div class="titulo3">
                     <i class="bi bi-pencil-square"></i>
                     <span>Cadastrar Sensor</span>
                 </div>
 
-                <!-- Card Interno -->
                 <div class="corpo2">
                     <div class="titulo-sensor">
                         <i class="bi bi-broadcast-pin"></i>
@@ -150,7 +148,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
         </main>
     </div>
 
-    <!-- Mantido no final do body -->
     <header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
 
