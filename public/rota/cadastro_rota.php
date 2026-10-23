@@ -97,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="form-group">
                             <label for="trem">Trem:</label>
-                            <select name="trem" id="trem" required>
-                                <option value="">selecione</option>
+                            <select name="trem" id="trem">
+                                <option value="Ainda não possui trem">Ainda não possui trem</option>
                                 <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
                                     <option value="<?php echo htmlspecialchars($trem['nome']); ?>">
                                         <?php echo htmlspecialchars($trem['nome']); ?>
