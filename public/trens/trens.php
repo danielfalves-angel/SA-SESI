@@ -32,10 +32,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM trem");
     <div class="corpo">
 
     <main>
-        <br>
-        <br>
-        <br>
-        <br>
+
         <h1 class="titulo_home2" >Gerenciador de Trens</h1>
 <br>
   <a href="cadastro_trens.php"><button>Cadastrar Trens</button></a>
