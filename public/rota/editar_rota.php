@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $sql = "UPDATE rota SET nome = ?, destino = ?, partida = ?, descricao = ? WHERE id = ?";
+    $sql = "UPDATE rota SET nome = ?, trem = ?, destino = ?, partida = ?, descricao = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "sssssi", $nome, $trem, $destino, $partida, $descricao, $id);
 
