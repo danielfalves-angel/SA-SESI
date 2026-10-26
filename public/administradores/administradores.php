@@ -25,75 +25,69 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
 
     <title>Administradores Cadastrados</title>
 </head>
-   
+
 
 
 <body>
     <div class="corpo">
 
-    <main>
+        <main>
+            <br>
+            <br>
+            <br>
+            <br>
+            <form method="POST">
 
-
-
-    
-      
-        <form method="POST">
-                
+                <h1 class="titulo_home2">Gerenciador de Administradores</h1>
+            </form>
             <br>
+            <a href="cadastro_administradores.php" class="btn-cadastrar">Cadastrar Administradores</a>
             <br>
-            <br>
-            <br>
-           <h1 class="titulo_home2">Gerenciador de Administradores</h1>
-             <br>
-        
-        <br>
-        </form>
-        <a href="cadastro_administradores.php"><button>Cadastrar Administrador</button></a>
-        <br><br>
-        <div class="table_usuarios">
-            <div class="table_usuarios_centro">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID do Usuário</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Cargo</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
+            <div class="table-container">
+                <div>
+                    <div>
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>ID do Usuário</th>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Cargo</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
                     </div>
-                    </div>
-                    
-                    <?php
-
-                    while ($usuario = mysqli_fetch_assoc($resultado)) {
-                        echo "<tr>";
-                        echo "<td>{$usuario['id']}</td>";
-                        echo "<td>{$usuario['nome']}</td>";
-                        echo "<td>{$usuario['email']}</td>";
-                        echo "<td>{$usuario['telefone']}</td>";
-                        echo "<td>{$usuario['cargo']}</td>";
-                        echo "<td>{$usuario['status']}</td>";
-                        echo "<td>
-                                <a href='editar_administradores.php?id={$usuario['id']}'>Editar</a> |
-                                <a href='excluir_administradores.php?id={$usuario['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este administrador?');\">Excluir</a>
-                              </td>";
-                        echo "</tr>";
-                    }
-                    ?>
+                </div>
+                <?php
+                while ($usuario = mysqli_fetch_assoc($resultado)) {
+                    echo "<tr>";
+                    echo "<td>{$usuario['id']}</td>";
+                    echo "<td>{$usuario['nome']}</td>";
+                    echo "<td>{$usuario['email']}</td>";
+                    echo "<td>{$usuario['telefone']}</td>";
+                    echo "<td>{$usuario['cargo']}</td>";
+                    echo "<td>{$usuario['status']}</td>";
+                    echo
+                        "<td>
+                            <a href='../usuarios/editar_usuarios.php?id={$usuario['id']}' class='btn-action btn-edit'>Editar</a>
+<span class='divider'>|</span>
+<a href='../usuarios/excluir_usuarios.php?id={$usuario['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
+                        </td>";
+                    echo "</tr>";
+                }
+                ?>
                 </tr>
-            </tbody>
-        </table>
-    </main>
-    
-   
-</div>
-<header><?php include '../../scripts/navbar.php'; ?></header>
+                </tbody>
+                </table>
+            </div>
+        </main>
+
+    </div>
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>

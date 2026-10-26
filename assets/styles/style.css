@@ -373,8 +373,6 @@ td:hover {
   height: 280px;
   margin: 10% 0 1% 0;
   border-radius: 15px;
-  box-shadow: 10px 5px 10px 0 var(--cor-fundo-2);
-  
 }
 .campo2 {
   background-color: var(--cor-caixa_sensores);
@@ -422,21 +420,7 @@ justify-content: center;
 .table_usuarios_centro{
   text-align: center;
 }
-.corpo2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  background-color: #d1d1d1;
-  padding: 30px 35px;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  width: 100%;
-  max-width: 520px;
-  margin: 140px auto 40px auto;
-  text-align: left;
-  box-sizing: border-box;
-}
+
 .body3 {
   margin: 0;
   min-height: 100vh;
@@ -455,15 +439,7 @@ justify-content: center;
 .titulo-sensor i {
   font-size: 20px;
 }
-.corpo2 {
-    text-align: left;
-    align-items: flex-start;
-}
-.corpo2 label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-}
+
 .body1 {
   margin: 0;
   background-color: #f9f4f4;
@@ -656,9 +632,10 @@ a {
   max-width: 620px;
   height: auto;
   margin: 0 auto;
-  padding: 18px 22px 22px 22px;
+  padding: 18px 11px 1px 11px;
   border-radius: 8px;
   box-sizing: border-box;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .titulo3 {
@@ -667,9 +644,10 @@ a {
   justify-content: flex-start;
   gap: 8px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 14px;
+
 }
 
 .corpo2 {
@@ -747,4 +725,120 @@ a {
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
+}
+
+/* Container da tabela para criar o card externo azul escuro */
+.table-container {
+  background-color: #0b404d; /* Azul escuro do fundo do formulário */
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 10px 5px 10px 0 var(--cor-fundo-2);
+  max-width: 1000px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Tabela principal */
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #e2e7ec; /* Fundo cinza claro interno do formulário */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho da tabela (thead) */
+.styled-table thead tr {
+  background-color: #526e8c; /* Azul acinzentado do botão/cabeçalho */
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.styled-table th {
+  padding: 12px 15px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Células do corpo da tabela (tbody) */
+.styled-table td {
+  padding: 12px 15px;
+  color: #1a1a1a;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #cbd5e1; /* Divisória suave entre linhas */
+}
+
+/* Efeito ao passar o mouse sobre as linhas */
+.styled-table tbody tr:hover {
+  background-color: #d5dde5;
+}
+
+/* Remove a borda da última linha */
+.styled-table tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+/* Estilização dos links de Ações (Editar e Excluir) */
+.styled-table .btn-action {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  margin: 2px;
+}
+
+/* Botão Editar */
+.styled-table .btn-edit {
+  background-color: #526E8C;
+  color: #ffffff;
+}
+
+/* Botão Excluir */
+.styled-table .btn-delete {
+  background-color: #D5BDBB;
+  color: #000000;
+}
+
+
+/* Separação visual caso use links simples em vez de botões */
+.styled-table .divider {
+  color: #888888;
+  margin: 0 4px;
+}
+/* Estilo do botão Cadastrar Usuários */
+.btn-cadastrar {
+  display: inline-block;
+  background-color: #526e8c; /* Mesma cor do botão do formulário e do cabeçalho */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 20px; /* Separação em relação à tabela */
+}
+
+/* Efeito ao passar o rato por cima */
+.btn-cadastrar:hover {
+  background-color: #3f5770;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Efeito ao clicar */
+.btn-cadastrar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
