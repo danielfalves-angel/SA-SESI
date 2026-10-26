@@ -67,7 +67,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
                     echo "<td>{$usuario['email']}</td>";
                     echo "<td>{$usuario['telefone']}</td>";
                     echo "<td>{$usuario['status']}</td>";
-                    echo 
+                    echo
                         "<td>
                             <a href='../usuarios/editar_usuarios.php?id={$usuario['id']}' class='btn-action btn-edit'>Editar</a>
 <span class='divider'>|</span>
