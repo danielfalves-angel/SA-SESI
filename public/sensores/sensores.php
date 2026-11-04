@@ -32,68 +32,61 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
 <body>
     <div class="corpo">
 
-    <main>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1 class="titulo_home2">Gerenciador de Sensores</h1>
+        <main>
+            <br>
+            <br>
+            <br>
+            <br>
 
-<br>
-         <a href="cadastro_sensores.php"><button>Cadastrar Sensores</button></a>
-         <br>
-         <br>
+            <h1 class="titulo_home2">Gerenciador de Sensores</h1>
+            <br>
+            <a href="cadastro_sensores.php" class="btn-cadastrar">Cadastrar Sensores</a>
+            <br>
 
-        <div class="table_sensores">
-            <div class="table_sensores_centro">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID do Sensor</th>
-                    <th>Nome</th>
-                    <th>unidade</th>
-                    <th>Valor</th>
-                    <th>Localização</th>
-                    <th>Rota</th>
-                    <th>Descrição</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    </div>
-                    </div>
-                    
-                    <?php
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>ID do Sensor</th>
+                            <th>Nome</th>
+                            <th>Unidade</th>
+                            <th>Valor</th>
+                            <th>Localização</th>
+                            <th>Rota</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($sensor = mysqli_fetch_assoc($resultado)) {
+                            echo "<tr>";
+                            echo "<td>{$sensor['id']}</td>";
+                            echo "<td>{$sensor['nome']}</td>";
+                            echo "<td>{$sensor['unidade_de_medida']}</td>";
+                            echo "<td>{$sensor['valor']}</td>";
+                            echo "<td>{$sensor['localizacao']}</td>";
+                            echo "<td>{$sensor['rota']}</td>";
+                            echo "<td>{$sensor['descricao']}</td>";
+                            echo "<td>{$sensor['status']}</td>";
+                            echo "<td>
+                                    <a href='editar_sensores.php?id={$sensor['id']}' class='btn-action btn-edit'>Editar</a>
+                                    <span class='divider'>|</span>
+                                    <a href='excluir_sensores.php?id={$sensor['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
+                                  </td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
 
-                    while ($sensor = mysqli_fetch_assoc($resultado)) {
-                        echo "<tr>";
-                        echo "<td>{$sensor['id']}</td>";
-                        echo "<td>{$sensor['nome']}</td>";
-                        echo "<td>{$sensor['unidade_de_medida']}</td>";
-                        echo "<td>{$sensor['valor']}</td>";
-                        echo "<td>{$sensor['localizacao']}</td>";
-                        echo "<td>{$sensor['rota']}</td>";
-                        echo "<td>{$sensor['descricao']}</td>";
-                        echo "<td>{$sensor['status']}</td>";
-                        echo "<td>
-                                <a href='editar_sensores.php?id={$sensor['id']}'>Editar</a> |
-                                <a href='excluir_sensores.php?id={$sensor['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
-                              </td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                </tr>
-            </tbody>
-        </table>
+            <br><br>
+        </main>
 
-    <br><br>
-   
-    </main>
-
-</div>
-   <header><?php include '../../scripts/navbar.php'; ?></header>
+    </div>
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>

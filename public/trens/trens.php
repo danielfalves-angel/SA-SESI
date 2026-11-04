@@ -31,65 +31,61 @@ $resultado = mysqli_query($conn, "SELECT * FROM trem");
 <body>
     <div class="corpo">
 
-    <main>
+        <main>
+            <br>
+            <br>
+            <br>
+            <br>
 
-        <h1 class="titulo_home2" >Gerenciador de Trens</h1>
-<br>
-  <a href="cadastro_trens.php"><button>Cadastrar Trens</button></a>
-        <br>
-        <form method="POST">
-                
-            </select>
-           
-        </form>
-        <div class="table_sensores">
-            <div class="table_sensores_centro">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID do Trem</th>
-                    <th>Nome</th>
-                    <th>Rota</th>
-                    <th>Velocidade (km/h)</th>
-                    <th>Peso (kg)</th>
-                    <th>Temperatura (°C)</th>
-                    <th>Tempo (min)</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    </div>
-                    </div>
-                    
-                    <?php
+            <h1 class="titulo_home2">Gerenciador de Trens</h1>
+            <br>
+            <a href="cadastro_trens.php" class="btn-cadastrar">Cadastrar Trens</a>
+            <br>
 
-                    while ($trem = mysqli_fetch_assoc($resultado)) {
-                        echo "<tr>";
-                        echo "<td>{$trem['id']}</td>";
-                        echo "<td>{$trem['nome']}</td>";
-                        echo "<td></td>";
-                        echo "<td>{$trem['velocidade']}</td>";
-                        echo "<td>{$trem['peso']}</td>";
-                        echo "<td>{$trem['temperatura']}</td>";
-                        echo "<td>{$trem['tempo']}</td>";
-                        echo "<td>{$trem['status']}</td>";
-                        echo "<td>
-                                <a href='editar_trens.php?id={$trem['id']}'>Editar</a> |
-                                <a href='excluir_trens.php?id={$trem['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
-                              </td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                </tr>
-            </tbody>
-        </table>
-        
-    </main>
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>ID do Trem</th>
+                            <th>Nome</th>
+                            <th>Rota</th>
+                            <th>Velocidade (km/h)</th>
+                            <th>Peso (kg)</th>
+                            <th>Temperatura (°C)</th>
+                            <th>Tempo (min)</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($trem = mysqli_fetch_assoc($resultado)) {
+                            echo "<tr>";
+                            echo "<td>{$trem['id']}</td>";
+                            echo "<td>{$trem['nome']}</td>";
+                            echo "<td></td>";
+                            echo "<td>{$trem['velocidade']}</td>";
+                            echo "<td>{$trem['peso']}</td>";
+                            echo "<td>{$trem['temperatura']}</td>";
+                            echo "<td>{$trem['tempo']}</td>";
+                            echo "<td>{$trem['status']}</td>";
+                            echo "<td>
+                                    <a href='editar_trens.php?id={$trem['id']}' class='btn-action btn-edit'>Editar</a>
+                                    <span class='divider'>|</span>
+                                    <a href='excluir_trens.php?id={$trem['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
+                                  </td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
 
-</div>
-   <header><?php include '../../scripts/navbar.php'; ?></header>
+            <br><br>
+        </main>
+
+    </div>
+    <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 
 </html>
