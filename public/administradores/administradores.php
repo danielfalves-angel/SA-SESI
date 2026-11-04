@@ -74,7 +74,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                     echo
                         "<td>
                             <a href='../usuarios/editar_usuarios.php?id={$usuario['id']}' class='btn-action btn-edit'>Editar</a>
-<span class='divider'>|</span>
 <a href='../usuarios/excluir_usuarios.php?id={$usuario['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este usuario?');\">Excluir</a>
                         </td>";
                     echo "</tr>";

@@ -72,7 +72,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
                             echo "<td>{$sensor['status']}</td>";
                             echo "<td>
                                     <a href='editar_sensores.php?id={$sensor['id']}' class='btn-action btn-edit'>Editar</a>
-                                    <span class='divider'>|</span>
                                     <a href='excluir_sensores.php?id={$sensor['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
                                   </td>";
                             echo "</tr>";
