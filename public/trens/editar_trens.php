@@ -1,18 +1,23 @@
 <?php
 
+
 session_start();
+
 
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     exit();
 }
 
+
 include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
+
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
 
 $sql = "SELECT * FROM trem WHERE id = ?";
 $stmt = mysqli_prepare($conn, $sql);
@@ -21,22 +26,27 @@ mysqli_stmt_execute($stmt);
 $resultadotrem = mysqli_stmt_get_result($stmt);
 $trem = mysqli_fetch_assoc($resultadotrem);
 
+
 if (!$trem) {
     die('Trem não encontrado.');
 }
 
+
 $sql = "SELECT * FROM trem";
 $resultado = mysqli_query($conn, $sql);
+
 
 if ($resultado === false) {
     die('Erro ao consultar trens: ' . mysqli_error($conn));
 }
+
 
 if(isset($_GET['id'])) {
     $id_GET = $_GET['id'];
 } else {
     die('ID do trem não fornecido.');
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = trim($_POST['id']);
@@ -48,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tempo = trim($_POST['tempo']);
     $status = trim($_POST['status']);
 
+
     while ($tremCheck = mysqli_fetch_assoc($resultado)) {
         if ($id_GET != $tremCheck['id'] && $nome === $tremCheck['nome']) {
             echo '<script>alert("O nome do trem já está em uso. Por favor, escolha outro.");</script>';
@@ -56,9 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+
     $sql = "UPDATE trem SET nome = ?, rota = ?, velocidade = ?, peso = ?, temperatura = ?, tempo = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, 'ssddddsi', $nome, $rota, $velocidade, $peso, $temperatura, $tempo, $status, $id);
+
 
     if (mysqli_stmt_execute($stmt)) {
         echo '<script>alert("Trem atualizado com sucesso.");</script>';
@@ -69,10 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 
 <head>
     <meta charset="UTF-8">
@@ -83,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 
+
 <body class="body3">
     <div class="corpo">
         <main>
@@ -92,39 +109,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span>Editar Trem</span>
                 </div>
 
+
                 <div class="corpo2">
                     <div class="titulo-sensor">
                         <i class="bi bi-broadcast-pin"></i>
                         <span>Informações do Trem</span>
                     </div>
 
+
                     <form method="POST">
                         <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($trem['id']); ?>">
+
 
                         <div class="form-group">
                             <label for="nome">Nome do trem:</label>
                             <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
                         </div>
 
+
                         <div class="form-group">
                             <label for="velocidade">Velocidade (km/h):</label>
                             <input type="number" step="any" name="velocidade" id="velocidade" value="<?php echo htmlspecialchars($trem['velocidade']); ?>" required>
                         </div>
+
 
                         <div class="form-group">
                             <label for="peso">Peso (kg):</label>
                             <input type="number" step="any" name="peso" id="peso" value="<?php echo htmlspecialchars($trem['peso']); ?>" required>
                         </div>
 
+
                         <div class="form-group">
                             <label for="temperatura">Temperatura (°C):</label>
                             <input type="number" step="any" name="temperatura" id="temperatura" value="<?php echo htmlspecialchars($trem['temperatura']); ?>" required>
                         </div>
 
+
                         <div class="form-group">
                             <label for="tempo">Tempo (min):</label>
                             <input type="number" step="any" name="tempo" id="tempo" value="<?php echo htmlspecialchars($trem['tempo']); ?>" required>
                         </div>
+
 
                         <div class="form-group">
                             <label for="status">Status:</label>
@@ -133,6 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <option value="defeituoso" <?php echo ($trem['status'] === 'defeituoso') ? 'selected' : ''; ?>>defeituoso</option>
                             </select>
                         </div>
+
 
                         <div class="botoes-container">
                             <button type="button" class="btn-voltar" onclick="window.location.href='trens.php'">Voltar</button>
@@ -144,7 +170,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </main>
     </div>
 
+
     <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
+
 
 </html>

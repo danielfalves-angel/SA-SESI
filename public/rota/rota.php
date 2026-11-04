@@ -1,18 +1,24 @@
 <?php
 
+
 session_start();
+
 
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     exit();
 }
 
+
 include '../../infra/connect.php';
+
 
 $resultado = mysqli_query($conn, "SELECT * FROM rota");
 
+
 ?>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -23,64 +29,79 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 
+
     <title>Rotas</title>
 </head>
    
 
 
+
+
 <body>
     <div class="corpo">
 
-        <main>
-            <br>
-            <br>
-            <br>
-            <br>
 
-            <h1 class="titulo_home2">Gerenciador de Rotas</h1>
-            <br>
-            <a href="cadastro_rota.php" class="btn-cadastrar">Cadastrar Rotas</a>
-            <br>
-            
-            <div class="table-container">
-                <table class="styled-table">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Nome</th>
-                            <th>Trem</th>
-                            <th>Partida</th>
-                            <th>Destino</th>
-                            <th>Descrição</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        while ($rota = mysqli_fetch_assoc($resultado)) {
-                            echo "<tr>";
-                            echo "<td>{$rota['id']}</td>";
-                            echo "<td>{$rota['nome']}</td>";
-                            echo "<td>{$rota['trem']}</td>";
-                            echo "<td>{$rota['partida']}</td>";
-                            echo "<td>{$rota['destino']}</td>";
-                            echo "<td>{$rota['descricao']}</td>";
-                            echo "<td>
-                                    <a href='editar_rota.php?id={$rota['id']}' class='btn-action btn-edit'>Editar</a>
-                                    <a href='excluir_rota.php?id={$rota['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
-                                  </td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
+    <main>
+        
+        <h1 class="titulo_home2">Gerenciador de Rotas</h1>
 
-            <br><br>
-        </main>
 
-    </div>
-    <header><?php include '../../scripts/navbar.php'; ?></header>
+<br>
+         <a href="cadastro_rota.php"><button>Cadastrar Rotas</button></a>
+         <br>
+         <br>
+
+
+        <div class="table_sensores">
+            <div class="table_sensores_centro">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Trem</th>
+                    <th>Partida</th>
+                    <th>Destino</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    </div>
+                    </div>
+                    
+                    <?php
+
+
+                    while ($rota = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td>{$rota['id']}</td>";
+                        echo "<td>{$rota['nome']}</td>";
+                        echo "<td>{$rota['trem']}</td>";
+                        echo "<td>{$rota['partida']}</td>";
+                        echo "<td>{$rota['destino']}</td>";
+                        echo "<td>{$rota['descricao']}</td>";
+                        echo "<td>
+                                <a href='editar_rota.php?id={$rota['id']}'>Editar</a> 
+                                <a href='excluir_rota.php?id={$rota['id']}' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
+                              </td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tr>
+            </tbody>
+        </table>
+
+
+    <br><br>
+   
+    </main>
+
+
+</div>
+   <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
+
 
 </html>

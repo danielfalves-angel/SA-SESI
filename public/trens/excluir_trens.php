@@ -1,23 +1,32 @@
 <?php
 
+
 session_start();
+
 
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     exit();
 }
 
+
 include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
+
 $id = $_GET['id'];
+
 
 $stmt = mysqli_prepare($conn, "DELETE FROM trem WHERE id = ?");
 mysqli_stmt_bind_param($stmt, 'i', $id);
 
+
 if (mysqli_stmt_execute($stmt)) {
+
+
+
 
 
 
@@ -26,6 +35,7 @@ if (mysqli_stmt_execute($stmt)) {
 } else {
     echo "Erro ao excluir trem: " . mysqli_error($conn);
 }
+
 
 mysqli_stmt_close($stmt);
 ?>
