@@ -168,7 +168,7 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
 
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Rota</button>
                         </div>
                     </form>

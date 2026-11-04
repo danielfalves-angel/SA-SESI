@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='trens.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='trens.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Trem</button>
                         </div>
                     </form>
