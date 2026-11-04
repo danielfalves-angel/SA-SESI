@@ -129,12 +129,10 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </a>
-<br>
 
-
-
-<div class="APiClima">
-<?php
+        <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
+        
+        <?php
 $url = 'https://api.open-meteo.com/v1/forecast?latitude=-26.3044&longitude=-48.8487&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FSao_Paulo';
 
 $contexto = stream_context_create([
@@ -177,6 +175,14 @@ if ($resposta === false) {
 
 echo '</div>';
 ?>
+
+        </div>
+<br>
+
+
+
+<div class="APiClima">
+
 </div>
 
 

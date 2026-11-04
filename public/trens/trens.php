@@ -9,10 +9,20 @@ if (!isset($_SESSION['tipo'])) {
 
 include '../../infra/connect.php';
 
-$resultado = mysqli_query($conn, "SELECT * FROM trem");
+// Consulta os trens trazendo o nome da rota associada via LEFT JOIN
+$sql = "SELECT trem.*, rota.nome AS nome_rota 
+        FROM trem 
+        LEFT JOIN rota ON trem.id_rota = rota.id";
+
+$resultado = mysqli_query($conn, $sql);
+
+if (!$resultado) {
+    die("Erro na consulta: " . mysqli_error($conn));
+}
 
 ?>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -25,8 +35,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM trem");
 
     <title>Trens</title>
 </head>
-   
-
 
 <body>
     <div class="corpo">
