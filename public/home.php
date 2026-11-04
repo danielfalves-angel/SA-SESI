@@ -70,20 +70,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </a>
 
-        <a href="../public/relatorios.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
-            <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
-                <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
-                    <i class="bi bi-file-earmark-text fs-2"></i>
-                </div>
-                <h6 class="fw-bold mb-1">Relatorios</h6>
-                <ul class="list-unstyled text-muted mb-3" style="font-size: 0.7rem;">
-                    <li>• Relatorios <strong>Trem</strong></li>
-                </ul>
-                <div class="btn w-100 rounded-pill mt-auto" style="background-color: #4a4a4a; color: white;">
-                    <i class="bi bi-arrow-right"></i>
-                </div>
-            </div>
-        </a>
+     
 
         <a href="../public/mapa.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
