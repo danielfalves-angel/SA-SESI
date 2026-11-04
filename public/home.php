@@ -130,53 +130,49 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </a>
 
-        <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
-        
-        <?php
-$url = 'https://api.open-meteo.com/v1/forecast?latitude=-26.3044&longitude=-48.8487&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FSao_Paulo';
+       <div class="card p-3 rounded-4 shadow-sm border-0 flex-fill" style="background-color: #f5f5f5; max-width: 220px; min-width: 190px;">
+    <?php
+    $url = 'https://api.open-meteo.com/v1/forecast?latitude=-26.3044&longitude=-48.8487&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FSao_Paulo';
 
-$contexto = stream_context_create([
-    'http' => [
-        'timeout' => 10,
-        'ignore_errors' => true
-    ]
-]);
 
-$resposta = file_get_contents($url, false, $contexto);
+    $contexto = stream_context_create([
+        'http' => [
+            'timeout' => 10,
+            'ignore_errors' => true
+        ]
+    ]);
 
-echo '<div class="clima">';
-echo '<h2>Clima atual - Joinville</h2>';
 
-if ($resposta === false) {
-    $erro = error_get_last();
-    echo '<p>Erro de conexão: ' .
-        htmlspecialchars($erro['message'] ?? 'Erro desconhecido') .
-        '</p>';
-} else {
-    $dados = json_decode($resposta, true);
+    $resposta = file_get_contents($url, false, $contexto);
+    ?>
 
-    if (isset($dados['current'])) {
-        echo '<p>🌡️ Temperatura: ' .
-            htmlspecialchars((string)$dados['current']['temperature_2m']) .
-            ' °C</p>';
 
-        echo '<p>💧 Umidade: ' .
-            htmlspecialchars((string)$dados['current']['relative_humidity_2m']) .
-            '%</p>';
+    <h6 class="fw-bold mb-3 text-dark text-start" style="font-size: 1.5rem;">
+        Clima atual - Joinville
+    </h6>
 
-        echo '<p>💨 Vento: ' .
-            htmlspecialchars((string)$dados['current']['wind_speed_10m']) .
-            ' km/h</p>';
-    } else {
-        echo '<p>Resposta recebida, mas os dados não foram encontrados.</p>';
-        echo '<pre>' . htmlspecialchars(substr($resposta, 0, 1000)) . '</pre>';
-    }
-}
 
-echo '</div>';
-?>
-
-        </div>
+    <?php if ($resposta !== false): 
+        $dados = json_decode($resposta, true);
+        if (isset($dados['current'])): ?>
+            <div class="d-flex flex-column gap-2 text-dark text-start" style="font-size: 1rem;">
+                <div>
+                    🌡️ Temperatura: <strong><?php echo htmlspecialchars((string)$dados['current']['temperature_2m']); ?> °C</strong>
+                </div>
+                <div>
+                    💧 Umidade: <strong><?php echo htmlspecialchars((string)$dados['current']['relative_humidity_2m']); ?>%</strong>
+                </div>
+                <div>
+                    💨 Vento: <strong><?php echo htmlspecialchars((string)$dados['current']['wind_speed_10m']); ?> km/h</strong>
+                </div>
+            </div>
+        <?php else: ?>
+            <p class="text-muted" style="font-size: 0.75rem;">Dados indisponíveis</p>
+        <?php endif; ?>
+    <?php else: ?>
+        <p class="text-danger" style="font-size: 0.75rem;">Erro de conexão</p>
+    <?php endif; ?>
+</div>
 <br>
 
 
