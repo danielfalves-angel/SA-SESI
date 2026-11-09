@@ -100,18 +100,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form method="POST">
                         <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($sensor['id']); ?>">
 
-                        <div class="form-group">
+                        <div>
                             <label for="nome">Nome do sensor:</label>
+                            <br>
                             <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="localizacao">Localização:</label>
+                            <br>
                             <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="unidade_de_medida">Unidade de medida:</label>
+                            <br>
                             <select name="unidade_de_medida" id="unidade_de_medida" required>
                                 <option value="<?php echo htmlspecialchars($sensor['unidade_de_medida']); ?>" selected>
                                     <?php echo htmlspecialchars($sensor['unidade_de_medida']); ?>
@@ -122,13 +125,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="valor">Valor:</label>
+                            <br>
                             <input type="number" name="valor" id="valor" value="<?php echo htmlspecialchars($sensor['valor']); ?>" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="status">Status:</label>
+                            <br>
                             <select name="status" id="status" required>
                                 <option value="<?php echo htmlspecialchars($sensor['status']); ?>" selected>
                                     <?php echo htmlspecialchars($sensor['status']); ?>
@@ -138,8 +143,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </select>
                         </div>
 
-                        <div class="form-group campo_oculto">
+                        <div>
                             <label for="rota">Rota:</label>
+                                                        <br>
                             <select name="rota" id="rota">
                                 <option value="<?php echo htmlspecialchars($sensor['rota']); ?>" selected>
                                     <?php echo htmlspecialchars($sensor['rota']); ?>
@@ -152,8 +158,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="descricao">Descrição:</label>
+                            <br>
                             <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($sensor['descricao']); ?>" required>
                         </div>
 
