@@ -163,7 +163,7 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
 
 
 
-                        <div class="form-group mb-3">
+                        <div>
     <label for="trem_id">Trem:</label>
     <select name="trem_id" id="trem_id" class="form-select">
         <option value="">Ainda não possui trem</option>
