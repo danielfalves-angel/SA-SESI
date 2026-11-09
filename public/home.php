@@ -58,7 +58,7 @@ if (!isset($_SESSION['usuario'])) {
         <a href="../public/mapa.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
-                    <i class="bi bi-train-front fs-2"></i>
+                    <i class="bi bi-globe-americas fs-2"></i>
                 </div>
                 <h6 class="fw-bold mb-1" style="font-size: 0.8rem;">Mapeamento de sensores</h6>
                 <ul class="list-unstyled text-muted mb-3" style="font-size: 0.65rem;">
@@ -73,7 +73,7 @@ if (!isset($_SESSION['usuario'])) {
          <a href="../public/rota/rota.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
-                    <i class="bi bi-broadcast fs-2"></i>
+                    <i class="bi bi-signpost-split fs-2"></i>
                 </div>
                 <h6 class="fw-bold mb-1" style="font-size: 0.8rem;">Registro de rotas</h6>
                 <ul class="list-unstyled text-muted mb-3" style="font-size: 0.6rem;">
