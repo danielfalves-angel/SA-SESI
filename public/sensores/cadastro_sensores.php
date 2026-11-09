@@ -89,18 +89,21 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                     </div>
 
                     <form method="POST">
-                        <div class="form-group">
+                        <div>
                             <label for="nome">Nome do sensor:</label>
+                            <br>
                             <input type="text" name="nome" id="nome" required>
                         </div>
-
-                        <div class="form-group">
+                        
+                        <div>
                             <label for="localizacao">Localização:</label>
+                            <br>
                             <input type="text" name="localizacao" id="localizacao" required>
                         </div>
-
-                        <div class="form-group">
+                        
+                        <div>
                             <label for="unidade_de_medida">Unidade de medida:</label>
+                                                    <br>
                             <select name="unidade_de_medida" id="unidade_de_medida" required>
                                 <option value="">selecione</option>
                                 <option value="celcius">celcius</option>
@@ -108,23 +111,26 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                                 <option value="kg">kg</option>
                             </select>
                         </div>
-
-                        <div class="form-group">
+                    
+                        <div>
                             <label for="valor">Valor:</label>
+                                                    <br>
                             <input type="number" name="valor" id="valor" required>
                         </div>
-
-                        <div class="form-group">
+                        
+                        <div>
                             <label for="status">Status:</label>
+                            <br>
                             <select name="status" id="status" required>
                                 <option value="">selecione</option>
                                 <option value="funcionando">funcionando</option>
                                 <option value="defeituoso">defeituoso</option>
                             </select>
                         </div>
-
-                        <div class="form-group campo_oculto">
+                        
+                        <div >
                             <label for="rota">Rota:</label>
+                                                    <br>
                             <select name="rota" id="rota">
                                 <option value="">selecione</option>
                                 <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
@@ -132,14 +138,15 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                                 <?php } ?>
                             </select>
                         </div>
-
-                        <div class="form-group">
+                    
+                        <div>
                             <label for="descricao">Descrição:</label>
+                                                    <br>
                             <input type="text" name="descricao" id="descricao" required>
                         </div>
-
+                        
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Sensor</button>
                         </div>
                     </form>

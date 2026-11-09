@@ -100,36 +100,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <form method="POST">
-                        <div class="form-group">
+                        <div>
                             <label for="nome">Nome:</label>
+                                                        <br>
                             <input type="text" name="nome" id="nome" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="email">Email:</label>
+                                                        <br>
                             <input type="email" name="email" id="email" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="senha">Senha:</label>
+                                                        <br>
                             <input type="password" name="senha" id="senha" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="telefone">Telefone:</label>
+                                                        <br>
                             <input type="text" name="telefone" id="telefone" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="cargo">Cargo:</label>
+                                                        <br>
                             <select name="cargo" id="cargo" required>
                                 <option value="administrador">Administrador</option>
                                 <option value="usuario">Usuário</option>
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="status">Status:</label>
+                                                        <br>
                             <select name="status" id="status" required>
                                 <option value="ativo">Ativo</option>
                                 <option value="inativo">Inativo</option>
@@ -137,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='administradores.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='administradores.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Administrador</button>
                         </div>
                     </form>

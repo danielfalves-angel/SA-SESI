@@ -123,14 +123,16 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
 
 
                     <form method="POST">
-                        <div class="form-group">
+                        <div>
                             <label for="nome">Nome:</label>
+                            <br>
                             <input type="text" name="nome" id="nome" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="trem_id">Trem:</label>
+                            <br>
                                 <select name="trem_id" id="trem_id">
                                     <option value="">Ainda não possui trem</option>
                                 <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
@@ -149,26 +151,29 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="partida">Partida:</label>
+                            <br>
                             <input type="text" name="partida" id="partida" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="destino">Destino:</label>
+                            <br>
                             <input type="text" name="destino" id="destino" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="descricao">Descrição:</label>
+                            <br>
                             <input type="text" name="descricao" id="descricao" required>
                         </div>
 
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Rota</button>
                         </div>
                     </form>

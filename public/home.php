@@ -54,28 +54,11 @@ if (!isset($_SESSION['usuario'])) {
     </div>
 
     <div class="d-flex flex-wrap justify-content-between align-items-stretch gap-3 mt-5 pt-2">
-        
-        <a href="../scripts/logout.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
-            <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
-                <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
-                    <i class="bi bi-box-arrow-right fs-2"></i>
-                </div>
-                <h6 class="fw-bold mb-1">Sair</h6>
-                <ul class="list-unstyled text-muted mb-3" style="font-size: 0.7rem;">
-                    <li>• Realizar o Logout</li>
-                </ul>
-                <div class="btn w-100 rounded-pill mt-auto" style="background-color: #4a4a4a; color: white;">
-                    <i class="bi bi-arrow-right"></i>
-                </div>
-            </div>
-        </a>
-
-     
-
+<!-- Mapa -->
         <a href="../public/mapa.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
-                    <i class="bi bi-train-front fs-2"></i>
+                    <i class="bi bi-globe-americas fs-2"></i>
                 </div>
                 <h6 class="fw-bold mb-1" style="font-size: 0.8rem;">Mapeamento de sensores</h6>
                 <ul class="list-unstyled text-muted mb-3" style="font-size: 0.65rem;">
@@ -86,7 +69,22 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </a>
-
+<!-- Rota -->
+         <a href="../public/rota/rota.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
+            <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
+                <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
+                    <i class="bi bi-signpost-split fs-2"></i>
+                </div>
+                <h6 class="fw-bold mb-1" style="font-size: 0.8rem;">Registro de rotas</h6>
+                <ul class="list-unstyled text-muted mb-3" style="font-size: 0.6rem;">
+                    <li>• CADASTRE / EDITE / EXCLUA<br><strong>rotas</strong></li>
+                </ul>
+                <div class="btn w-100 rounded-pill mt-auto" style="background-color: #4a4a4a; color: white;">
+                    <i class="bi bi-arrow-right"></i>
+                </div>
+            </div>
+        </a>
+<!-- Sensor -->
         <a href="../public/sensores/sensores.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
@@ -102,12 +100,13 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </a>
 
-        <a href="../public/usuarios/usuarios.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
+        <!-- Trem -->
+        <a href="../public/trens/trens.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
                 <div class="rounded-circle text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: #8c8c8c;">
-                    <i class="bi bi-person fs-2"></i>
+                    <i class="bi bi-train-front fs-2"></i>
                 </div>
-                <h6 class="fw-bold mb-1" style="font-size: 0.8rem;">Registro de usuario</h6>
+                <h6 class="fw-bold mb-1" style="font-size: 0.8rem;">Registro de trens</h6>
                 <ul class="list-unstyled text-muted mb-3" style="font-size: 0.6rem;">
                     <li>• CADASTRE / EDITE / EXCLUA<br><strong>usuarios</strong></li>
                 </ul>
