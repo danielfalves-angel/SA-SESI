@@ -119,36 +119,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form method="POST">
                         <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($usuario['id']); ?>">
 
-                        <div class="form-group">
+                        <div>
                             <label for="nome">Nome:</label>
+                                                        <br>
                             <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($usuario['nome'] ?? '') ?>" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="email">Email:</label>
+                                                        <br>
                             <input type="email" name="email" id="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="senha">Senha:</label>
+                                                        <br>
                             <input type="password" name="senha" id="senha" required>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="telefone">Telefone:</label>
+                                                        <br>
                             <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($usuario['telefone'] ?? '') ?>">
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="cargo">Cargo:</label>
+                                                        <br>
                             <select name="cargo" id="cargo">
                                 <option value="usuario" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'usuario') ? 'selected' : '' ?>>Usuário</option>
                                 <option value="administrador" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'administrador') ? 'selected' : '' ?>>Administrador</option>
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div>
                             <label for="status">Status:</label>
+                                                        <br>
                             <select name="status" id="status">
                                 <option value="ativo" <?= (isset($usuario['status']) && $usuario['status'] === 'ativo') ? 'selected' : '' ?>>Ativo</option>
                                 <option value="inativo" <?= (isset($usuario['status']) && $usuario['status'] === 'inativo') ? 'selected' : '' ?>>Inativo</option>
