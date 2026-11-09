@@ -107,38 +107,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                     <form method="POST">
-                        <div class="form-group">
+                        <div>
                             <label for="nome">Nome do trem:</label>
+                            <br>
                             <input type="text" name="nome" id="nome" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="velocidade">Velocidade (km/h):</label>
+                            <br>
                             <input type="number" step="any" name="velocidade" id="velocidade" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="peso">Peso (kg):</label>
+                            <br>
                             <input type="number" step="any" name="peso" id="peso" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="temperatura">Temperatura (°C):</label>
+                            <br>
                             <input type="number" step="any" name="temperatura" id="temperatura" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="tempo">Tempo (min):</label>
+                            <br>
                             <input type="number" step="any" name="tempo" id="tempo" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="status">Status:</label>
+                            <br>
                             <select name="status" id="status" required>
                                 <option value="">selecione</option>
                                 <option value="funcionando">funcionando</option>
