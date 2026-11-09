@@ -155,15 +155,17 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                         <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>">
 
 
-                        <div class="form-group mb-3">
+                        <div>
                             <label for="nome">Nome:</label>
+                            <br>
                             <input type="text" name="nome" id="nome" class="form-control" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
                         </div>
 
 
                         <!-- Menu suspenso de Seleção de Trem -->
-                        <div class="form-group">
+                        <div>
                             <label for="trem_id">Trem:</label>
+                            <br>
                                 <select name="trem_id" id="trem_id">
                                     <option value="">Ainda não possui trem</option>
                                 <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
@@ -182,20 +184,23 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                         </div>
 
 
-                        <div class="form-group mb-3">
+                        <div>
                             <label for="partida">Partida:</label>
+                            <br>
                             <input type="text" name="partida" id="partida" class="form-control" value="<?php echo htmlspecialchars($rota['partida']); ?>" required>
                         </div>
 
 
-                        <div class="form-group mb-3">
+                        <div>
                             <label for="destino">Destino:</label>
+                            <br>
                             <input type="text" name="destino" id="destino" class="form-control" value="<?php echo htmlspecialchars($rota['destino']); ?>" required>
                         </div>
 
 
-                        <div class="form-group mb-3">
+                        <div>
                             <label for="descricao">Descrição:</label>
+                            <br>
                             <input type="text" name="descricao" id="descricao" class="form-control" value="<?php echo htmlspecialchars($rota['descricao']); ?>" required>
                         </div>
 
