@@ -143,7 +143,7 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                 </div>
 
 
-                <!-- Card Interno -->
+
                 <div class="corpo2">
                     <div class="titulo-sensor">
                         <i class="bi bi-broadcast-pin"></i>
@@ -161,25 +161,26 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                         </div>
 
 
-                        <!-- Menu suspenso de Seleção de Trem -->
-                        <div class="form-group">
-                            <label for="trem_id">Trem:</label>
-                                <select name="trem_id" id="trem_id">
-                                    <option value="">Ainda não possui trem</option>
-                                <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
-                                    <?php if($trem['id_rota'] === NULL){ ?> 
-                                    <option value="<?php echo $trem['id']; ?>">
-                                 <?php echo htmlspecialchars($trem['nome']); ?>
-                                    </option>
-                                 <?php  
 
+                        <div class="form-group mb-3">
+    <label for="trem_id">Trem:</label>
+    <select name="trem_id" id="trem_id" class="form-select">
+        <option value="">Ainda não possui trem</option>
+        <?php while ($trem = mysqli_fetch_assoc($resultado2)) { 
 
-                                    } else { 
-                                    }
-                                 } 
-                                 ?>
-                                </select>
-                        </div>
+            if ($trem['id_rota'] === NULL || $trem['id_rota'] == $id_GET) { 
+
+                $selected = ($trem['id_rota'] == $id_GET) ? 'selected' : '';
+        ?> 
+                <option value="<?php echo $trem['id']; ?>" <?php echo $selected; ?>>
+                    <?php echo htmlspecialchars($trem['nome']); ?>
+                </option>
+        <?php 
+            } 
+        } 
+        ?>
+    </select>
+</div>
 
 
                         <div class="form-group mb-3">
