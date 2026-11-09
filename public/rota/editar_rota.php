@@ -1,22 +1,27 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     exit();
 }
+
 
 include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
+
 // 1. Obtém o ID da rota via parâmetro GET
 $id_GET = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
 
 if ($id_GET === 0) {
     die('ID da rota inválido ou não fornecido.');
 }
+
 
 // 2. Busca os dados da rota que será editada
 $sql = "SELECT * FROM rota WHERE id = ?";
@@ -27,9 +32,11 @@ $resultadorota = mysqli_stmt_get_result($stmt);
 $rota = mysqli_fetch_assoc($resultadorota);
 mysqli_stmt_close($stmt);
 
+
 if (!$rota) {
     die('Rota não encontrada.');
 }
+
 
 // 3. Processa a atualização via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -40,12 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $partida = trim($_POST['partida']);
     $descricao = trim($_POST['descricao']);
 
+
     // A. Verifica se o nome digitado já está em uso por OUTRA rota
     $sql_check = "SELECT id FROM rota WHERE nome = ? AND id != ?";
     $stmt_check = mysqli_prepare($conn, $sql_check);
     mysqli_stmt_bind_param($stmt_check, "si", $nome, $id);
     mysqli_stmt_execute($stmt_check);
     mysqli_stmt_store_result($stmt_check);
+
 
     if (mysqli_stmt_num_rows($stmt_check) > 0) {
         mysqli_stmt_close($stmt_check);
@@ -54,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
     mysqli_stmt_close($stmt_check);
+
 
     // Obtém o nome descritivo do trem selecionado (para manter a coluna descritiva da tabela rota)
     $nome_trem_texto = "Ainda não possui trem";
@@ -64,13 +74,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+
     // B. Atualiza a tabela ROTA
     $sql_update_rota = "UPDATE rota SET nome = ?, trem = ?, destino = ?, partida = ?, descricao = ? WHERE id = ?";
     $stmt_update = mysqli_prepare($conn, $sql_update_rota);
     mysqli_stmt_bind_param($stmt_update, "sssssi", $nome, $nome_trem_texto, $destino, $partida, $descricao, $id);
 
+
     if (mysqli_stmt_execute($stmt_update)) {
         mysqli_stmt_close($stmt_update);
+
 
         // C. Atualiza os vínculos da Chave Estrangeira (id_rota na tabela trem)
         
@@ -81,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmt_desv);
         mysqli_stmt_close($stmt_desv);
 
+
         // 2º Se um novo trem foi selecionado, vincula ele a esta rota
         if ($trem_id) {
             $sql_vincular = "UPDATE trem SET id_rota = ? WHERE id = ?";
@@ -90,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_close($stmt_vinc);
         }
 
+
         echo '<script>alert("Rota atualizada com sucesso.");</script>';
         echo '<script>window.location.href = "rota.php";</script>';
         exit();
@@ -98,12 +113,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
 // 4. Busca todos os trens e identifica qual trem está atualmente vinculado a esta rota
 $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 
 <head>
     <meta charset="UTF-8">
@@ -114,6 +132,7 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 
+
 <body class="body3">
     <div class="corpo">
         <main>
@@ -123,6 +142,7 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                     <span>Editar Rota</span>
                 </div>
 
+
                 <!-- Card Interno -->
                 <div class="corpo2">
                     <div class="titulo-sensor">
@@ -130,13 +150,16 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                         <span>Informações da Rota</span>
                     </div>
 
+
                     <form method="POST">
                         <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($rota['id']); ?>">
+
 
                         <div class="form-group mb-3">
                             <label for="nome">Nome:</label>
                             <input type="text" name="nome" id="nome" class="form-control" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
                         </div>
+
 
                         <!-- Menu suspenso de Seleção de Trem -->
                         <div class="form-group">
@@ -150,6 +173,7 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                                     </option>
                                  <?php  
 
+
                                     } else { 
                                     }
                                  } 
@@ -157,20 +181,24 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                                 </select>
                         </div>
 
+
                         <div class="form-group mb-3">
                             <label for="partida">Partida:</label>
                             <input type="text" name="partida" id="partida" class="form-control" value="<?php echo htmlspecialchars($rota['partida']); ?>" required>
                         </div>
+
 
                         <div class="form-group mb-3">
                             <label for="destino">Destino:</label>
                             <input type="text" name="destino" id="destino" class="form-control" value="<?php echo htmlspecialchars($rota['destino']); ?>" required>
                         </div>
 
+
                         <div class="form-group mb-3">
                             <label for="descricao">Descrição:</label>
                             <input type="text" name="descricao" id="descricao" class="form-control" value="<?php echo htmlspecialchars($rota['descricao']); ?>" required>
                         </div>
+
 
                         <div class="botoes-container">
                             <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Voltar</button>
@@ -182,7 +210,9 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
         </main>
     </div>
 
+
     <header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
+
 
 </html>

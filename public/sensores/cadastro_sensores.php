@@ -139,7 +139,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                         </div>
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Sensor</button>
                         </div>
                     </form>

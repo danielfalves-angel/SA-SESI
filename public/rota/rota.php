@@ -12,7 +12,8 @@ include '../../infra/connect.php';
 $resultado = mysqli_query($conn, "SELECT * FROM rota");
 
 ?>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -25,8 +26,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
 
     <title>Rotas</title>
 </head>
-   
-
 
 <body>
     <div class="corpo">
@@ -36,12 +35,13 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
             <br>
             <br>
             <br>
-
+            
             <h1 class="titulo_home2">Gerenciador de Rotas</h1>
+
             <br>
             <a href="cadastro_rota.php" class="btn-cadastrar">Cadastrar Rotas</a>
             <br>
-            
+
             <div class="table-container">
                 <table class="styled-table">
                     <thead>
@@ -67,7 +67,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
                             echo "<td>{$rota['descricao']}</td>";
                             echo "<td>
                                     <a href='editar_rota.php?id={$rota['id']}' class='btn-action btn-edit'>Editar</a>
-                                    <span class='divider'>|</span>
                                     <a href='excluir_rota.php?id={$rota['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
                                   </td>";
                             echo "</tr>";
@@ -78,6 +77,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM rota");
             </div>
 
             <br><br>
+
         </main>
 
     </div>

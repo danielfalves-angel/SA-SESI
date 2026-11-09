@@ -68,10 +68,12 @@ if (!$resultado) {
                     <tbody>
                         <?php
                         while ($trem = mysqli_fetch_assoc($resultado)) {
+                            $rota_nome = !empty($trem['nome_rota']) ? htmlspecialchars($trem['nome_rota']) : 'Sem rota atribuída';
+
                             echo "<tr>";
                             echo "<td>{$trem['id']}</td>";
-                            echo "<td>{$trem['nome']}</td>";
-                            echo "<td></td>";
+                            echo "<td>" . htmlspecialchars($trem['nome']) . "</td>";
+                            echo "<td>{$rota_nome}</td>";
                             echo "<td>{$trem['velocidade']}</td>";
                             echo "<td>{$trem['peso']}</td>";
                             echo "<td>{$trem['temperatura']}</td>";
@@ -79,7 +81,6 @@ if (!$resultado) {
                             echo "<td>{$trem['status']}</td>";
                             echo "<td>
                                     <a href='editar_trens.php?id={$trem['id']}' class='btn-action btn-edit'>Editar</a>
-                                    <span class='divider'>|</span>
                                     <a href='excluir_trens.php?id={$trem['id']}' class='btn-action btn-delete' onclick=\"return confirm('Tem certeza que deseja excluir este registro?');\">Excluir</a>
                                   </td>";
                             echo "</tr>";
@@ -93,6 +94,7 @@ if (!$resultado) {
         </main>
 
     </div>
+
     <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
 

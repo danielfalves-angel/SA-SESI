@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='administradores.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='administradores.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Administrador</button>
                         </div>
                     </form>

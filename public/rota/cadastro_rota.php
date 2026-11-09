@@ -1,15 +1,18 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     exit();
 }
 
+
 include '../../infra/connect.php';
 if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
@@ -19,11 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
 
 
+
+
     $sql_check = "SELECT id FROM rota WHERE nome = ?";
     $stmt_check = mysqli_prepare($conn, $sql_check);
     mysqli_stmt_bind_param($stmt_check, "s", $nome);
     mysqli_stmt_execute($stmt_check);
     mysqli_stmt_store_result($stmt_check);
+
 
     if (mysqli_stmt_num_rows($stmt_check) > 0) {
         mysqli_stmt_close($stmt_check);
@@ -33,9 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     mysqli_stmt_close($stmt_check);
 
+
     $sql = "INSERT INTO rota (nome, trem, destino, partida, descricao) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
     
+
 
     $nome_trem_texto = "Ainda não possui trem"; 
     
@@ -46,12 +54,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+
     mysqli_stmt_bind_param($stmt, "sssss", $nome, $nome_trem_texto, $destino, $partida, $descricao);
+
 
     if (mysqli_stmt_execute($stmt)) {
 
+
         $nova_rota_id = mysqli_insert_id($conn);
         mysqli_stmt_close($stmt);
+
+
 
 
         if ($trem_id) {
@@ -62,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_close($stmt_update);
         }
 
+
         echo '<script>alert("Rota cadastrada com sucesso!");</script>';
         echo '<script>window.location.href = "rota.php";</script>';
         exit();
@@ -71,11 +85,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
+
+
 $resultado2 = mysqli_query($conn, "SELECT * FROM trem"); 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 
 <head>
     <meta charset="UTF-8">
@@ -86,6 +104,7 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 
+
 <body class="body3">
     <div class="corpo">
         <main>
@@ -95,17 +114,20 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
                     <span>Cadastrar Rota</span>
                 </div>
 
+
                 <div class="corpo2">
                     <div class="titulo-sensor">
                         <i class="bi bi-broadcast-pin"></i>
                         <span>Informações da Rota</span>
                     </div>
 
+
                     <form method="POST">
                         <div class="form-group">
                             <label for="nome">Nome:</label>
                             <input type="text" name="nome" id="nome" required>
                         </div>
+
 
                         <div class="form-group">
                             <label for="trem_id">Trem:</label>
@@ -118,6 +140,7 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
                                     </option>
                                  <?php  
 
+
                                     } else { 
                                     }
                                  } 
@@ -125,23 +148,27 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
                                 </select>
                         </div>
 
+
                         <div class="form-group">
                             <label for="partida">Partida:</label>
                             <input type="text" name="partida" id="partida" required>
                         </div>
+
 
                         <div class="form-group">
                             <label for="destino">Destino:</label>
                             <input type="text" name="destino" id="destino" required>
                         </div>
 
+
                         <div class="form-group">
                             <label for="descricao">Descrição:</label>
                             <input type="text" name="descricao" id="descricao" required>
                         </div>
 
+
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Voltar</button>
+                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Rota</button>
                         </div>
                     </form>
@@ -150,7 +177,9 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
         </main>
     </div>
 
+
     <header><?php include '../../scripts/navbar2.php'; ?></header>
 </body>
+
 
 </html>
