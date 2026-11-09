@@ -121,38 +121,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($trem['id']); ?>">
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="nome">Nome do trem:</label>
+                            <br>
                             <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="velocidade">Velocidade (km/h):</label>
+                            <br>
                             <input type="number" step="any" name="velocidade" id="velocidade" value="<?php echo htmlspecialchars($trem['velocidade']); ?>" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="peso">Peso (kg):</label>
+                            <br>
                             <input type="number" step="any" name="peso" id="peso" value="<?php echo htmlspecialchars($trem['peso']); ?>" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="temperatura">Temperatura (°C):</label>
+                            <br>
                             <input type="number" step="any" name="temperatura" id="temperatura" value="<?php echo htmlspecialchars($trem['temperatura']); ?>" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="tempo">Tempo (min):</label>
+                            <br>
                             <input type="number" step="any" name="tempo" id="tempo" value="<?php echo htmlspecialchars($trem['tempo']); ?>" required>
                         </div>
 
 
-                        <div class="form-group">
+                        <div>
                             <label for="status">Status:</label>
+                            <br>
                             <select name="status" id="status" required>
                                 <option value="funcionando" <?php echo ($trem['status'] === 'funcionando') ? 'selected' : ''; ?>>funcionando</option>
                                 <option value="defeituoso" <?php echo ($trem['status'] === 'defeituoso') ? 'selected' : ''; ?>>defeituoso</option>
