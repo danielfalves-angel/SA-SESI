@@ -35,6 +35,9 @@ Ignacio Lencina
 
 Readme
 License
-Pdo
-Relatório
-dadadadadadada
+Pesquisa de Pdo
+Pesquisa de CRUD
+Pesquisa de Apis
+Pesquisa de Prepare Statement
+Pesquisa do Scrum
+Pesquisa do Xampp
