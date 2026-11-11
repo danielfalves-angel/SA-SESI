@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(password_verify($senha, $usuario['senha'])){
         $_SESSION['usuario'] = $usuario['email'];
         $_SESSION['tipo'] = $usuario['cargo'];
-
+        $_SESSION['nome'] = $usuario['nome'];
         
         header('Location: ../public/home.php');
         

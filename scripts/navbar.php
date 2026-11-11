@@ -23,9 +23,15 @@ if (isset($_SESSION['usuario'])) {
             <span><img class="logo" src="<?= $base_url ?>../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
                     alt=""></span>
 </div>
+ 
+            
         </nav>
 
+
         <nav class="menu-lateral">
+
+            <br>
+
             <div class="botoes">
                 <div class="text-icon">
                     <a href="<?= $base_url ?>home.php">
@@ -111,6 +117,8 @@ if (isset($_SESSION['usuario'])) {
         </nav>
 
         <nav class="menu-lateral">
+
+
             <div class="botoes">
                 <div class="text-icon">
                     <a href="<?= $base_url ?>home.php">

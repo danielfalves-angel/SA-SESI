@@ -174,6 +174,12 @@ if (!isset($_SESSION['usuario'])) {
 
     
     <footer>
+        
+        <div class="texto_footer">
+            <?php $nome = $_SESSION['nome']; ?>
+                <br>
+            <?php echo "olá, " . $nome; ?>
+            </div>
     </footer>
 
     
