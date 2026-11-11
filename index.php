@@ -43,12 +43,15 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
                 </div>
                 <div class="corpo2">
                     <form  action="scripts/login.php" method="POST">
-                        <div class="form-group">
+                        <div>
                             <label  for="email">Email: </label>
+                            <br>
                             <input type="email" name="email" id="email" placeholder="Email" required>
                         </div>
-                            <div class="form-group">
+                        <br>
+                            <div>
                                 <label class="senha" for="senha">Senha: </label>
+                                <br>
                                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
                             </div>
                             <div class="botoes-container">
