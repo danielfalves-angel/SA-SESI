@@ -51,6 +51,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
                                     <th>Nome</th>
                                     <th>Email</th>
                                     <th>Telefone</th>
+                                    <th>CEP</th>
                                     <th>Status</th>
                                     <th>Ações</th>
                                 </tr>
@@ -66,6 +67,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
                     echo "<td>{$usuario['nome']}</td>";
                     echo "<td>{$usuario['email']}</td>";
                     echo "<td>{$usuario['telefone']}</td>";
+                    echo "<td>{$usuario['cep']}</td>";
                     echo "<td>{$usuario['status']}</td>";
                     echo
                         "<td>
