@@ -43,8 +43,15 @@ if (!isset($_SESSION['usuario'])) {
 
         <!-- Descrição à direita -->
         <div class="col-lg-7 col-md-6 ps-md-4">
+                    <div>
+            <p class="fw-bold mb-4" style="font-family: 'Playfair Display', serif; font-size: 2.3rem; letter-spacing: 1px;">
+                <?php $nome = $_SESSION['nome']; ?>
+                    <br>
+                <?php echo "Olá, " . $nome . "!"?>
+            </p>
+            </div>
             <h2 class="fw-bold mb-4" style="font-family: 'Playfair Display', serif; font-size: 2.3rem; letter-spacing: 1px;">
-                O futuro da inteligência ferroviária!!
+                Conheça o futuro da inteligência ferroviária!
             </h2>
             <p class="fs-5 text-light lh-base" style="max-width: 650px; font-weight: 300;">
                 Na <strong class="fw-bold">Orbital Trilhos</strong>, transformamos dados em segurança e eficiência para o setor ferroviário. Somos uma plataforma especialista no monitoramento contínuo e inteligente de sensores para malhas e trilhos de trem.
@@ -175,11 +182,7 @@ if (!isset($_SESSION['usuario'])) {
     
     <footer>
         
-        <div class="texto_footer">
-            <?php $nome = $_SESSION['nome']; ?>
-                <br>
-            <?php echo "olá, " . $nome; ?>
-            </div>
+
     </footer>
 
     
