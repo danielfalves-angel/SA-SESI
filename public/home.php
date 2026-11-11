@@ -28,7 +28,7 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
-  <main class="text-white py-4 px-5" style="margin-left: 130px; margin-top: 100px; margin-right: 90px">
+  <main class="text-white py-4 px-5" style="margin-left: 200px; margin-top: 100px">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </div>
 
-    <div class="d-flex flex-wrap justify-content-between align-items-stretch gap-3 mt-5 pt-2">
+    <div class="d-flex flex-wrap justify-content-between align-items-stretch gap-3 mt-5 pt-3">
 <!-- Mapa -->
         <a href="../public/mapa.php" class="text-decoration-none text-dark flex-fill" style="max-width: 180px;">
             <div class="card text-center p-3 rounded-4 shadow-sm h-100 border-0" style="background-color: #f5f5f5;">
