@@ -146,6 +146,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 value="<?= htmlspecialchars($usuario['telefone'] ?? '') ?>">
                         </div>
 
+                        <label for="cep">CEP de Joinville:</label>
+                            <br>
+                        <input type="text" id="cep" placeholder="89200-000" maxlength="9" onblur="validarCEPJoinville()">
+  
+  <div id="resultado"></div>
+
+  <script>
+    async function validarCEPJoinville() {
+      const campoCep = document.getElementById('cep');
+      const resultado = document.getElementById('resultado');
+      
+      // Remove caracteres não numéricos
+      const cep = campoCep.value.replace(/\D/g, '');
+
+      // 1. Validação de formato (8 dígitos)
+      if (cep.length !== 8) {
+        resultado.innerHTML = "<p style='color: red;'>Digite um CEP válido com 8 números.</p>";
+        return;
+      }
+
+      resultado.innerHTML = "<p>Verificando...</p>";
+
+      try {
+        // 2. Consulta à API do ViaCEP
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+
+        // 3. Validação de existência
+        if (data.erro) {
+          resultado.innerHTML = "<p style='color: red;'>CEP não encontrado na base de dados.</p>";
+          return;
+        }
+
+        // 4. Trava de Cidade: Valida se é de Joinville - SC
+        const ehJoinville = data.localidade.toLowerCase() === 'joinville' && data.uf === 'SC';
+
+        if (!ehJoinville) {
+          resultado.innerHTML = `<p style='color: red;'>CEP recusado. O CEP informado pertence a <strong>${data.localidade} - ${data.uf}</strong> (apenas Joinville é permitido).</p>`;
+        } else {
+          // Sucesso
+          resultado.innerHTML = `
+            <p style='color: green;'><strong>CEP Válido para Joinville!</strong></p>
+            <p>Rua: ${data.logradouro}</p>
+            <p>Bairro: ${data.bairro}</p>
+            <p>Cidade: ${data.localidade} - ${data.uf}</p>
+          `;
+        }
+
+      } catch (error) {
+        resultado.innerHTML = "<p style='color: red;'>Erro ao consultar o serviço de CEP.</p>";
+      }
+    }
+  </script>
+
                         <div>
                             <label for="cargo">Cargo:</label>
                             <br>

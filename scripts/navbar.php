@@ -19,13 +19,11 @@ if (isset($_SESSION['usuario'])) {
         ?>
         <nav class="navbar-principal">
             <div class="logo-container">
-
-                <span><img class="logo"
-                        src="/ignacio_lencina_2026/SA-SESI/public/../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
-                        alt=""></span>
-            </div>
-
-
+                
+            <span><img class="logo" src="<?= $base_url ?>../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png" alt=""></span>
+</div>
+ 
+            
         </nav>
 
 
@@ -130,7 +128,7 @@ if (isset($_SESSION['usuario'])) {
                 <div class="text-icon">
                     <a href="<?= $base_url ?>home.php">
                         <button class="botao">
-                            <span class="icon"><i class="bi bi-house-fill"></i></span>
+                            <span class="icon"><i class="bi bi-house"></i></span>
                             <span class="text">Home</span>
 
                         </button>
