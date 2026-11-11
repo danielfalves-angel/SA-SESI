@@ -16,14 +16,16 @@ if (isset($_SESSION['usuario'])) {
 
     if ($_SESSION['tipo'] === 'administrador') {
 
-?>
+        ?>
         <nav class="navbar-principal">
             <div class="logo-container">
-                
-            <span><img class="logo" src="/ignacio_lencina_2026/SA-SESI/public/../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png" alt=""></span>
-</div>
- 
-            
+
+                <span><img class="logo"
+                        src="/ignacio_lencina_2026/SA-SESI/public/../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
+                        alt=""></span>
+            </div>
+
+
         </nav>
 
 
@@ -52,7 +54,7 @@ if (isset($_SESSION['usuario'])) {
                 </div>
             </div>
 
-            <div class="text-icon"> 
+            <div class="text-icon">
                 <a href="<?= $base_url ?>usuarios/usuarios.php">
                     <button class="botao">
                         <span class="icon"><i class="bi bi-person"></i></span>
@@ -92,7 +94,7 @@ if (isset($_SESSION['usuario'])) {
 
             </div>
 
-         
+
 
             <div class="text-icon">
                 <a href="<?= $base_url ?>../scripts/logout.php">
@@ -106,17 +108,19 @@ if (isset($_SESSION['usuario'])) {
             </div>
         </nav>
 
-    <?php
-        exit();
+            <?php
+            exit();
     } else {
-    ?>
-       <nav class="navbar-principal">
+        ?>
+        <nav class="navbar-principal">
             <div class="logo-container">
-                
-            <span><img class="logo" src="/ignacio_lencina_2026/SA-SESI/public/../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png" alt=""></span>
-</div>
- 
-            
+
+                <span><img class="logo"
+                        src="/ignacio_lencina_2026/SA-SESI/public/../assets/img/ChatGPT_Image_11_de_mai._de_2026__11_19_38-removebg-preview.png"
+                        alt=""></span>
+            </div>
+
+
         </nav>
 
         <nav class="menu-lateral">
@@ -163,7 +167,7 @@ if (isset($_SESSION['usuario'])) {
 
             </div>
 
-       
+
 
             <div class="text-icon">
                 <a href="<?= $base_url ?>../scripts/logout.php">
@@ -178,7 +182,7 @@ if (isset($_SESSION['usuario'])) {
         </nav>
 
 
-<?php
+        <?php
         exit();
     }
 }

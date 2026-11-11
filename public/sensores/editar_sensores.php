@@ -31,7 +31,7 @@ if (!$sensor) {
     die('Sensor não encontrado.');
 }
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id_GET = $_GET['id'];
 } else {
     die('ID do sensor não encontrado.');
@@ -103,13 +103,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div>
                             <label for="nome">Nome do sensor:</label>
                             <br>
-                            <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
+                            <input type="text" name="nome" id="nome"
+                                value="<?php echo htmlspecialchars($sensor['nome']); ?>" required>
                         </div>
 
                         <div>
                             <label for="localizacao">Localização:</label>
                             <br>
-                            <input type="text" name="localizacao" id="localizacao" value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
+                            <input type="text" name="localizacao" id="localizacao"
+                                value="<?php echo htmlspecialchars($sensor['localizacao']); ?>" required>
                         </div>
 
                         <div>
@@ -128,7 +130,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div>
                             <label for="valor">Valor:</label>
                             <br>
-                            <input type="number" name="valor" id="valor" value="<?php echo htmlspecialchars($sensor['valor']); ?>" required>
+                            <input type="number" name="valor" id="valor"
+                                value="<?php echo htmlspecialchars($sensor['valor']); ?>" required>
                         </div>
 
                         <div>
@@ -145,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div>
                             <label for="rota">Rota:</label>
-                                                        <br>
+                            <br>
                             <select name="rota" id="rota">
                                 <option value="<?php echo htmlspecialchars($sensor['rota']); ?>" selected>
                                     <?php echo htmlspecialchars($sensor['rota']); ?>
@@ -161,11 +164,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div>
                             <label for="descricao">Descrição:</label>
                             <br>
-                            <input type="text" name="descricao" id="descricao" value="<?php echo htmlspecialchars($sensor['descricao']); ?>" required>
+                            <input type="text" name="descricao" id="descricao"
+                                value="<?php echo htmlspecialchars($sensor['descricao']); ?>" required>
                         </div>
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Voltar</button>
+                            <button type="button" class="btn-voltar"
+                                onclick="window.location.href='sensores.php'">Voltar</button>
                             <button type="submit" class="btn-cadastrar">Salvar Alterações</button>
                         </div>
                     </form>

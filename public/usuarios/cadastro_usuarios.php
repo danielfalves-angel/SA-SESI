@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] !== 'administrador') {
     header('Location: ../../index.php');
@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 </head>
+
 <body class="body3">
     <div class="corpo">
         <main>
@@ -102,25 +104,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form method="POST">
                         <div>
                             <label for="nome">Nome:</label>
-                                                        <br>
+                            <br>
                             <input type="text" name="nome" id="nome" required>
                         </div>
 
                         <div>
                             <label for="email">Email:</label>
-                                                        <br>
+                            <br>
                             <input type="email" name="email" id="email" required>
                         </div>
 
                         <div>
                             <label for="senha">Senha:</label>
-                                                        <br>
+                            <br>
                             <input type="password" name="senha" id="senha" required>
                         </div>
 
                         <div>
                             <label for="telefone">Telefone:</label>
-                                                        <br>
+                            <br>
                             <input type="text" name="telefone" id="telefone" required>
                         </div>
 
@@ -145,7 +147,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='usuarios.php'">Cancelar</button>
+                            <button type="button" class="btn-voltar"
+                                onclick="window.location.href='usuarios.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Usuário</button>
                         </div>
                     </form>
@@ -156,4 +159,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <header><?php include '../../scripts/navbar.php'; ?></header>
 </body>
+
 </html>

@@ -42,11 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "INSERT INTO rota (nome, trem, destino, partida, descricao) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-    
 
 
-    $nome_trem_texto = "Ainda não possui trem"; 
-    
+
+    $nome_trem_texto = "Ainda não possui trem";
+
     if ($trem_id) {
         $res_nome = mysqli_query($conn, "SELECT nome FROM trem WHERE id = " . intval($trem_id));
         if ($r = mysqli_fetch_assoc($res_nome)) {
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-$resultado2 = mysqli_query($conn, "SELECT * FROM trem"); 
+$resultado2 = mysqli_query($conn, "SELECT * FROM trem");
 ?>
 
 
@@ -133,21 +133,21 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
                         <div>
                             <label for="trem_id">Trem:</label>
                             <br>
-                                <select name="trem_id" id="trem_id">
-                                    <option value="">Ainda não possui trem</option>
+                            <select name="trem_id" id="trem_id">
+                                <option value="">Ainda não possui trem</option>
                                 <?php while ($trem = mysqli_fetch_assoc($resultado2)) { ?>
-                                    <?php if($trem['id_rota'] === NULL){ ?> 
-                                    <option value="<?php echo $trem['id']; ?>">
-                                 <?php echo htmlspecialchars($trem['nome']); ?>
-                                    </option>
-                                 <?php  
+                                    <?php if ($trem['id_rota'] === NULL) { ?>
+                                        <option value="<?php echo $trem['id']; ?>">
+                                            <?php echo htmlspecialchars($trem['nome']); ?>
+                                        </option>
+                                    <?php
 
 
-                                    } else { 
+                                    } else {
                                     }
-                                 } 
-                                 ?>
-                                </select>
+                                }
+                                ?>
+                            </select>
                         </div>
 
 
@@ -173,7 +173,8 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
 
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Cancelar</button>
+                            <button type="button" class="btn-voltar"
+                                onclick="window.location.href='rota.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Rota</button>
                         </div>
                     </form>
