@@ -13,7 +13,7 @@ if (!isset($conn) || $conn === null) {
     die('Erro ao conectar com o banco de dados.');
 }
 
-$resultado2 = mysqli_query($conn, "SELECT * FROM rota");  
+$resultado2 = mysqli_query($conn, "SELECT * FROM rota");
 
 $sql = "SELECT * FROM sensor";
 $resultado = mysqli_query($conn, $sql);
@@ -21,7 +21,7 @@ $resultado = mysqli_query($conn, $sql);
 if ($resultado === false) {
     die('Erro ao consultar sensor: ' . mysqli_error($conn));
 }
-                    
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $unidade = $_POST['unidade_de_medida'];
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO sensor (nome, descricao, unidade_de_medida, valor, localizacao, rota, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, 'sssisss', $nome, $descricao, $unidade, $valor, $localizacao, $rota, $status);
-    
+
     if ($stmt === false) {
         die('Erro ao preparar a inserção do sensor: ' . mysqli_error($conn));
     }
@@ -94,16 +94,16 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                             <br>
                             <input type="text" name="nome" id="nome" required>
                         </div>
-                        
+
                         <div>
                             <label for="localizacao">Localização:</label>
                             <br>
                             <input type="text" name="localizacao" id="localizacao" required>
                         </div>
-                        
+
                         <div>
                             <label for="unidade_de_medida">Unidade de medida:</label>
-                                                    <br>
+                            <br>
                             <select name="unidade_de_medida" id="unidade_de_medida" required>
                                 <option value="">selecione</option>
                                 <option value="celcius">celcius</option>
@@ -111,13 +111,13 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                                 <option value="kg">kg</option>
                             </select>
                         </div>
-                    
+
                         <div>
                             <label for="valor">Valor:</label>
-                                                    <br>
+                            <br>
                             <input type="number" name="valor" id="valor" required>
                         </div>
-                        
+
                         <div>
                             <label for="status">Status:</label>
                             <br>
@@ -127,10 +127,10 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                                 <option value="defeituoso">defeituoso</option>
                             </select>
                         </div>
-                        
-                        <div >
+
+                        <div>
                             <label for="rota">Rota:</label>
-                                                    <br>
+                            <br>
                             <select name="rota" id="rota">
                                 <option value="">selecione</option>
                                 <?php while ($rota = mysqli_fetch_assoc($resultado2)) { ?>
@@ -138,15 +138,16 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
                                 <?php } ?>
                             </select>
                         </div>
-                    
+
                         <div>
                             <label for="descricao">Descrição:</label>
-                                                    <br>
+                            <br>
                             <input type="text" name="descricao" id="descricao" required>
                         </div>
-                        
+
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='sensores.php'">Cancelar</button>
+                            <button type="button" class="btn-voltar"
+                                onclick="window.location.href='sensores.php'">Cancelar</button>
                             <button type="submit" class="btn-cadastrar">Cadastrar Sensor</button>
                         </div>
                     </form>

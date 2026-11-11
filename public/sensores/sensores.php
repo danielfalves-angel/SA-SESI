@@ -12,7 +12,7 @@ include '../../infra/connect.php';
 $resultado = mysqli_query($conn, "SELECT * FROM sensor");
 
 
-?>                              
+?>
 <html lang="en">
 
 <head>
@@ -26,7 +26,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM sensor");
 
     <title>Sensores</title>
 </head>
-   
+
 
 
 <body>

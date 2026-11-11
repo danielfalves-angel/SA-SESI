@@ -21,7 +21,7 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles/style.css">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Login</title>
 
@@ -31,7 +31,7 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
 
 <body class="body3" id="bodyLogin">
 
-    
+
 
 
     <div class="corpo">
@@ -42,34 +42,34 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
                     <span>Login</span>
                 </div>
                 <div class="corpo2">
-                    <form  action="scripts/login.php" method="POST">
+                    <form action="scripts/login.php" method="POST">
                         <div>
-                            <label  for="email">Email: </label>
+                            <label for="email">Email: </label>
                             <br>
                             <input type="email" name="email" id="email" placeholder="Email" required>
                         </div>
                         <br>
-                            <div>
-                                <label class="senha" for="senha">Senha: </label>
-                                <br>
-                                <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                            </div>
-                            <div class="botoes-container">
-                                <button class="btn-cadastrar"  type="submit">
-                                    <h6 >Enviar</h6>
-                                </button>
-                            </div>
-                            <div id="resultado"></div>
-                        </form>
-                </div>
-                    <div>
-                        <h2 id="mensagem"></h2>
-                        <div class="toggle" id="toggle">
+                        <div>
+                            <label class="senha" for="senha">Senha: </label>
+                            <br>
+                            <input type="password" name="senha" id="senha" placeholder="Senha" required>
                         </div>
+                        <div class="botoes-container">
+                            <button class="btn-cadastrar" type="submit">
+                                <h6>Enviar</h6>
+                            </button>
+                        </div>
+                        <div id="resultado"></div>
+                    </form>
+                </div>
+                <div>
+                    <h2 id="mensagem"></h2>
+                    <div class="toggle" id="toggle">
                     </div>
                 </div>
             </div>
-        </main>
+    </div>
+    </main>
     </div>
 
 

@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] !== 'administrador') {
     header('Location: ../../index.php');
@@ -123,6 +123,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         <br>
                             <input type="text" name="telefone" id="telefone" required>
                         </div>
+
+<div>
+    <label for="cep">CEP:</label>
+    <br>
+    <input type="text" name="cep" id="cep" required>
+   <?php
+   $cep = '01001000';
+   $url = "https://viacep.com.br{$cep}/json/";
+
+   $ch = curl_init($url);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+   curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+   // Adiciona identificação na requisição (evita bloqueios simples)
+   curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) MeuSistema/1.0');
+
+   $response = curl_exec($ch);
+   $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+   $erroCurl = curl_error($ch);
+   curl_close($ch);
+
+   echo "HTTP Status: " . $httpCode . "<br>";
+
+   if ($response !== false && $httpCode === 200) {
+       $dados = json_decode($response, true);
+       print_r($dados);
+   } else {
+       echo "Erro cURL: " . $erroCurl . "<br>";
+       echo "Resposta bruta: " . htmlspecialchars($response);
+   }
+   ?>
+
+</div>
+
+                            <label for="cep">CEP:</label>
+                                                        <br>
+                            <input type="
 
                         <div>
                             <label for="cargo">Cargo:</label>

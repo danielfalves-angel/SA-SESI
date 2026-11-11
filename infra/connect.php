@@ -1,4 +1,4 @@
-    <?php
+<?php
 
     $host = "localhost";
     $user = "root";
@@ -6,8 +6,8 @@
     $database = "orbital_trens";
     $conn = mysqli_connect($host, $user, $password, $database, 3306);
 
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 ?>
