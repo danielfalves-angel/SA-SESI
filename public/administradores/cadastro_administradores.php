@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/png" href="../../assets/img/logoIconSemFundo.png">
 </head>
 <body class="body3">
-    <div class="corpo">
+    <div class="corpo_2">
         <main>
             <div class="campo1">
                 <div class="titulo3">

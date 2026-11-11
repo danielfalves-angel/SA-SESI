@@ -40,11 +40,6 @@ if (!$resultado) {
     <div class="corpo">
 
         <main>
-            <br>
-            <br>
-            <br>
-            <br>
-
             <h1 class="titulo_home2">Gerenciador de Trens</h1>
             <br>
             <a href="cadastro_trens.php" class="btn-cadastrar">Cadastrar Trens</a>
