@@ -36,7 +36,7 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
 
     <div class="corpo">
         <main>
-            <div class="campo1">
+            <div class="campo1-login">
                 <div class="titulo3">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span>Login</span>
