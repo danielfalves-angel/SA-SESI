@@ -34,6 +34,7 @@ Ignacio Lencina
 # Documentos
 
 Readme
+Manual
 License
 Pesquisa de Pdo
 Pesquisa de CRUD
