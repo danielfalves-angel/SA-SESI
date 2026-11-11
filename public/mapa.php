@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 
 session_start();
 
@@ -29,11 +28,7 @@ if (!isset($_SESSION['usuario'])) {
 
 </head>
 
-<body class="min-vh-100"
-      
-
-
-
+<body class="min-vh-100">
     <main>
 
         <div class="mapa">
@@ -60,7 +55,7 @@ if (!isset($_SESSION['usuario'])) {
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="../scripts/home.js"></script>
-     <header><?php include '../scripts/navbar.php'; ?></header>
+    <header><?php include '../scripts/navbar.php'; ?></header>
 </body>
 
 </html>

@@ -41,7 +41,7 @@ if ($resultado === false) {
 }
 
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id_GET = $_GET['id'];
 } else {
     die('ID do trem não fornecido.');
@@ -124,35 +124,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div>
                             <label for="nome">Nome do trem:</label>
                             <br>
-                            <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
+                            <input type="text" name="nome" id="nome"
+                                value="<?php echo htmlspecialchars($trem['nome']); ?>" required>
                         </div>
 
 
                         <div>
                             <label for="velocidade">Velocidade (km/h):</label>
                             <br>
-                            <input type="number" step="any" name="velocidade" id="velocidade" value="<?php echo htmlspecialchars($trem['velocidade']); ?>" required>
+                            <input type="number" step="any" name="velocidade" id="velocidade"
+                                value="<?php echo htmlspecialchars($trem['velocidade']); ?>" required>
                         </div>
 
 
                         <div>
                             <label for="peso">Peso (kg):</label>
                             <br>
-                            <input type="number" step="any" name="peso" id="peso" value="<?php echo htmlspecialchars($trem['peso']); ?>" required>
+                            <input type="number" step="any" name="peso" id="peso"
+                                value="<?php echo htmlspecialchars($trem['peso']); ?>" required>
                         </div>
 
 
                         <div>
                             <label for="temperatura">Temperatura (°C):</label>
                             <br>
-                            <input type="number" step="any" name="temperatura" id="temperatura" value="<?php echo htmlspecialchars($trem['temperatura']); ?>" required>
+                            <input type="number" step="any" name="temperatura" id="temperatura"
+                                value="<?php echo htmlspecialchars($trem['temperatura']); ?>" required>
                         </div>
 
 
                         <div>
                             <label for="tempo">Tempo (min):</label>
                             <br>
-                            <input type="number" step="any" name="tempo" id="tempo" value="<?php echo htmlspecialchars($trem['tempo']); ?>" required>
+                            <input type="number" step="any" name="tempo" id="tempo"
+                                value="<?php echo htmlspecialchars($trem['tempo']); ?>" required>
                         </div>
 
 
@@ -167,7 +172,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='trens.php'">Voltar</button>
+                            <button type="button" class="btn-voltar"
+                                onclick="window.location.href='trens.php'">Voltar</button>
                             <button type="submit" class="btn-cadastrar">Salvar Alterações</button>
                         </div>
                     </form>

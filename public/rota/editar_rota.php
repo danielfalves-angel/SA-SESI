@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         // C. Atualiza os vínculos da Chave Estrangeira (id_rota na tabela trem)
-        
+
         // 1º Remove o vínculo desta rota de qualquer trem que a possuía anteriormente
         $sql_desvincular = "UPDATE trem SET id_rota = NULL WHERE id_rota = ?";
         $stmt_desv = mysqli_prepare($conn, $sql_desvincular);
@@ -158,55 +158,60 @@ $resultado2 = mysqli_query($conn, "SELECT id, nome, id_rota FROM trem");
                         <div>
                             <label for="nome">Nome:</label>
                             <br>
-                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
+                            <input type="text" name="nome" id="nome" class="form-control"
+                                value="<?php echo htmlspecialchars($rota['nome']); ?>" required>
                         </div>
 
 
 
                         <div>
-    <label for="trem_id">Trem:</label>
-    <select name="trem_id" id="trem_id" class="form-select">
-        <option value="">Ainda não possui trem</option>
-        <?php while ($trem = mysqli_fetch_assoc($resultado2)) { 
+                            <label for="trem_id">Trem:</label>
+                            <select name="trem_id" id="trem_id" class="form-select">
+                                <option value="">Ainda não possui trem</option>
+                                <?php while ($trem = mysqli_fetch_assoc($resultado2)) {
 
-            if ($trem['id_rota'] === NULL || $trem['id_rota'] == $id_GET) { 
+                                    if ($trem['id_rota'] === NULL || $trem['id_rota'] == $id_GET) {
 
-                $selected = ($trem['id_rota'] == $id_GET) ? 'selected' : '';
-        ?> 
-                <option value="<?php echo $trem['id']; ?>" <?php echo $selected; ?>>
-                    <?php echo htmlspecialchars($trem['nome']); ?>
-                </option>
-        <?php 
-            } 
-        } 
-        ?>
-    </select>
-</div>
+                                        $selected = ($trem['id_rota'] == $id_GET) ? 'selected' : '';
+                                        ?>
+                                        <option value="<?php echo $trem['id']; ?>" <?php echo $selected; ?>>
+                                            <?php echo htmlspecialchars($trem['nome']); ?>
+                                        </option>
+                                    <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
 
 
                         <div>
                             <label for="partida">Partida:</label>
                             <br>
-                            <input type="text" name="partida" id="partida" class="form-control" value="<?php echo htmlspecialchars($rota['partida']); ?>" required>
+                            <input type="text" name="partida" id="partida" class="form-control"
+                                value="<?php echo htmlspecialchars($rota['partida']); ?>" required>
                         </div>
 
 
                         <div>
                             <label for="destino">Destino:</label>
                             <br>
-                            <input type="text" name="destino" id="destino" class="form-control" value="<?php echo htmlspecialchars($rota['destino']); ?>" required>
+                            <input type="text" name="destino" id="destino" class="form-control"
+                                value="<?php echo htmlspecialchars($rota['destino']); ?>" required>
                         </div>
 
 
                         <div>
                             <label for="descricao">Descrição:</label>
                             <br>
-                            <input type="text" name="descricao" id="descricao" class="form-control" value="<?php echo htmlspecialchars($rota['descricao']); ?>" required>
+                            <input type="text" name="descricao" id="descricao" class="form-control"
+                                value="<?php echo htmlspecialchars($rota['descricao']); ?>" required>
                         </div>
 
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='rota.php'">Voltar</button>
+                            <button type="button" class="btn-voltar"
+                                onclick="window.location.href='rota.php'">Voltar</button>
                             <button type="submit" class="btn-cadastrar">Salvar Alterações</button>
                         </div>
                     </form>

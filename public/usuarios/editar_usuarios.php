@@ -29,20 +29,20 @@ if (!$usuario) {
     die('Usuário não encontrado.');
 }
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id_GET = $_GET['id'];
 } else {
     die('ID do usuário não encontrado.');
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id       = $_POST['id'];
-    $nome     = $_POST['nome'];
-    $senha    = $_POST['senha'];
-    $email    = $_POST['email'];
+    $id = $_POST['id'];
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $email = $_POST['email'];
     $telefone = $_POST['telefone'];
-    $cargo    = $_POST['cargo'];
-    $status   = $_POST['status'];
+    $cargo = $_POST['cargo'];
+    $status = $_POST['status'];
 
     include '../../scripts/analizar_senha.php';
     $seguranca = analisarSenha($senha);
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // UPDATE utilizando o $senhaHash correto e o $id vindo do GET
     $sql = "UPDATE usuarios SET nome = ?, senha = ?, email = ?, telefone = ?, cargo = ?, status = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    
+
     mysqli_stmt_bind_param($stmt, 'ssssssi', $nome, $senhaHash, $email, $telefone, $cargo, $status, $id);
 
     if (mysqli_stmt_execute($stmt)) {
@@ -121,31 +121,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div>
                             <label for="nome">Nome:</label>
-                                                        <br>
-                            <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($usuario['nome'] ?? '') ?>" required>
+                            <br>
+                            <input type="text" name="nome" id="nome"
+                                value="<?= htmlspecialchars($usuario['nome'] ?? '') ?>" required>
                         </div>
 
                         <div>
                             <label for="email">Email:</label>
-                                                        <br>
-                            <input type="email" name="email" id="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>" required>
+                            <br>
+                            <input type="email" name="email" id="email"
+                                value="<?= htmlspecialchars($usuario['email'] ?? '') ?>" required>
                         </div>
 
                         <div>
                             <label for="senha">Senha:</label>
-                                                        <br>
+                            <br>
                             <input type="password" name="senha" id="senha" required>
                         </div>
 
                         <div>
                             <label for="telefone">Telefone:</label>
-                                                        <br>
-                            <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($usuario['telefone'] ?? '') ?>">
+                            <br>
+                            <input type="text" name="telefone" id="telefone"
+                                value="<?= htmlspecialchars($usuario['telefone'] ?? '') ?>">
                         </div>
 
                         <div>
                             <label for="cargo">Cargo:</label>
-                                                        <br>
+                            <br>
                             <select name="cargo" id="cargo">
                                 <option value="usuario" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'usuario') ? 'selected' : '' ?>>Usuário</option>
                                 <option value="administrador" <?= (isset($usuario['cargo']) && $usuario['cargo'] === 'administrador') ? 'selected' : '' ?>>Administrador</option>
@@ -154,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div>
                             <label for="status">Status:</label>
-                                                        <br>
+                            <br>
                             <select name="status" id="status">
                                 <option value="ativo" <?= (isset($usuario['status']) && $usuario['status'] === 'ativo') ? 'selected' : '' ?>>Ativo</option>
                                 <option value="inativo" <?= (isset($usuario['status']) && $usuario['status'] === 'inativo') ? 'selected' : '' ?>>Inativo</option>
@@ -162,7 +165,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="botoes-container">
-                            <button type="button" class="btn-voltar" onclick="window.location.href='usuarios.php'">Voltar</button>
+                            <button type="button" class="btn-voltar"
+                                onclick="window.location.href='usuarios.php'">Voltar</button>
                             <button type="submit" class="btn-cadastrar">Salvar Alterações</button>
                         </div>
                     </form>
