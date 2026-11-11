@@ -18,7 +18,11 @@ if (!isset($conn) || $conn === null) {
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
+$sql = "SELECT * FROM rota WHERE id = $id";
+$resultado = mysqli_query($conn, $sql);
+$rota = mysqli_fetch_assoc($resultado);
 
+if($rota['trem']==="Ainda não possui trem"){
 if ($id > 0) {
 
 
@@ -44,6 +48,9 @@ if ($id > 0) {
 } else {
     echo '<script>alert("ID de rota inválido."); window.location.href = "rota.php";</script>';
 }
-
+}else{
+    echo '<script>alert("Esta rota possui um trem.");</script>';
+    echo '<script>window.location.href = "rota.php";</script>';
+}
 
 ?>

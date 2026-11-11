@@ -108,7 +108,7 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
                 <h6 class="fw-bold mb-1" style="font-size: 0.8rem;">Registro de trens</h6>
                 <ul class="list-unstyled text-muted mb-3" style="font-size: 0.6rem;">
-                    <li>• CADASTRE / EDITE / EXCLUA<br><strong>usuarios</strong></li>
+                    <li>• CADASTRE / EDITE / EXCLUA<br><strong>trens</strong></li>
                 </ul>
                 <div class="btn w-100 rounded-pill mt-auto" style="background-color: #4a4a4a; color: white;">
                     <i class="bi bi-arrow-right"></i>
