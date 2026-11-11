@@ -6,6 +6,7 @@ create table usuarios (
     nome varchar(100) not null,
     email varchar(100) not null,
     telefone varchar(15) not null,
+    cep varchar(9) not null,
     senha varchar(100) not null,
     cargo enum('administrador', 'usuario') not null,
     status enum('ativo', 'inativo') not null
