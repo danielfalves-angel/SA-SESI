@@ -32,10 +32,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
     <div class="corpo">
 
         <main>
-            <br>
-            <br>
-            <br>
-            <br>
             <form method="POST">
 
                 <h1 class="titulo_home2">Gerenciador de Administradores</h1>
