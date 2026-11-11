@@ -30,10 +30,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'usuario'
     <div class="corpo">
 
         <main>
-            <br>
-            <br>
-            <br>
-            <br>
             <form method="POST">
 
                 <h1 class="titulo_home2">Gerenciador de Usuários</h1>
