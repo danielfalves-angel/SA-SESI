@@ -356,8 +356,8 @@ td {
   border: 1px solid #252222;
   background:#e9e9e9;
 }
-th {
-  background: #556f8d;
+th { /* Cabeçalho da tabela */
+  background: #187772;
   color: white;
 }
 td:hover {
@@ -760,7 +760,7 @@ a {
 
 /* Cabeçalho da tabela (thead) */
 .styled-table thead tr {
-  background-color: #37ec00; /* Azul acinzentado do botão/cabeçalho */
+  background-color: #36572c; /* Azul acinzentado do botão/cabeçalho */
   color: #ff0fff;
   text-align: center;
   font-weight: bold;
