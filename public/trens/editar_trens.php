@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <body class="body3">
-    <div class="corpo">
+    <div class="corpo_2">
         <main>
             <div class="campo1">
                 <div class="titulo3">

@@ -74,7 +74,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuarios WHERE cargo = 'administ
 </head>
 
 <body class="body3">
-    <div class="corpo">
+    <div class="corpo_2">
         <main>
             <div class="campo1">
                 <div class="titulo3">

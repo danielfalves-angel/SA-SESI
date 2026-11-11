@@ -106,7 +106,7 @@ $resultado2 = mysqli_query($conn, "SELECT * FROM trem");
 
 
 <body class="body3">
-    <div class="corpo">
+    <div class="corpo_2">
         <main>
             <div class="campo1">
                 <div class="titulo3">
