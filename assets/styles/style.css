@@ -638,6 +638,18 @@ a {
   box-shadow: 10px 5px 10px #2a807d;
 }
 
+.campo1-login {
+  background-color: #104744;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  margin: 0 auto;
+  padding: 18px 11px 18px 11px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: 10px 5px 10px #2a807d;
+}
+
 .titulo3 {
   display: flex;
   align-items: center;
