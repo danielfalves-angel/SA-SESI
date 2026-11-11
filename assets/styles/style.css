@@ -231,6 +231,14 @@ body {
   height: 100%;
  
 }
+
+.texto_footer{
+  position: fixed;
+  bottom: 12px;
+  left: 75px;
+  color: white;
+}
+
 .caixa_tabela {
   position: fixed;
   left: 35%;
@@ -843,3 +851,4 @@ a {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
